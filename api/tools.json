@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "name": "asphalt-legends-street-arcade",
+  "title": "Asphalt Legends: 5-in-1 Street Game Arcade & Tournament Engine",
+  "description": "Playable 60fps HTML5 Physics Street Game Arcade featuring Skully (Bottlecap Golf), Four Square (Ace-King-Queen), Stoop Ball (3-Sewers Derby), Savannah Heights Double Dutch, and Ringolevio Resort Tag.",
+  "url": "https://jjordanjr74-dot.github.io/asphalt-legends-arcade/",
+  "tools": [
+    {
+      "name": "get_arcade_catalog",
+      "description": "Return the 5 playable street games, physics specs, and live Stripe tournament/bundle links.",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_leaderboard",
+      "description": "Fetch top scores and streaks across all 5 street game modes.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "skully",
+              "foursquare",
+              "stoopball",
+              "doubledutch",
+              "ringolevio"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "submit_score",
+      "description": "Record a verified arcade match score or streak.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "player",
+          "mode",
+          "score"
+        ]
+      }
+    }
+  ],
+  "offers": [
+    {
+      "tier": "Competitive Tournament & Streak Shield Pass",
+      "price_usd": 1.99,
+      "checkout_url": "https://buy.stripe.com/dRm5kwchtcL91L6c0N08g1u"
+    },
+    {
+      "tier": "Founders Bottlecap, Pink Spaldeen & Neon Chalk Bundle",
+      "price_usd": 4.99,
+      "checkout_url": "https://buy.stripe.com/5kQ6oA81d26v4XiaWJ08g1v"
+    },
+    {
+      "tier": "All-Access Street Kings VIP Club Pass",
+      "price_usd": 9.99,
+      "checkout_url": "https://buy.stripe.com/7sYcMY95hh1p75q6Gt08g1w"
+    }
+  ]
+}

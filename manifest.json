@@ -1,0 +1,16 @@
+{
+  "name": "Asphalt Legends: Street Game Arcade",
+  "short_name": "AsphaltLegends",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FAF6F0",
+  "theme_color": "#D94E28",
+  "description": "5-in-1 Street Game Physics Arcade: Skully, Four Square, Stoop Ball, Double Dutch & Ringolevio.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
