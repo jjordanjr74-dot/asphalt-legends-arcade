@@ -126,21 +126,19 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      flex-wrap: wrap;
       padding: 2px 0;
     }
-    .nav-carousel::-webkit-scrollbar { display: none; }
     .nav-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
       min-height: 44px;
       min-width: 44px;
-      padding: 0 14px;
+      padding: 0 12px;
       border-radius: 10px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: var(--ink-primary);
       background: var(--bg-sand);
@@ -197,25 +195,32 @@
       overflow: hidden;
     }
     .mode-tabs {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 6px;
       padding: 10px 12px;
       background: var(--bg-sand);
       border-bottom: 2px solid var(--ink-primary);
-      overflow-x: auto;
-      scrollbar-width: none;
     }
-    .mode-tabs::-webkit-scrollbar { display: none; }
+    @media (max-width: 720px) {
+      .mode-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-carousel .nav-game-shortcut {
+        display: none;
+      }
+    }
     .mode-tab {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
       gap: 6px;
       min-height: 44px;
-      padding: 0 14px;
+      padding: 0 10px;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.86rem;
+      font-size: 0.83rem;
       background: var(--bg-card);
       color: var(--ink-primary);
       border: 2px solid var(--border-warm);
@@ -697,11 +702,12 @@
         </div>
       </a>
       <nav class="nav-carousel" aria-label="Primary Navigation">
-        <button type="button" class="nav-btn" onclick="switchMode('skully')">1. Skully</button>
-        <button type="button" class="nav-btn" onclick="switchMode('foursquare')">2. Four Square</button>
-        <button type="button" class="nav-btn" onclick="switchMode('stoopball')">3. Stoop Ball</button>
-        <button type="button" class="nav-btn" onclick="switchMode('doubledutch')">4. Double Dutch</button>
-        <button type="button" class="nav-btn" onclick="switchMode('ringolevio')">5. Ringolevio</button>
+        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('skully')">1. Skully</button>
+        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('foursquare')">2. Four Square</button>
+        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('stoopball')">3. Stoop Ball</button>
+        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('doubledutch')">4. Double Dutch</button>
+        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('ringolevio')">5. Ringolevio</button>
+        <a href="#catalog" class="nav-btn">5 Games</a>
         <a href="#pricing" class="nav-btn cta-primary">Passes & Unlocks ($1.99+)</a>
       </nav>
     </div>
@@ -712,7 +718,7 @@
     <div class="hero-arcade-grid">
       <div class="arcade-cabinet">
         <div class="mode-tabs" role="tablist">
-          <button type="button" class="mode-tab active" data-mode="skully" onclick="switchMode('skully')">🎯 1. Skully (Bottlecaps)</button>
+          <button type="button" class="mode-tab active" data-mode="skully" onclick="switchMode('skully')">🎯 1. Skully</button>
           <button type="button" class="mode-tab" data-mode="foursquare" onclick="switchMode('foursquare')">👑 2. Four Square</button>
           <button type="button" class="mode-tab" data-mode="stoopball" onclick="switchMode('stoopball')">⚾ 3. Stoop Ball</button>
           <button type="button" class="mode-tab" data-mode="doubledutch" onclick="switchMode('doubledutch')">🪢 4. Double Dutch</button>
