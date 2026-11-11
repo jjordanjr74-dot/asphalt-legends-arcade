@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "name": "asphalt-legends-street-arcade",
-  "title": "Asphalt Legends: 5-in-1 Street Game Arcade & Tournament Engine",
-  "description": "Playable 60fps HTML5 Physics Street Game Arcade featuring Skully (Bottlecap Golf), Four Square (Ace-King-Queen), Stoop Ball (3-Sewers Derby), Savannah Heights Double Dutch, and Ringolevio Resort Tag.",
+  "title": "Asphalt Legends: 3-in-1 Street Game Arcade & Tournament Engine",
+  "description": "Playable 60fps HTML5 Physics 3-in-1 Street Game Arcade featuring Skully (Bottlecap Golf), Four Square (Ace-King-Queen), and Stoop Ball (3-Sewers Derby).",
   "url": "https://jjordanjr74-dot.github.io/asphalt-legends-arcade/",
   "tools": [
     {
       "name": "get_arcade_catalog",
-      "description": "Return the 5 playable street games, physics specs, and live Stripe tournament/bundle links.",
+      "description": "Return the 3 playable street games (Skully, Four Square, Stoop Ball), physics specs, and live Stripe tournament/bundle links.",
       "input_schema": {
         "type": "object",
         "properties": {}
@@ -15,7 +15,7 @@
     },
     {
       "name": "get_leaderboard",
-      "description": "Fetch top scores and streaks across all 5 street game modes.",
+      "description": "Fetch top scores and streaks across all 3 street game modes.",
       "input_schema": {
         "type": "object",
         "properties": {
@@ -24,9 +24,7 @@
             "enum": [
               "skully",
               "foursquare",
-              "stoopball",
-              "doubledutch",
-              "ringolevio"
+              "stoopball"
             ]
           }
         }
@@ -42,7 +40,12 @@
             "type": "string"
           },
           "mode": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "skully",
+              "foursquare",
+              "stoopball"
+            ]
           },
           "score": {
             "type": "integer"

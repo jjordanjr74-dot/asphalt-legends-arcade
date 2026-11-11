@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asphalt Legends — 5-in-1 Street Game Physics Arcade & Tournament Club</title>
-  <meta name="description" content="Play Skully (Bottlecap Golf), Four Square (Ace-King-Queen), Stoop Ball (3-Sewers Derby), Savannah Heights Double Dutch, and Ringolevio Block Jailbreak right in your browser." />
-  <meta property="og:title" content="Asphalt Legends — 5-in-1 Street Game Physics Arcade" />
-  <meta property="og:description" content="60fps HTML5 Physics Street Game Arcade: Skully, Four Square, Stoop Ball, Double Dutch & Ringolevio." />
+  <title>Asphalt Legends — 3-in-1 Street Game Physics Arcade & Tournament Club</title>
+  <meta name="description" content="Play the 3-in-1 Street Game Physics Arcade right in your browser: Skully (1–13 Bottlecap Golf), Four Square (Ace-King-Queen), and Stoop Ball (3-Sewers Derby)." />
+  <meta property="og:title" content="Asphalt Legends — 3-in-1 Street Game Physics Arcade" />
+  <meta property="og:description" content="60fps HTML5 Physics 3-in-1 Street Game Arcade: Skully, Four Square & Stoop Ball." />
   <meta property="og:type" content="website" />
   <link rel="manifest" href="./manifest.json" />
   <link rel="icon" href="./icon.svg" type="image/svg+xml" />
@@ -196,16 +196,13 @@
     }
     .mode-tabs {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
       padding: 10px 12px;
       background: var(--bg-sand);
       border-bottom: 2px solid var(--ink-primary);
     }
     @media (max-width: 720px) {
-      .mode-tabs {
-        grid-template-columns: repeat(2, 1fr);
-      }
       .nav-carousel .nav-game-shortcut {
         display: none;
       }
@@ -217,10 +214,10 @@
       flex-shrink: 0;
       gap: 6px;
       min-height: 44px;
-      padding: 0 10px;
+      padding: 0 8px;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.83rem;
+      font-size: 0.84rem;
       background: var(--bg-card);
       color: var(--ink-primary);
       border: 2px solid var(--border-warm);
@@ -459,22 +456,27 @@
       font-size: 1rem;
     }
 
-    /* 5 Street Games Breakdown Grid */
+    /* 3 Street Games Breakdown Grid */
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 920px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
     }
     .game-card {
       background: var(--bg-card);
       border: 2px solid var(--ink-primary);
       border-radius: var(--radius-md);
-      padding: 18px;
+      padding: 20px;
       box-shadow: 4px 4px 0 var(--ink-primary);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
     }
     .game-rank {
       display: inline-block;
@@ -488,15 +490,15 @@
       margin-bottom: 6px;
     }
     .game-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 6px;
     }
     .game-card p {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--ink-secondary);
     }
     .game-meta {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--accent-teal);
       background: #EBF4F6;
@@ -688,8 +690,8 @@
 <body>
 
   <div class="top-banner">
-    <span class="pill">5-in-1 Playable Arcade Live</span>
-    <span>Skully Bottlecap Golf • Four Square King • 3-Sewers Stoop Ball • Savannah Heights Double Dutch • Ringolevio Jailbreak</span>
+    <span class="pill">3-in-1 Playable Street Arcade Live</span>
+    <span>1. Skully Bottlecap Golf (1–13 Chalk Course) • 2. Four Square King • 3. Stoop Ball (3-Sewers Derby)</span>
   </div>
 
   <header class="site-header">
@@ -698,31 +700,27 @@
         <div class="brand-badge">13</div>
         <div>
           <div class="brand-title">Asphalt Legends</div>
-          <div class="brand-sub">Classic Street Game Physics Arcade</div>
+          <div class="brand-sub">3-in-1 Street Game Physics Arcade</div>
         </div>
       </a>
       <nav class="nav-carousel" aria-label="Primary Navigation">
         <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('skully')">1. Skully</button>
         <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('foursquare')">2. Four Square</button>
         <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('stoopball')">3. Stoop Ball</button>
-        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('doubledutch')">4. Double Dutch</button>
-        <button type="button" class="nav-btn nav-game-shortcut" onclick="switchMode('ringolevio')">5. Ringolevio</button>
-        <a href="#catalog" class="nav-btn">5 Games</a>
+        <a href="#catalog" class="nav-btn">3-in-1 Games</a>
         <a href="#pricing" class="nav-btn cta-primary">Passes & Unlocks ($1.99+)</a>
       </nav>
     </div>
   </header>
 
   <main class="container" id="top">
-    <!-- ABOVE THE FOLD: PLAYABLE 5-IN-1 PHYSICS CABINET + INSTANT MONETIZATION -->
+    <!-- ABOVE THE FOLD: PLAYABLE 3-IN-1 PHYSICS CABINET + INSTANT MONETIZATION -->
     <div class="hero-arcade-grid">
       <div class="arcade-cabinet">
         <div class="mode-tabs" role="tablist">
           <button type="button" class="mode-tab active" data-mode="skully" onclick="switchMode('skully')">🎯 1. Skully</button>
           <button type="button" class="mode-tab" data-mode="foursquare" onclick="switchMode('foursquare')">👑 2. Four Square</button>
           <button type="button" class="mode-tab" data-mode="stoopball" onclick="switchMode('stoopball')">⚾ 3. Stoop Ball</button>
-          <button type="button" class="mode-tab" data-mode="doubledutch" onclick="switchMode('doubledutch')">🪢 4. Double Dutch</button>
-          <button type="button" class="mode-tab" data-mode="ringolevio" onclick="switchMode('ringolevio')">🔓 5. Ringolevio</button>
         </div>
 
         <div class="hud-bar">
@@ -733,7 +731,7 @@
         </div>
 
         <div class="canvas-wrap">
-          <canvas id="arcadeCanvas" width="680" height="420" aria-label="Interactive Street Game Physics Canvas"></canvas>
+          <canvas id="arcadeCanvas" width="680" height="420" aria-label="Interactive 3-in-1 Street Game Physics Canvas"></canvas>
         </div>
 
         <div class="cabinet-controls">
@@ -749,10 +747,10 @@
       </div>
 
       <div class="hero-editorial">
-        <span class="eyebrow-badge">Wikipedia Street Classics • Reborn as 60fps Web & Mobile Physics</span>
+        <span class="eyebrow-badge">3-in-1 Street Game Physics Bundle • 60fps Web & Mobile PWA</span>
         <h1>Flick Melted-Wax Bottlecaps, Hold the King Square & Launch Pink Spaldeens 3 Sewers Deep.</h1>
         <p class="lead">
-          We turned the 5 highest-monetizing urban street games in history into an instant-play 60fps touchscreen & mouse arcade — connecting <strong>Brooklyn & Pueblo Asphalt Nostalgia</strong> with <strong>The Jordan Pride (Savannah Heights)</strong> and <strong>Travelers Stay Club</strong>.
+          The <strong>3-in-1 Asphalt Legends Arcade</strong> combines the 3 highest-earning street skill games in history — <strong>Skully</strong>, <strong>Four Square</strong>, and <strong>Stoop Ball</strong> — in one instant-play 60fps physics cabinet with zero app-store install friction.
         </p>
 
         <div class="cap-customizer">
@@ -776,8 +774,8 @@
         <div class="quick-pass-card">
           <div class="quick-pass-row">
             <div>
-              <div style="font-weight:800;font-size:1rem;">🏆 Ranked Street Kings Tournament & Founders Locker</div>
-              <div style="font-size:0.84rem;color:var(--ink-secondary);">Protect your King-square win streak, unlock weighted wax caps & enter daily cash-prize leaderboards.</div>
+              <div style="font-weight:800;font-size:1rem;">🏆 Ranked 3-in-1 Tournament & Founders Locker</div>
+              <div style="font-size:0.84rem;color:var(--ink-secondary);">Protect your Four Square King win streak, unlock weighted wax Skully caps & enter Stoop Ball 3-Sewer Derbies.</div>
             </div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
@@ -792,72 +790,48 @@
       </div>
     </div>
 
-    <!-- SECTION 2: THE 5 TOP-SELLING DIGITAL STREET GAMES & ECOSYSTEM TIE-INS -->
+    <!-- SECTION 2: THE 3-IN-1 DIGITAL STREET GAMES -->
     <section class="block-section" id="catalog">
       <div class="section-head">
-        <span class="eyebrow-badge">From Wikipedia Street Game Canon to High-Margin Digital Apps</span>
-        <h2>Why These 5 Street Games Dominate Mobile & Web Monetization</h2>
-        <p>Skip saturated $100M EA/2K stadium sports and high-injury pile-on games (Buck Buck / Red Rover). These 5 micro-skill loops hook players in 10 seconds and monetize via cosmetics, streak shields, and cross-venture unlocks.</p>
+        <span class="eyebrow-badge">3-in-1 Physics Arcade Architecture</span>
+        <h2>One Unified Physics Engine. Three Iconic Street Classics.</h2>
+        <p>Skip saturated $100M stadium games and high-injury pile-ons. These 3 micro-skill classics share a single 2D rigid-body bounce & flick engine, hooking players in 10 seconds and monetizing via cosmetics, streak shields, and derby passes.</p>
       </div>
 
       <div class="games-grid">
         <article class="game-card">
           <div>
-            <span class="game-rank">#1 REVENUE ENGINE • FLICK PHYSICS</span>
+            <span class="game-rank">GAME #1 • TURN-BASED FLICK PHYSICS</span>
             <h3>Skully / Skelly ("Bottlecap Golf")</h3>
             <p>Players weight metal soda caps with melted candle wax and flick them sequentially through chalk boxes 1–13 around a center skull, knocking rivals out of bounds.</p>
           </div>
           <div>
-            <div class="game-meta">💰 Same 1v1 turn-based flick loop as Miniclip's $1B+ 8 Ball Pool & Carrom Pool.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('skully')">Play Skully Now ↑</button>
+            <div class="game-meta">💰 Proven 1v1 turn-based flick loop (Miniclip's $1B+ 8 Ball Pool & Carrom Pool model).</div>
+            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('skully')">Play 1. Skully Now ↑</button>
           </div>
         </article>
 
         <article class="game-card">
           <div>
-            <span class="game-rank">#2 BATTLE ROYALE • 45-SEC ROUNDS</span>
+            <span class="game-rank">GAME #2 • 45-SECOND KING ELIMINATION</span>
             <h3>Four Square ("Ace-King-Queen")</h3>
-            <p>Four asphalt quadrants (Ace, King, Queen, Jack). Slice low corner bounces to eliminate the King and climb the throne before challengers knock you down.</p>
+            <p>Four asphalt quadrants (Ace, King, Queen, Jack). Slice low corner bounces to eliminate the King and hold the throne against challengers.</p>
           </div>
           <div>
             <div class="game-meta">💰 Monetizes via $1.99 "Hold the Crown" Streak Shields & custom court chalk decals.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('foursquare')">Play Four Square ↑</button>
+            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('foursquare')">Play 2. Four Square ↑</button>
           </div>
         </article>
 
         <article class="game-card">
           <div>
-            <span class="game-rank">#3 HYPER-CASUAL • RICHOCHET DERBY</span>
-            <h3>Stoop Ball & Stickball ("3-Sewers")</h3>
-            <p>Whip a pink Spaldeen against concrete brownstone steps at the exact 45° edge to launch line drives and 3-sewer home runs past parked cars.</p>
+            <span class="game-rank">GAME #3 • BROWNSTONE RICOCHET DERBY</span>
+            <h3>Stoop Ball ("3-Sewers Home Run Derby")</h3>
+            <p>Whip a pink Spaldeen against concrete brownstone steps at the exact 45° edge to launch line drives and 3-sewer home runs down the block.</p>
           </div>
           <div>
-            <div class="game-meta">💰 Paper Toss meets Baseball Boy — monetizes on ball elasticity & neighborhood packs.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('stoopball')">Play Stoop Ball ↑</button>
-          </div>
-        </article>
-
-        <article class="game-card">
-          <div>
-            <span class="game-rank">#4 JORDAN PRIDE TIE-IN • RHYTHM</span>
-            <h3>Savannah Heights Double Dutch</h3>
-            <p>Dual turning ropes speeding up into "Hot Peppers" while Leo (Poojie), Maya (JuJu), Ali & Geno chain rhythm combos on the Savannah Heights cul-de-sac.</p>
-          </div>
-          <div>
-            <div class="game-meta">🦁 Direct viral TikTok/Shorts funnel into The Jordan Pride Book 1 & Kids World.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('doubledutch')">Play Double Dutch ↑</button>
-          </div>
-        </article>
-
-        <article class="game-card">
-          <div>
-            <span class="game-rank">#5 TRAVELERS STAY CLUB • STEALTH TAG</span>
-            <h3>Ringolevio ("Free All! Jailbreak")</h3>
-            <p>Sneak past street seekers and dive into the chalk prison zone yelling "Ringolevio! Free All!" to bust your entire captured squad out in one move.</p>
-          </div>
-          <div>
-            <div class="game-meta">🏨 Plugs directly into Travelers Stay Club $990/mo Resort Family Icebreaker mode.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('ringolevio')">Play Ringolevio ↑</button>
+            <div class="game-meta">💰 Paper Toss meets Home Run Derby — monetizes on ball elasticity & neighborhood stoops.</div>
+            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('stoopball')">Play 3. Stoop Ball ↑</button>
           </div>
         </article>
       </div>
@@ -867,8 +841,8 @@
     <section class="block-section" id="pricing">
       <div class="section-head">
         <span class="eyebrow-badge">Instant Zero-Tax Web Checkout • Live Stripe Links</span>
-        <h2>Passes, Founders Cap Lockers & VIP Club Access</h2>
-        <p>Every pass unlocks immediately across mobile and desktop PWA with zero 30% app-store middleman tax. All prices trace 1:1 to verified Stripe Payment Links.</p>
+        <h2>3-in-1 Passes, Founders Cap Lockers & VIP Club Access</h2>
+        <p>Every pass unlocks immediately across all 3 games on mobile and desktop PWA with zero 30% app-store middleman tax. All prices trace 1:1 to verified Stripe Payment Links.</p>
       </div>
 
       <div class="pricing-grid">
@@ -877,9 +851,9 @@
             <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--accent-teal);">TIER 1 • STREAK & TOURNEY ENTRY</div>
             <h3 style="font-size:1.35rem;margin:6px 0;">Tournament & Streak Shield Pass</h3>
             <div class="price-figure">$1.99 <span>/ instant pass</span></div>
-            <p style="font-size:0.9rem;color:var(--ink-secondary);margin:12px 0;">Built for competitive Four Square Kings and Skully sharpshooters defending a 10+ win streak.</p>
+            <p style="font-size:0.9rem;color:var(--ink-secondary);margin:12px 0;">Built for competitive Four Square Kings, Skully sharpshooters, and Stoop Ball sluggers defending a 10+ win streak.</p>
             <ul class="feature-list">
-              <li>1x Ranked Skully & Stoop Ball Derby Ticket</li>
+              <li>1x Ranked Skully & Stoop Ball 3-Sewer Derby Ticket</li>
               <li>3x Four Square "Hold the Crown" Streak Shields</li>
               <li>Verified Global Leaderboard Badge</li>
               <li>Instant Rematch Token</li>
@@ -893,16 +867,15 @@
         <div class="price-card featured">
           <span class="popular-pill">Most Popular • Best Value</span>
           <div>
-            <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--accent-spaldeen);">TIER 2 • PERMANENT COSMETIC & PHYSICS LOCKER</div>
+            <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--accent-spaldeen);">TIER 2 • PERMANENT 3-IN-1 COSMETIC LOCKER</div>
             <h3 style="font-size:1.35rem;margin:6px 0;">Founders Cap, Pink Spaldeen & Chalk Bundle</h3>
             <div class="price-figure">$4.99 <span>/ lifetime unlock</span></div>
-            <p style="font-size:0.9rem;color:var(--ink-secondary);margin:12px 0;">Unlock the complete nostalgic street locker plus the Savannah Heights Double Dutch rhyme pack.</p>
+            <p style="font-size:0.9rem;color:var(--ink-secondary);margin:12px 0;">Unlock the complete nostalgic street locker across Skully, Four Square, and Stoop Ball.</p>
             <ul class="feature-list">
-              <li>12 Weighted Melted-Wax & Chrome Bottlecaps</li>
-              <li>Authentic High-Bounce Pink Spaldeen Ball</li>
+              <li>12 Weighted Melted-Wax & Chrome Skully Bottlecaps</li>
+              <li>Authentic High-Bounce Pink Spaldeen Ball (Four Square & Stoop Ball)</li>
               <li>Brooklyn 1988, Pueblo Block & Savannah Heights Chalk Courts</li>
-              <li>Savannah Heights Double Dutch Beat & Rhyme Pack</li>
-              <li>Includes 5x Streak Shields</li>
+              <li>Includes 5x Four Square Streak Shields</li>
             </ul>
           </div>
           <a class="btn-stripe" href="https://buy.stripe.com/5kQ6oA81d26v4XiaWJ08g1v" target="_blank" rel="noopener">
@@ -912,12 +885,12 @@
 
         <div class="price-card">
           <div>
-            <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--accent-teal);">TIER 3 • ALL-ACCESS FAMILY & VIP CLUB</div>
+            <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--accent-teal);">TIER 3 • ALL-ACCESS 3-IN-1 VIP CLUB</div>
             <h3 style="font-size:1.35rem;margin:6px 0;">All-Access Street Kings VIP Club Pass</h3>
-            <div class="price-figure">$9.99 <span>/ complete suite</span></div>
-            <p style="font-size:0.9rem;color:var(--ink-secondary);margin:12px 0;">Full unlock across all 5 street games, unlimited tournament entries, and family pass sharing.</p>
+            <div class="price-figure">$9.99 <span>/ complete 3-in-1 suite</span></div>
+            <p style="font-size:0.9rem;color:var(--ink-secondary);margin:12px 0;">Full unlock across all 3 street games, unlimited tournament entries, and family pass sharing.</p>
             <ul class="feature-list">
-              <li>Unlimited Ranked Tournament Entries (All 5 Modes)</li>
+              <li>Unlimited Ranked Tournament Entries (Skully, Four Square & Stoop Ball)</li>
               <li>All Founders Bottlecaps, Spaldeens & Neon Chalk Trails</li>
               <li>Up to 4 Family Player Profiles (Kids & Parents)</li>
               <li>Gold "Street Legend #13" Leaderboard Crest</li>
@@ -934,8 +907,8 @@
     <section class="block-section" id="economics">
       <div class="section-head">
         <span class="eyebrow-badge">Casual Arcade Unit Economics • Direct Web PWA vs App Store</span>
-        <h2>Interactive Street Arcade Revenue & Valuation Modeler</h2>
-        <p>Because Asphalt Legends runs as a zero-install HTML5 PWA with direct Stripe checkout, we keep ~96.8% of gross revenue instead of losing 30% to Apple/Google store taxes.</p>
+        <h2>Interactive 3-in-1 Arcade Revenue & Valuation Modeler</h2>
+        <p>Because Asphalt Legends runs as a zero-install HTML5 3-in-1 PWA with direct Stripe checkout, we keep ~96.8% of gross revenue instead of losing 30% to Apple/Google store taxes.</p>
       </div>
 
       <div class="calc-panel">
@@ -990,8 +963,8 @@
     <section class="block-section" id="leaderboard">
       <div class="section-head">
         <span class="eyebrow-badge">Verified Asphalt Hall of Fame</span>
-        <h2>Live Block Leaderboard & Score Check-In</h2>
-        <p>Play any of the 5 modes above and post your session score to the block leaderboard.</p>
+        <h2>Live 3-in-1 Block Leaderboard & Score Check-In</h2>
+        <p>Play Skully, Four Square, or Stoop Ball above and post your session score to the block leaderboard.</p>
       </div>
 
       <div class="board-grid">
@@ -1005,22 +978,22 @@
             <span class="mono" style="font-weight:800;">1,120 pts • 9🔥</span>
           </div>
           <div class="board-row">
-            <span><strong>#3 Maya_JuJu</strong> • Savannah Heights Double Dutch</span>
-            <span class="mono" style="font-weight:800;">980 pts • 14🔥</span>
+            <span><strong>#3 Brooklyn88_Ace</strong> • Four Square King Throne</span>
+            <span class="mono" style="font-weight:800;">980 pts • 11🔥</span>
           </div>
           <div class="board-row">
-            <span><strong>#4 Brooklyn88_Ace</strong> • Four Square King Throne</span>
+            <span><strong>#4 PuebloWest_King</strong> • Skully (1–13 Course)</span>
             <span class="mono" style="font-weight:800;">860 pts • 8🔥</span>
           </div>
           <div class="board-row">
-            <span><strong>#5 PuebloWest_King</strong> • Ringolevio Free-All</span>
-            <span class="mono" style="font-weight:800;">740 pts • 6🔥</span>
+            <span><strong>#5 SouthSide_Spaldeen</strong> • Stoop Ball (3-Sewers Derby)</span>
+            <span class="mono" style="font-weight:800;">790 pts • 6🔥</span>
           </div>
         </div>
 
         <div class="board-card">
           <h3 style="margin-bottom:8px;">Post Your Current Session Score</h3>
-          <p style="font-size:0.86rem;color:var(--ink-secondary);margin-bottom:12px;">Your live score from the arcade cabinet above is pre-filled automatically.</p>
+          <p style="font-size:0.86rem;color:var(--ink-secondary);margin-bottom:12px;">Your live score from the 3-in-1 arcade cabinet above is pre-filled automatically.</p>
           <form onsubmit="submitArcadeScore(event)">
             <label for="playerHandle" style="font-size:0.8rem;font-weight:700;display:block;margin-bottom:4px;">Street Handle / Nickname</label>
             <input type="text" id="playerHandle" class="form-input" placeholder="e.g. SouthSide_FlickKing" required maxlength="24" />
@@ -1035,7 +1008,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <strong>Asphalt Legends — 5-in-1 Street Game Physics Arcade</strong><br />
+        <strong>Asphalt Legends — 3-in-1 Street Game Physics Arcade (Skully • Four Square • Stoop Ball)</strong><br />
         Part of the Jordan Pride & Pueblo Southern Colorado Venture Ecosystem
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -1071,7 +1044,7 @@
       document.getElementById('btnAudioToggle').textContent = soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF';
     }
 
-    // Core Arcade State
+    // Core 3-in-1 Arcade State
     const canvas = document.getElementById('arcadeCanvas');
     const ctx = canvas.getContext('2d');
     let currentMode = 'skully';
@@ -1124,31 +1097,12 @@
     // ==========================================
     let fsBall = {x: 340, y: 210, vx: 3.5, vy: 2.8, r: 13};
     let fsRanks = ['JACK (You)', 'QUEEN (Rival)', 'ACE (Rival)', 'KING (Crown)'];
-    let fsPlayerRankIdx = 0; // climbs to 3 (KING)
+    let fsPlayerRankIdx = 0;
 
     // ==========================================
     // MODE 3: STOOP BALL (3-SEWERS DERBY)
     // ==========================================
     let stoopBall = {x: 190, y: 310, vx: 0, vy: 0, r: 12, inFlight: false};
-    let stoopAimAngle = -0.35;
-
-    // ==========================================
-    // MODE 4: DOUBLE DUTCH (SAVANNAH HEIGHTS)
-    // ==========================================
-    let ddPhase = 0;
-    let ddSpeed = 0.055;
-    let ddJumperY = 0;
-    let ddJumpVy = 0;
-
-    // ==========================================
-    // MODE 5: RINGOLEVIO (BLOCK JAILBREAK)
-    // ==========================================
-    let rgPlayer = {x: 90, y: 210, r: 14};
-    let rgGuards = [
-      {x: 310, y: 110, vy: 2.8},
-      {x: 440, y: 300, vy: -3.2}
-    ];
-    let rgPrisoners = 3;
 
     function resetCurrentGame() {
       if (currentMode === 'skully') {
@@ -1164,21 +1118,12 @@
       } else if (currentMode === 'stoopball') {
         stoopBall = {x: 190, y: 310, vx: 0, vy: 0, r: 12, inFlight: false};
         updateHUD('Hit Corner Edge');
-      } else if (currentMode === 'doubledutch') {
-        ddPhase = 0;
-        ddSpeed = 0.055;
-        ddJumperY = 0;
-        ddJumpVy = 0;
-        updateHUD('Tap on Rope Bottom');
-      } else if (currentMode === 'ringolevio') {
-        rgPlayer = {x: 90, y: 210, r: 14};
-        rgPrisoners = 3;
-        updateHUD('Free 3 Allies');
       }
       flashMessage('COURT RESET — GO!');
     }
 
     function switchMode(mode) {
+      if (!['skully', 'foursquare', 'stoopball'].includes(mode)) mode = 'skully';
       currentMode = mode;
       document.querySelectorAll('.mode-tab').forEach(t => {
         t.classList.toggle('active', t.getAttribute('data-mode') === mode);
@@ -1198,16 +1143,6 @@
           name: 'Stoop Ball (3-Sewers Derby)',
           target: '3-Sewer Home Run',
           inst: '👉 Click/Tap the brownstone step edge to whip the Spaldeen for a 3-Sewer Home Run!'
-        },
-        doubledutch: {
-          name: 'Savannah Heights Double Dutch',
-          target: 'Hot Peppers Combo',
-          inst: '👉 Click/Tap the canvas (or press Auto-Aim/Action) right as the ropes hit the asphalt!'
-        },
-        ringolevio: {
-          name: 'Ringolevio (Free-All Jailbreak)',
-          target: 'Bust Out Chalk Jail',
-          inst: '👉 Click/Drag toward the right-side Chalk Jail to dodge guards & yell "RINGOLEVIO FREE ALL!"'
         }
       }[mode];
       document.getElementById('hudModeName').textContent = meta.name;
@@ -1216,7 +1151,6 @@
       playTone(440, 0.1, 'sine');
     }
 
-    // Quick Action Button (lets user or test play immediately with 1 click)
     function triggerQuickShot() {
       if (currentMode === 'skully') {
         const tgt = skullyBoxes.find(b => b.num === skullyCap.target) || skullyBoxes[0];
@@ -1241,28 +1175,9 @@
         stoopBall.vy = -4.2;
         stoopBall.inFlight = true;
         playTone(390, 0.1, 'sawtooth');
-      } else if (currentMode === 'doubledutch') {
-        ddJumpVy = -7.5;
-        score += 150;
-        streak += 1;
-        ddSpeed = Math.min(0.11, ddSpeed + 0.004);
-        flashMessage('HOT PEPPERS JUMP! +150 PTS');
-        playTone(720, 0.12, 'sine');
-        updateHUD('Combo ' + streak + 'x');
-      } else if (currentMode === 'ringolevio') {
-        rgPlayer.x += 125;
-        if (rgPlayer.x >= 565) {
-          score += 300;
-          streak += 1;
-          flashMessage('RINGOLEVIO! FREE ALL! +300 PTS');
-          playTone(840, 0.2, 'triangle');
-          rgPlayer.x = 90;
-          updateHUD('Squad Freed!');
-        }
       }
     }
 
-    // Pointer Events on Canvas
     function getCanvasPos(evt) {
       const rect = canvas.getBoundingClientRect();
       const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
@@ -1286,23 +1201,6 @@
         stoopBall.vy = (pos.y - 310) * 0.07 - 2.5;
         stoopBall.inFlight = true;
         playTone(400, 0.1, 'triangle');
-      } else if (currentMode === 'doubledutch') {
-        triggerQuickShot();
-      } else if (currentMode === 'ringolevio') {
-        const dx = pos.x - rgPlayer.x;
-        const dy = pos.y - rgPlayer.y;
-        const dist = Math.hypot(dx, dy) || 1;
-        rgPlayer.x += (dx / dist) * 55;
-        rgPlayer.y += (dy / dist) * 55;
-        if (rgPlayer.x >= 560) {
-          score += 300;
-          streak += 1;
-          flashMessage('RINGOLEVIO! FREE ALL! +300 PTS');
-          playTone(840, 0.2, 'triangle');
-          rgPlayer.x = 90;
-          rgPlayer.y = 210;
-          updateHUD('Squad Freed!');
-        }
       }
     });
 
@@ -1319,7 +1217,6 @@
       if (currentMode === 'skully') {
         let dx = skullyCap.x - dragState.cx;
         let dy = skullyCap.y - dragState.cy;
-        // If user tapped a target box directly instead of pulling back, flick toward that point
         if (Math.hypot(dx, dy) < 18) {
           dx = (dragState.cx - skullyCap.x) * 0.7;
           dy = (dragState.cy - skullyCap.y) * 0.7;
@@ -1330,16 +1227,13 @@
       }
     });
 
-    // Main 60fps Render & Physics Loop
     function renderLoop() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Warm Sunlit Asphalt Texture Background
       ctx.fillStyle = '#DED5C4';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       if (currentMode === 'skully') {
-        // Chalk outer border & diagonals
         ctx.strokeStyle = '#FAF6F0';
         ctx.lineWidth = 3;
         ctx.strokeRect(24, 20, canvas.width - 48, canvas.height - 40);
@@ -1348,7 +1242,6 @@
         ctx.moveTo(canvas.width - 24, 20); ctx.lineTo(24, canvas.height - 20);
         ctx.stroke();
 
-        // Draw boxes 1-13
         skullyBoxes.forEach(b => {
           const isTarget = b.num === skullyCap.target;
           ctx.fillStyle = isTarget ? 'rgba(217, 78, 40, 0.22)' : 'rgba(250, 246, 240, 0.55)';
@@ -1364,7 +1257,6 @@
           ctx.fillText(b.num === 13 ? '💀13' : String(b.num), b.x, b.y);
         });
 
-        // Update Skully Cap Physics
         skullyCap.x += skullyCap.vx;
         skullyCap.y += skullyCap.vy;
         skullyCap.vx *= 0.92;
@@ -1372,7 +1264,6 @@
         if (skullyCap.x < 40 || skullyCap.x > canvas.width - 40) skullyCap.vx *= -0.8;
         if (skullyCap.y < 36 || skullyCap.y > canvas.height - 36) skullyCap.vy *= -0.8;
 
-        // Check Rival Collisions
         rivalCaps.forEach(rc => {
           rc.x += rc.vx; rc.y += rc.vy;
           rc.vx *= 0.9; rc.vy *= 0.9;
@@ -1389,7 +1280,6 @@
             playTone(320, 0.15, 'square');
             updateHUD();
           }
-          // Draw Rival Cap
           ctx.beginPath();
           ctx.arc(rc.x, rc.y, rc.r, 0, Math.PI * 2);
           ctx.fillStyle = rc.color;
@@ -1399,7 +1289,6 @@
           ctx.stroke();
         });
 
-        // Check Target Box Hit when cap slows down
         const tgt = skullyBoxes.find(b => b.num === skullyCap.target);
         if (tgt && Math.hypot(skullyCap.x - tgt.x, skullyCap.y - tgt.y) < 30 && Math.hypot(skullyCap.vx, skullyCap.vy) < 1.8) {
           score += 200;
@@ -1410,7 +1299,6 @@
           updateHUD('Box #' + skullyCap.target);
         }
 
-        // Aim Line
         if (dragState.active) {
           ctx.beginPath();
           ctx.moveTo(skullyCap.x, skullyCap.y);
@@ -1422,7 +1310,6 @@
           ctx.setLineDash([]);
         }
 
-        // Draw Player Bottlecap
         ctx.beginPath();
         ctx.arc(skullyCap.x, skullyCap.y, skullyCap.r, 0, Math.PI * 2);
         ctx.fillStyle = skinFill;
@@ -1435,7 +1322,6 @@
         ctx.fillText('13', skullyCap.x, skullyCap.y);
 
       } else if (currentMode === 'foursquare') {
-        // Draw 4 Squares
         const midX = canvas.width / 2;
         const midY = canvas.height / 2;
         ctx.strokeStyle = '#FAF6F0';
@@ -1457,7 +1343,6 @@
         ctx.textAlign = 'center';
         quads.forEach(q => ctx.fillText(q.label, q.x, q.y));
 
-        // Move Spaldeen
         fsBall.x += fsBall.vx;
         fsBall.y += fsBall.vy;
         if (fsBall.x < 75 || fsBall.x > canvas.width - 75) { fsBall.vx *= -1; playTone(360, 0.07); }
@@ -1472,7 +1357,6 @@
         ctx.stroke();
 
       } else if (currentMode === 'stoopball') {
-        // Draw Brownstone Stoop Steps on Left + 3 Sewer Manholes on Right
         ctx.fillStyle = '#B55338';
         ctx.fillRect(30, 140, 45, 240);
         ctx.fillRect(75, 200, 40, 180);
@@ -1483,7 +1367,6 @@
         ctx.strokeRect(75, 200, 40, 180);
         ctx.strokeRect(115, 260, 40, 120);
 
-        // Draw 3 Sewer Covers (Single, Double, 3-Sewer Home Run)
         const sewers = [
           {x: 310, label: '1 SEWER (SINGLE)', pts: 100},
           {x: 460, label: '2 SEWERS (DOUBLE)', pts: 200},
@@ -1505,8 +1388,7 @@
         if (stoopBall.inFlight) {
           stoopBall.x += stoopBall.vx;
           stoopBall.y += stoopBall.vy;
-          stoopBall.vy += 0.26; // gravity
-          // Ricochet off stoop corner
+          stoopBall.vy += 0.26;
           if (stoopBall.x <= 155 && stoopBall.vx < 0) {
             stoopBall.vx = 10.5;
             stoopBall.vy = -7.8;
@@ -1531,89 +1413,8 @@
         ctx.fill();
         ctx.strokeStyle = '#1A1715';
         ctx.stroke();
-
-      } else if (currentMode === 'doubledutch') {
-        ddPhase += ddSpeed;
-        ddJumperY += ddJumpVy;
-        ddJumpVy += 0.45;
-        if (ddJumperY > 0) { ddJumperY = 0; ddJumpVy = 0; }
-
-        // Draw Dual Turning Ropes
-        const ropeY1 = 220 + Math.sin(ddPhase) * 135;
-        const ropeY2 = 220 - Math.sin(ddPhase) * 135;
-
-        ctx.strokeStyle = '#D94E28';
-        ctx.lineWidth = 5;
-        ctx.beginPath();
-        ctx.moveTo(110, 220);
-        ctx.quadraticCurveTo(340, ropeY1, 570, 220);
-        ctx.stroke();
-
-        ctx.strokeStyle = '#0F4C5C';
-        ctx.beginPath();
-        ctx.moveTo(110, 220);
-        ctx.quadraticCurveTo(340, ropeY2, 570, 220);
-        ctx.stroke();
-
-        // Draw Jumper in Center
-        ctx.fillStyle = skinFill;
-        ctx.strokeStyle = '#1A1715';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.arc(340, 235 + ddJumperY, 26, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-        ctx.fillStyle = '#1A1715';
-        ctx.font = 'bold 14px "Fraunces", serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('JUMP! (TAP)', 340, 240 + ddJumperY);
-
-      } else if (currentMode === 'ringolevio') {
-        // Draw Left Safe Base & Right Chalk Jail
-        ctx.fillStyle = 'rgba(15, 76, 92, 0.14)';
-        ctx.fillRect(30, 40, 110, 340);
-        ctx.strokeStyle = '#0F4C5C';
-        ctx.strokeRect(30, 40, 110, 340);
-        ctx.fillStyle = '#0F4C5C';
-        ctx.font = 'bold 13px "JetBrains Mono", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText('HOME STOOP', 85, 65);
-
-        ctx.fillStyle = 'rgba(217, 78, 40, 0.18)';
-        ctx.fillRect(545, 40, 105, 340);
-        ctx.strokeStyle = '#D94E28';
-        ctx.strokeRect(545, 40, 105, 340);
-        ctx.fillStyle = '#D94E28';
-        ctx.fillText('CHALK JAIL', 597, 65);
-        ctx.fillText('("FREE ALL!")', 597, 85);
-
-        // Move Patrol Guards
-        rgGuards.forEach(g => {
-          g.y += g.vy;
-          if (g.y < 60 || g.y > 360) g.vy *= -1;
-          ctx.beginPath();
-          ctx.arc(g.x, g.y, 18, 0, Math.PI * 2);
-          ctx.fillStyle = '#1A1715';
-          ctx.fill();
-          if (Math.hypot(rgPlayer.x - g.x, rgPlayer.y - g.y) < 32) {
-            rgPlayer.x = 90;
-            rgPlayer.y = 210;
-            flashMessage('TAGGED! BACK TO STOOP!');
-            playTone(220, 0.15, 'sawtooth');
-          }
-        });
-
-        // Draw Player Runner
-        ctx.beginPath();
-        ctx.arc(rgPlayer.x, rgPlayer.y, rgPlayer.r, 0, Math.PI * 2);
-        ctx.fillStyle = skinFill;
-        ctx.fill();
-        ctx.strokeStyle = '#1A1715';
-        ctx.lineWidth = 3;
-        ctx.stroke();
       }
 
-      // Draw Flash Banner Overlay
       if (bannerTimer > 0) {
         bannerTimer--;
         ctx.fillStyle = 'rgba(26, 23, 21, 0.88)';
@@ -1629,7 +1430,6 @@
     }
     requestAnimationFrame(renderLoop);
 
-    // Interactive Unit Economics Calculator
     function updateEconomics() {
       const dau = parseFloat(document.getElementById('dauSlider').value);
       const conv = parseFloat(document.getElementById('convSlider').value) / 100;
@@ -1641,7 +1441,7 @@
 
       const monthly = Math.round(dau * conv * arpu * 30);
       const annual = monthly * 12;
-      const savedVsAppStore = Math.round(annual * 0.27); // 30% Apple cut vs ~3% Stripe
+      const savedVsAppStore = Math.round(annual * 0.27);
       const valuation = Math.round(annual * 3.5);
 
       document.getElementById('kpiMonthly').textContent = '$' + monthly.toLocaleString() + '/mo';
@@ -1650,7 +1450,6 @@
       document.getElementById('kpiValuation').textContent = '$' + valuation.toLocaleString();
     }
 
-    // Live Leaderboard Submission (localStorage + FastAPI /api/leaderboard fallback)
     function submitArcadeScore(e) {
       e.preventDefault();
       const handle = document.getElementById('playerHandle').value.trim() || 'StreetLegend';
