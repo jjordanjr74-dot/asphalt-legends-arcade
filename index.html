@@ -196,34 +196,39 @@
     }
     .mode-tabs {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      padding: 10px 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      padding: 10px;
       background: var(--bg-sand);
       border-bottom: 2px solid var(--ink-primary);
-    }
-    @media (max-width: 720px) {
-      .nav-carousel .nav-game-shortcut {
-        display: none;
-      }
     }
     .mode-tab {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      min-width: 0;
       gap: 6px;
       min-height: 44px;
       padding: 0 8px;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       background: var(--bg-card);
       color: var(--ink-primary);
       border: 2px solid var(--border-warm);
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.15s ease;
+    }
+    @media (max-width: 720px) {
+      .nav-carousel .nav-game-shortcut {
+        display: none;
+      }
+      .mode-tab {
+        font-size: 0.77rem;
+        padding: 0 4px;
+        gap: 3px;
+      }
     }
     .mode-tab.active {
       background: var(--accent-spaldeen);
