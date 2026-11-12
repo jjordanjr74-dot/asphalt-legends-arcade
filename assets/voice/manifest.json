@@ -1,0 +1,345 @@
+{
+  "welcome": {
+    "file": "assets/voice/welcome.mp3",
+    "text": "Yo, welcome to the block! Step up to the chalk line and show the crew what you got.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 120960
+  },
+  "skully_mode": {
+    "file": "assets/voice/skully_mode.mp3",
+    "text": "Skully is up! Thirteen chalk boxes \u2014 flick that wax bottlecap clean from one to thirteen.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 130560
+  },
+  "foursquare_mode": {
+    "file": "assets/voice/foursquare_mode.mp3",
+    "text": "Four Square on the hot concrete! Dethrone the King of the Block and hold that top square.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 103296
+  },
+  "stoopball_mode": {
+    "file": "assets/voice/stoopball_mode.mp3",
+    "text": "Stoop Ball on the brownstone steps! Catch that sharp corner point and launch a three-sewer home run!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 129024
+  },
+  "marbles_mode": {
+    "file": "assets/voice/marbles_mode.mp3",
+    "text": "Ring Taw Marbles! Knuckle down at the lag line and knock those glassies clean out the chalk ring.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 118656
+  },
+  "jacks_mode": {
+    "file": "assets/voice/jacks_mode.mp3",
+    "text": "Sidewalk Jacks! Bounce the pink Spaldeen, scoop your jacks, and catch it before it drops!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 117888
+  },
+  "box_hit": {
+    "file": "assets/voice/box_hit.mp3",
+    "text": "Clean money! Right in the chalk box!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 47232
+  },
+  "combo_fire": {
+    "file": "assets/voice/combo_fire.mp3",
+    "text": "Ooh, you're heating up now! Look at that touch!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 60288
+  },
+  "king_crowned": {
+    "file": "assets/voice/king_crowned.mp3",
+    "text": "All hail the new King of the Block! Nobody's taking that square today!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 95232
+  },
+  "sewer_homer": {
+    "file": "assets/voice/sewer_homer.mp3",
+    "text": "Going, going... three sewers deep! That pink Spaldeen is outta here!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 104832
+  },
+  "double_hit": {
+    "file": "assets/voice/double_hit.mp3",
+    "text": "Off the stoop point \u2014 two-sewer double down the block!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 72960
+  },
+  "marble_knockout": {
+    "file": "assets/voice/marble_knockout.mp3",
+    "text": "Clack! Knocked that glassie clean out the ring!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 67200
+  },
+  "jacks_sweep": {
+    "file": "assets/voice/jacks_sweep.mp3",
+    "text": "Quick hands! Scooped 'em clean before the bounce!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 64128
+  },
+  "car_on_block": {
+    "file": "assets/voice/car_on_block.mp3",
+    "text": "Yo, hold up \u2014 car on the block! Let that seventy-nine Monte Carlo roll through!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 89856
+  },
+  "rival_turn": {
+    "file": "assets/voice/rival_turn.mp3",
+    "text": "Watch this flick right here \u2014 I own this chalk line!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 59520
+  },
+  "hydrant_splash": {
+    "file": "assets/voice/hydrant_splash.mp3",
+    "text": "Whoo! Johnny pump is wide open \u2014 cool off in that hydrant spray!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 96768
+  },
+  "victory": {
+    "file": "assets/voice/victory.mp3",
+    "text": "Game, set, and the whole block knows it! You run this street until the streetlights come on!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 98688
+  },
+  "brooklyn_84": {
+    "file": "assets/voice/brooklyn_84.mp3",
+    "text": "Brooklyn, nineteen eighty-four \u2014 Bed-Stuy brownstones, boomboxes on the stoop, and hot summer tar.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 137088
+  },
+  "chicago_79": {
+    "file": "assets/voice/chicago_79.mp3",
+    "text": "South Side Chicago, seventy-nine \u2014 L-train rumbling overhead and the fastest chalk tables in the city.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 140928
+  },
+  "crenshaw_88": {
+    "file": "assets/voice/crenshaw_88.mp3",
+    "text": "Crenshaw Boulevard, eighty-eight \u2014 palm trees, golden sunset, and lowriders cruising slow.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 133632
+  },
+  "pueblo_86": {
+    "file": "assets/voice/pueblo_86.mp3",
+    "text": "Pueblo, Colorado, eighty-six \u2014 Bessemer steel-mill pride and high-sunshine neighborhood courts.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 122496
+  },
+  "intro_block": {
+    "file": "assets/voice/intro_block.mp3",
+    "text": "Before smartphones, the whole block was our stadium! Grab a wax bottlecap or a pink Spaldeen and step onto the street!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 154368
+  },
+  "hood_brooklyn": {
+    "file": "assets/voice/hood_brooklyn.mp3",
+    "text": "Brooklyn, nineteen eighty-four \u2014 Bed-Stuy brownstones, boomboxes on the stoop, and hot summer tar.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 146688
+  },
+  "hood_chicago": {
+    "file": "assets/voice/hood_chicago.mp3",
+    "text": "South Side Chicago, seventy-nine \u2014 L-train rumbling overhead and the fastest chalk tables in the city.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 150528
+  },
+  "hood_la": {
+    "file": "assets/voice/hood_la.mp3",
+    "text": "Crenshaw Boulevard, eighty-eight \u2014 palm trees, golden sunset, and lowriders cruising slow.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 122496
+  },
+  "hood_pueblo": {
+    "file": "assets/voice/hood_pueblo.mp3",
+    "text": "Pueblo, Colorado, eighty-six \u2014 Bessemer steel-mill pride and high-sunshine neighborhood courts.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 144000
+  },
+  "mode_skully": {
+    "file": "assets/voice/mode_skully.mp3",
+    "text": "Skully on the hot asphalt! Drag back that penny-weighted wax cap and flick it clean\u2014one through thirteen!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 130560
+  },
+  "mode_foursquare": {
+    "file": "assets/voice/mode_foursquare.mp3",
+    "text": "Four Square on the hot concrete! Dethrone the King of the Block and hold that top square.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 108288
+  },
+  "mode_stoopball": {
+    "file": "assets/voice/mode_stoopball.mp3",
+    "text": "Stoop Ball on the brownstone steps! Catch that sharp corner point and launch a three-sewer home run!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 121728
+  },
+  "mode_marbles": {
+    "file": "assets/voice/mode_marbles.mp3",
+    "text": "Ring Taw Marbles! Knuckle down at the lag line and knock those glassies clean out the chalk ring.",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 117888
+  },
+  "mode_jacks": {
+    "file": "assets/voice/mode_jacks.mp3",
+    "text": "Sidewalk Jacks! Bounce the pink Spaldeen, scoop your jacks, and catch it before it drops!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 126720
+  },
+  "skully_hit": {
+    "file": "assets/voice/skully_hit.mp3",
+    "text": "Ooh, clean wax flick! Right in the chalk box! Take your bonus turn!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 81792
+  },
+  "skully_bump": {
+    "file": "assets/voice/skully_bump.mp3",
+    "text": "Bumped you clean out the box! That chalk line is mine now!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 64128
+  },
+  "skully_killer": {
+    "file": "assets/voice/skully_killer.mp3",
+    "text": "Killer unlocked! You ran one through thirteen \u2014 now hunt the rivals down!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 99456
+  },
+  "skully_skull": {
+    "file": "assets/voice/skully_skull.mp3",
+    "text": "Uh-oh! Trapped in the skull pit! Needs three clean shots to break out!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 74496
+  },
+  "skully_win": {
+    "file": "assets/voice/skully_win.mp3",
+    "text": "King of the Skully board! You cleared the whole block!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 69120
+  },
+  "fs_king": {
+    "file": "assets/voice/fs_king.mp3",
+    "text": "All hail the new King of the Block! Nobody's taking that top square today!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 109824
+  },
+  "fs_ace": {
+    "file": "assets/voice/fs_ace.mp3",
+    "text": "Cross-court laser! Put spin on that pink Spaldeen!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 99456
+  },
+  "fs_out": {
+    "file": "assets/voice/fs_out.mp3",
+    "text": "Double bounce in your square! Step back to Jack and work your way up!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 74496
+  },
+  "stoop_single": {
+    "file": "assets/voice/stoop_single.mp3",
+    "text": "Clean liner off the stoop \u2014 one-sewer single!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 75264
+  },
+  "stoop_double": {
+    "file": "assets/voice/stoop_double.mp3",
+    "text": "Sharp off the brownstone edge \u2014 two-sewer double down the block!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 83328
+  },
+  "stoop_triple": {
+    "file": "assets/voice/stoop_triple.mp3",
+    "text": "Rattled off the iron railing! Three-bagger past the hydrant!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 81792
+  },
+  "stoop_homer": {
+    "file": "assets/voice/stoop_homer.mp3",
+    "text": "Going, going... three sewers deep! That pink Spaldeen is outta here!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 101760
+  },
+  "stoop_out": {
+    "file": "assets/voice/stoop_out.mp3",
+    "text": "Pop-up caught on the stoop steps! Side retired!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 76032
+  },
+  "marbles_knock": {
+    "file": "assets/voice/marbles_knock.mp3",
+    "text": "Clack! Glass on glass! Knocked that mib clean out the dirt ring\u2014shoot again!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 103296
+  },
+  "marbles_clear": {
+    "file": "assets/voice/marbles_clear.mp3",
+    "text": "Seven marbles in your pouch! You just cleaned out the whole circle\u2014Ringer Champion!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 96000
+  },
+  "marbles_miss": {
+    "file": "assets/voice/marbles_miss.mp3",
+    "text": "Rolled right through the dust\u2014hand over the turn!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 59520
+  },
+  "jacks_fumble": {
+    "file": "assets/voice/jacks_fumble.mp3",
+    "text": "Ooh, scatter foul! Missed the catch before the second bounce!",
+    "voice": "onyx",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 82560
+  },
+  "jacks_win": {
+    "file": "assets/voice/jacks_win.mp3",
+    "text": "Fivesies cleared! Fastest hands on the brownstone stoop\u2014you run the block!",
+    "voice": "ash",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 104832
+  }
+}
