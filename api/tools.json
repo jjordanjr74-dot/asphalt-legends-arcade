@@ -1,21 +1,73 @@
 {
   "schema_version": "1.0",
   "name": "asphalt-legends-street-arcade",
-  "title": "Asphalt Legends: 3-in-1 Street Game Arcade & Tournament Engine",
-  "description": "Playable 60fps HTML5 Physics 3-in-1 Street Game Arcade featuring Skully (Bottlecap Golf), Four Square (Ace-King-Queen), and Stoop Ball (3-Sewers Derby).",
+  "title": "Asphalt Legends: 3-in-1 + 5-in-1 Vintage Street Game Arcade & Vertex Argon Stoop Engine",
+  "description": "Playable 60fps HTML5 Physics Street Game Arcade featuring Skully (Bottlecap Golf), Four Square (Ace-King-Queen), Stoop Ball (3-Sewers Derby), Ring Taw Marbles (Knuckles Down Keepsies), and Street Jacks (Onesies-to-Sixes Spaldeen Bounce), powered by Vertex Gemini-4-Argon Stoop Announcer & Custom Block Builder.",
   "url": "https://jjordanjr74-dot.github.io/asphalt-legends-arcade/",
   "tools": [
     {
       "name": "get_arcade_catalog",
-      "description": "Return the 3 playable street games (Skully, Four Square, Stoop Ball), physics specs, and live Stripe tournament/bundle links.",
+      "description": "Return the playable street games (Skully, Four Square, Stoop Ball, Ring Taw Marbles, Street Jacks), physics specs, and live Stripe tournament/bundle links.",
       "input_schema": {
         "type": "object",
         "properties": {}
       }
     },
     {
+      "name": "get_stoop_commentary",
+      "description": "Generate era-authentic 1970s/80s neighborhood stoop announcer hype and boss trash-talk via Vertex Gemini-4-Argon + optional Vertex TTS voice audio.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "hood": {
+            "type": "string",
+            "enum": [
+              "brooklyn",
+              "chicago",
+              "la",
+              "pueblo"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "skully",
+              "foursquare",
+              "stoopball",
+              "marbles",
+              "jacks"
+            ]
+          },
+          "event": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "with_audio": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "name": "generate_custom_block",
+      "description": "Turn any childhood cross-street and year into a playable golden-hour vintage street block theme via Vertex Gemini-4-Argon.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "street_input": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "street_input"
+        ]
+      }
+    },
+    {
       "name": "get_leaderboard",
-      "description": "Fetch top scores and streaks across all 3 street game modes.",
+      "description": "Fetch top scores and streaks across all 5 street game modes.",
       "input_schema": {
         "type": "object",
         "properties": {
@@ -24,7 +76,9 @@
             "enum": [
               "skully",
               "foursquare",
-              "stoopball"
+              "stoopball",
+              "marbles",
+              "jacks"
             ]
           }
         }
@@ -44,7 +98,9 @@
             "enum": [
               "skully",
               "foursquare",
-              "stoopball"
+              "stoopball",
+              "marbles",
+              "jacks"
             ]
           },
           "score": {
@@ -66,7 +122,7 @@
       "checkout_url": "https://buy.stripe.com/dRm5kwchtcL91L6c0N08g1u"
     },
     {
-      "tier": "Founders Bottlecap, Pink Spaldeen & Neon Chalk Bundle",
+      "tier": "Founders Bottlecap, Pink Spaldeen, Aggie Marbles & Chrome Jacks Locker",
       "price_usd": 4.99,
       "checkout_url": "https://buy.stripe.com/5kQ6oA81d26v4XiaWJ08g1v"
     },

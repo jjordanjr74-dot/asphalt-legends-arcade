@@ -236,6 +236,12 @@
       box-shadow: 2px 2px 0 var(--ink-primary);
     }
 
+      /* Terrain + weather rows: single-line horizontal touch carousels (no grid wrap pushing the canvas down) */
+      .terrain-bar { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border-bottom: 2px solid var(--ink-primary); background: var(--bg-sand); }
+      .terrain-bar .hood-pills { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; gap: 6px; padding-bottom: 2px; scrollbar-width: none; }
+      .terrain-bar .hood-pills::-webkit-scrollbar { display: none; }
+      .terrain-bar .hood-btn { flex: 0 0 auto; scroll-snap-align: start; }
+
     /* Arcade Stage Card */
     .arcade-cabinet {
       background: var(--bg-card);
@@ -334,6 +340,12 @@
       border: 1.5px solid var(--ink-primary);
     }
     .hud-stat strong {
+      min-width: 0;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      white-space: normal !important;
+      line-height: 1.2;
+      text-align: right;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.82rem;
       color: var(--ink-primary);
@@ -808,8 +820,15 @@
       flex-direction: column;
       gap: 6px;
       margin-bottom: 14px;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
     }
+    .calc-panel > * { min-width: 0; max-width: 100%; box-sizing: border-box; }
     .slider-group label {
+      gap: 8px;
+      flex-wrap: wrap;
+      min-width: 0;
       display: flex;
       justify-content: space-between;
       font-weight: 800;
@@ -832,6 +851,10 @@
       border-radius: 12px;
       padding: 14px;
       box-shadow: 3px 3px 0 var(--ink-primary);
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: anywhere;
     }
     .kpi-box .lbl {
       font-size: 0.75rem;
@@ -947,10 +970,28 @@
           </div>
         </div>
 
+        <div class="terrain-bar" role="group" aria-label="Surface and weather">
+          <div class="hood-pills">
+            <button type="button" class="hood-btn surface-btn active" onclick="setSurface('asphalt', this)">🛣️ Asphalt</button>
+            <button type="button" class="hood-btn surface-btn" onclick="setSurface('cement', this)">🧱 Cement</button>
+            <button type="button" class="hood-btn surface-btn" onclick="setSurface('gravel', this)">🪨 Gravel</button>
+            <button type="button" class="hood-btn surface-btn" onclick="setSurface('tennis', this)">🎾 Tennis</button>
+            <button type="button" class="hood-btn surface-btn" onclick="setSurface('gym', this)">🏀 Gym</button>
+            <button type="button" class="hood-btn surface-btn" onclick="setSurface('marble', this)">🏛️ Marble</button>
+          </div>
+          <div class="hood-pills">
+            <button type="button" class="hood-btn weather-btn active" onclick="setWeather('sun', this)">☀️ Sun</button>
+            <button type="button" class="hood-btn weather-btn" onclick="setWeather('wind', this)">💨 Windy</button>
+            <button type="button" class="hood-btn weather-btn" onclick="setWeather('rain', this)">🌧️ Rain</button>
+          </div>
+        </div>
+
         <div class="mode-tabs" role="tablist">
           <button type="button" class="mode-tab active" data-mode="skully" onclick="switchMode('skully')">🎯 1. Skully</button>
           <button type="button" class="mode-tab" data-mode="foursquare" onclick="switchMode('foursquare')">👑 2. 4-Square</button>
           <button type="button" class="mode-tab" data-mode="stoopball" onclick="switchMode('stoopball')">⚾ 3. Stoop</button>
+          <button type="button" class="mode-tab" data-mode="marbles" onclick="switchMode('marbles')">🔵 4. Marbles</button>
+          <button type="button" class="mode-tab" data-mode="jacks" onclick="switchMode('jacks')">🟡 5. Jacks</button>
         </div>
 
         <div class="hud-bar">
@@ -1201,7 +1242,7 @@
               <span>Daily Active Players (DAU)</span>
               <span class="mono" id="dauVal">2,500 players/day</span>
             </label>
-            <input type="range" id="dauSlider" min="500" max="25000" step="500" value="2500" oninput="updateEconomics()" />
+            <input type="range" id="dauSlider" style="width:100%;max-width:100%;box-sizing:border-box" min="500" max="25000" step="500" value="2500" oninput="updateEconomics()" />
           </div>
 
           <div class="slider-group">
@@ -1441,6 +1482,50 @@
       }
     };
     let currentHood = 'brooklyn';
+
+    // =========================================================================
+    // TERRAIN + WEATHER PHYSICS (tuning parameters, not measured coefficients)
+    // =========================================================================
+    const SURFACES = {
+      asphalt: {name: 'Asphalt Street', fric: 0.925, rest: 0.82, jitter: 0.06},
+      cement:  {name: 'Cracked Cement', fric: 0.935, rest: 0.86, jitter: 0.10},
+      gravel:  {name: 'Alley Gravel',   fric: 0.86,  rest: 0.66, jitter: 0.42},
+      tennis:  {name: 'Tennis Court',   fric: 0.94,  rest: 0.92, jitter: 0.02},
+      gym:     {name: 'Gym Hardwood',   fric: 0.968, rest: 0.90, jitter: 0.00},
+      marble:  {name: 'Marble Lobby',   fric: 0.982, rest: 0.94, jitter: 0.00}
+    };
+    const WEATHERS = {
+      sun:  {name: 'Sun',   wind: 0.00,  wet: 0.00, bounce: 1.00},
+      wind: {name: 'Windy', wind: 0.05,  wet: 0.00, bounce: 0.97},
+      rain: {name: 'Rain',  wind: 0.015, wet: 0.02, bounce: 0.80}
+    };
+    let currentSurface = 'asphalt';
+    let currentWeather = 'sun';
+    function terrainFric()  { return Math.min(0.99, SURFACES[currentSurface].fric + WEATHERS[currentWeather].wet); }
+    function terrainRest()  { return SURFACES[currentSurface].rest * WEATHERS[currentWeather].bounce; }
+    function applyTerrainDrift(obj) {
+      // Wind pushes moving objects; rough surfaces scatter them.
+      const speed = Math.hypot(obj.vx, obj.vy);
+      if (speed < 0.3) return;
+      obj.vx += WEATHERS[currentWeather].wind;
+      const j = SURFACES[currentSurface].jitter;
+      obj.vx += (Math.random() - 0.5) * j * Math.min(speed, 6);
+      obj.vy += (Math.random() - 0.5) * j * Math.min(speed, 6) * 0.5;
+    }
+    function setSurface(key, btn) {
+      if (!SURFACES[key]) return;
+      currentSurface = key;
+      document.querySelectorAll('.surface-btn').forEach(b => b.classList.toggle('active', b === btn));
+      flashMessage('SURFACE: ' + SURFACES[key].name.toUpperCase());
+      playTone(420, 0.08, 'triangle');
+    }
+    function setWeather(key, btn) {
+      if (!WEATHERS[key]) return;
+      currentWeather = key;
+      document.querySelectorAll('.weather-btn').forEach(b => b.classList.toggle('active', b === btn));
+      flashMessage('WEATHER: ' + WEATHERS[key].name.toUpperCase());
+      playTone(360, 0.08, 'triangle');
+    }
 
     function switchHood(hoodKey, btn) {
       if (!HOODS[hoodKey]) return;
@@ -1815,6 +1900,239 @@
     let stoopMeter = 0;
     let stoopMeterDir = 1;
 
+    // =========================================================================
+    // MODE 4: MARBLES (RING TAW - KEEPSIES: EVERY MARBLE KNOCKED OUT IS YOURS)
+    // Friction and rebound come from the active terrain: a marble lobby carries
+    // a taw far, cracked cement stops it short, gravel scatters it.
+    // =========================================================================
+    const MARBLE_RING = {cx: 360, cy: 262, r: 122};
+    const MARBLE_SHOOTER = {x: 360, y: 408};
+    const MARBLE_HUES = ['#E04724', '#1B9AAA', '#F4C430', '#52B788', '#8E5FD0', '#FF5E7E'];
+    let marbleTaw = {x: 360, y: 408, vx: 0, vy: 0, r: 9, active: false};
+    let marbleTargets = [];
+    let marbleShots = 8;
+    let marbleRoundOver = false;
+    let marbleDrag = {active: false, sx: 0, sy: 0, cx: 0, cy: 0};
+
+    function newMarbleRound() {
+      const spots = [[-56, -34], [36, -48], [-12, 14], [56, 26], [-64, 38], [14, -86]];
+      marbleTargets = spots.map((p, i) => ({
+        x: MARBLE_RING.cx + p[0], y: MARBLE_RING.cy + p[1], vx: 0, vy: 0, r: 9, out: false, hue: MARBLE_HUES[i]
+      }));
+      marbleTaw = {x: MARBLE_SHOOTER.x, y: MARBLE_SHOOTER.y, vx: 0, vy: 0, r: 9, active: false};
+      marbleShots = 8;
+      marbleRoundOver = false;
+      marbleDrag = {active: false, sx: 0, sy: 0, cx: 0, cy: 0};
+    }
+    function marblesOutCount() { return marbleTargets.filter(m => m.out).length; }
+    function marblesHUD() { return marblesOutCount() + '/6 · ' + marbleShots + ' SHOTS'; }
+    function shootMarbleTaw(vx, vy) {
+      marbleTaw.vx = Math.max(-16, Math.min(16, vx));
+      marbleTaw.vy = Math.max(-16, Math.min(16, vy));
+      marbleTaw.active = true;
+      playTone(520, 0.1, 'triangle');
+    }
+    function stepMarbles() {
+      const f = terrainFric();
+      const rest = Math.min(0.95, terrainRest());
+      const live = [marbleTaw, ...marbleTargets.filter(m => !m.out)];
+      live.forEach(m => {
+        applyTerrainDrift(m);
+        m.x += m.vx; m.y += m.vy;
+        m.vx *= f; m.vy *= f;
+        if (Math.hypot(m.vx, m.vy) < 0.04) { m.vx = 0; m.vy = 0; }
+      });
+      for (let i = 0; i < live.length; i++) {
+        for (let j = i + 1; j < live.length; j++) {
+          const a = live[i], b = live[j];
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const d = Math.hypot(dx, dy), min = a.r + b.r;
+          if (d <= 0 || d >= min) continue;
+          const nx = dx / d, ny = dy / d;
+          const push = (min - d) / 2;
+          a.x -= nx * push; a.y -= ny * push;
+          b.x += nx * push; b.y += ny * push;
+          const rv = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+          if (rv < 0) {
+            const imp = (1 + rest) * rv / 2;
+            a.vx += imp * nx; a.vy += imp * ny;
+            b.vx -= imp * nx; b.vy -= imp * ny;
+            playTone(880, 0.04, 'sine', 0.05);
+          }
+        }
+      }
+      marbleTargets.forEach(m => {
+        if (m.out) return;
+        if (Math.hypot(m.x - MARBLE_RING.cx, m.y - MARBLE_RING.cy) > MARBLE_RING.r) {
+          m.out = true; m.vx = 0; m.vy = 0;
+          score += 50; streak += 1;
+          spawnParticles(m.x, m.y, m.hue, 16);
+          playChord();
+          flashMessage('KEEPSIE! ' + marblesOutCount() + '/6 · +50');
+          updateHUD(marblesHUD());
+        }
+      });
+      if (marbleTaw.active && (marbleTaw.x < -20 || marbleTaw.x > canvas.width + 20 ||
+          marbleTaw.y < -20 || marbleTaw.y > canvas.height + 20)) {
+        marbleTaw.vx = 0; marbleTaw.vy = 0;
+      }
+      const moving = live.some(m => Math.hypot(m.vx, m.vy) > 0);
+      if (marbleTaw.active && !moving) {
+        marbleTaw.active = false;
+        marbleShots -= 1;
+        const tawInRing = Math.hypot(marbleTaw.x - MARBLE_RING.cx, marbleTaw.y - MARBLE_RING.cy) <= MARBLE_RING.r;
+        if (!tawInRing) {
+          score = Math.max(0, score - 25);
+          streak = 0;
+          flashMessage('FOUL! TAW LEFT THE RING -25');
+          playTone(180, 0.2, 'sawtooth');
+        }
+        marbleTaw = {x: MARBLE_SHOOTER.x, y: MARBLE_SHOOTER.y, vx: 0, vy: 0, r: 9, active: false};
+        const outs = marblesOutCount();
+        if (outs === marbleTargets.length || marbleShots <= 0) {
+          marbleRoundOver = true;
+          if (outs === marbleTargets.length) {
+            score += 200;
+            flashMessage('RING CLEARED! +200 BONUS · TAP TO RACK UP');
+          } else {
+            flashMessage('OUT OF SHOTS · TAP TO RACK UP');
+          }
+          playChord();
+        }
+        updateHUD(marblesHUD());
+      }
+    }
+    function drawMarble(x, y, r, col) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(x + 3, y + 4, r, r * 0.5, 0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(15, 12, 10, 0.32)';
+      ctx.fill();
+      const g = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r);
+      g.addColorStop(0, '#FFFDF8');
+      g.addColorStop(0.35, col);
+      g.addColorStop(1, '#1C1613');
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      ctx.strokeStyle = '#1C1613';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // =========================================================================
+    // MODE 5: JACKS (ONESIES - TOSS THE SPALDEEN, PICK A JACK ON THE BOUNCE)
+    // Bounce height comes from terrain restitution; roll stops from friction.
+    // =========================================================================
+    const JACK_HAND = {x: 360, y: 410};
+    const JACK_SPOTS = [[250, 268], [330, 196], [410, 268], [500, 200], [300, 340], [450, 340]];
+    let jacksList = [];
+    let jacksBall = {x: 360, y: 410, z: 0, vx: 0, vy: 0, vz: 0, r: 13, active: false, drops: 0, landed: 0};
+    let jacksAim = {x: 360, y: 300};
+    function resetJacks() {
+      jacksList = JACK_SPOTS.map(p => ({x: p[0], y: p[1], picked: false}));
+      jacksBall = {x: JACK_HAND.x, y: JACK_HAND.y, z: 0, vx: 0, vy: 0, vz: 0, r: 13, active: false, drops: 0, landed: 0};
+      jacksAim = {x: 360, y: 300};
+    }
+    resetJacks();
+    function jacksHUD() { return jacksList.filter(k => k.picked).length + '/6 · ' + jacksBall.drops + ' DROPS'; }
+    function tossJacks(tx, ty) {
+      if (jacksBall.active) return;
+      const T = 28;
+      jacksBall = {
+        x: JACK_HAND.x, y: JACK_HAND.y, z: 0,
+        vx: (tx - JACK_HAND.x) / T, vy: (ty - JACK_HAND.y) / T,
+        vz: 0.55 * T / 2, r: 13, active: true, drops: 0, landed: 0
+      };
+      trailPoints = [];
+      playTone(410, 0.1, 'sawtooth');
+    }
+    function pickJacksAt(x, y) {
+      let n = 0;
+      jacksList.forEach(k => {
+        if (!k.picked && Math.hypot(k.x - x, k.y - y) <= 30) {
+          k.picked = true; n += 1; score += 100; streak += 1;
+          spawnParticles(k.x, k.y, '#F4C430', 14);
+        }
+      });
+      if (n) flashMessage('JACK PICKED! +' + (100 * n));
+      return n;
+    }
+    function endJacksToss(msg) {
+      jacksBall.active = false;
+      jacksBall.x = JACK_HAND.x; jacksBall.y = JACK_HAND.y;
+      jacksBall.z = 0; jacksBall.vx = 0; jacksBall.vy = 0; jacksBall.vz = 0;
+      if (jacksList.every(k => k.picked)) {
+        score += 300;
+        flashMessage('ALL JACKS! +300 BONUS · NEW PILE');
+        playChord();
+        jacksList.forEach(k => { k.picked = false; });
+      } else {
+        flashMessage(msg);
+      }
+      updateHUD(jacksHUD());
+    }
+    function stepJacks() {
+      const j = jacksBall;
+      if (!j.active) return;
+      const g = 0.55;
+      j.x += j.vx; j.y += j.vy; j.z += j.vz; j.vz -= g;
+      if (j.z > 0) {
+        j.vx *= 0.992; j.vy *= 0.992;
+      } else {
+        j.z = 0;
+        applyTerrainDrift(j);
+        const f = terrainFric();
+        j.vx *= f; j.vy *= f;
+        if (j.vz < -1.4) {
+          const impact = -j.vz;
+          j.vz = impact * terrainRest();
+          const got = pickJacksAt(j.x, j.y);
+          if (got === 0 && impact >= 3) {
+            j.drops += 1;
+            streak = 0;
+            playTone(230, 0.08, 'triangle');
+            flashMessage('DROP ' + j.drops + '/3 · NO JACK');
+            if (j.drops >= 3) { endJacksToss('3 DROPS · TOSS OVER'); updateHUD(jacksHUD()); return; }
+          } else if (got === 0) {
+            playTone(300, 0.03, 'triangle', 0.05);
+          }
+          j.landed += 1;
+          spawnParticles(j.x, j.y, '#FF5E7E', 8);
+          updateHUD(jacksHUD());
+        } else {
+          j.vz = 0;
+        }
+      }
+      if (j.x < -10 || j.x > canvas.width + 10 || j.y < -10 || j.y > canvas.height + 10) {
+        endJacksToss('OUT OF BOUNDS · TOSS OVER');
+        return;
+      }
+      if (j.z === 0 && j.vz === 0 && Math.hypot(j.vx, j.vy) < 0.08) {
+        endJacksToss('TOSS COMPLETE · ' + jacksList.filter(k => k.picked).length + '/6');
+      }
+    }
+    function drawJackStar(x, y, picked) {
+      ctx.save();
+      ctx.strokeStyle = picked ? 'rgba(28, 22, 19, 0.25)' : '#E04724';
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      for (let i = 0; i < 3; i++) {
+        const a = i * Math.PI / 3;
+        ctx.beginPath();
+        ctx.moveTo(x + Math.cos(a) * 16, y + Math.sin(a) * 16);
+        ctx.lineTo(x - Math.cos(a) * 16, y - Math.sin(a) * 16);
+        ctx.stroke();
+      }
+      ctx.fillStyle = picked ? 'rgba(28, 22, 19, 0.2)' : '#F4C430';
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
     function resetCurrentGame() {
       trailPoints = [];
       particles = [];
@@ -1832,12 +2150,18 @@
       } else if (currentMode === 'stoopball') {
         stoopBall = {x: 215, y: 342, vx: 0, vy: 0, r: 13, inFlight: false, hitStep: false};
         updateHUD('3-Sewer HR');
+      } else if (currentMode === 'marbles') {
+        newMarbleRound();
+        updateHUD(marblesHUD());
+      } else if (currentMode === 'jacks') {
+        resetJacks();
+        updateHUD(jacksHUD());
       }
       flashMessage(HOODS[currentHood].name);
     }
 
     function switchMode(mode) {
-      if (!['skully', 'foursquare', 'stoopball'].includes(mode)) mode = 'skully';
+      if (!['skully', 'foursquare', 'stoopball', 'marbles', 'jacks'].includes(mode)) mode = 'skully';
       currentMode = mode;
       document.querySelectorAll('.mode-tab').forEach(t => {
         t.classList.toggle('active', t.getAttribute('data-mode') === mode);
@@ -1857,6 +2181,16 @@
           name: '3. Stoop',
           target: '3-Sewer HR',
           inst: '👉 Click/Tap when the Power Gauge hits the Gold 45° Sweet Spot to launch the Spaldeen over the cruisers 3 Sewers deep!'
+        },
+        marbles: {
+          name: '4. Marbles',
+          target: 'Taw',
+          inst: '👉 Drag back from the shooter line and let go to shoot your taw into the chalk ring. Every marble you knock out of the ring is a keepsie.'
+        },
+        jacks: {
+          name: '5. Jacks',
+          target: 'Jacks',
+          inst: '👉 Tap where the Spaldeen should land. Land it on a jack to pick it up. Three hard drops end the toss.'
         }
       }[mode];
       document.getElementById('hudModeName').textContent = meta.name;
@@ -1895,6 +2229,18 @@
         stoopBall.hitStep = false;
         trailPoints = [];
         playTone(410, 0.1, 'sawtooth');
+      } else if (currentMode === 'marbles') {
+        if (marbleTaw.active || marbleRoundOver || marbleShots <= 0) return;
+        const live = marbleTargets.filter(m => !m.out);
+        if (!live.length) return;
+        const dist = m => Math.hypot(m.x - MARBLE_SHOOTER.x, m.y - MARBLE_SHOOTER.y);
+        const tgt = live.reduce((a, b) => (dist(a) <= dist(b) ? a : b));
+        const dx = tgt.x - MARBLE_SHOOTER.x, dy = tgt.y - MARBLE_SHOOTER.y, d = Math.hypot(dx, dy) || 1;
+        shootMarbleTaw((dx / d) * 12, (dy / d) * 12);
+      } else if (currentMode === 'jacks') {
+        const open = jacksList.filter(k => !k.picked);
+        if (!open.length) return;
+        tossJacks(open[0].x, open[0].y);
       }
     }
 
@@ -1918,6 +2264,19 @@
         triggerQuickShot();
       } else if (currentMode === 'stoopball') {
         triggerQuickShot();
+      } else if (currentMode === 'marbles') {
+        if (marbleRoundOver) {
+          newMarbleRound();
+          updateHUD(marblesHUD());
+          flashMessage('NEW RING · RACK UP');
+          return;
+        }
+        if (!marbleTaw.active && marbleShots > 0) {
+          marbleDrag = {active: true, sx: pos.x, sy: pos.y, cx: pos.x, cy: pos.y};
+        }
+      } else if (currentMode === 'jacks') {
+        jacksAim = {x: pos.x, y: pos.y};
+        tossJacks(pos.x, pos.y);
       }
     });
 
@@ -1927,12 +2286,20 @@
         fsPlayerPad.x = Math.max(95, Math.min(335, pos.x));
         fsPlayerPad.y = Math.max(290, Math.min(415, pos.y));
       }
+      if (marbleDrag.active) { marbleDrag.cx = pos.x; marbleDrag.cy = pos.y; }
+      if (currentMode === 'jacks' && !jacksBall.active) jacksAim = {x: pos.x, y: pos.y};
       if (!dragState.active) return;
       dragState.cx = pos.x;
       dragState.cy = pos.y;
     });
 
     window.addEventListener('pointerup', () => {
+      if (marbleDrag.active) {
+        marbleDrag.active = false;
+        const dx = marbleDrag.sx - marbleDrag.cx, dy = marbleDrag.sy - marbleDrag.cy;
+        if (Math.hypot(dx, dy) >= 14) shootMarbleTaw(dx * 0.13, dy * 0.13);
+        return;
+      }
       if (!dragState.active) return;
       dragState.active = false;
       if (currentMode === 'skully') {
@@ -2010,14 +2377,15 @@
         }
         skullyCap.x += skullyCap.vx;
         skullyCap.y += skullyCap.vy;
-        skullyCap.vx *= 0.925;
-        skullyCap.vy *= 0.925;
+        applyTerrainDrift(skullyCap);
+        skullyCap.vx *= terrainFric();
+        skullyCap.vy *= terrainFric();
         if (skullyCap.x < 54 || skullyCap.x > canvas.width - 54) {
-          skullyCap.vx *= -0.82;
+          skullyCap.vx *= -terrainRest();
           playTone(310, 0.06, 'triangle');
         }
         if (skullyCap.y < 126 || skullyCap.y > canvas.height - 24) {
-          skullyCap.vy *= -0.82;
+          skullyCap.vy *= -terrainRest();
           playTone(310, 0.06, 'triangle');
         }
 
@@ -2033,7 +2401,7 @@
         // Rival caps elastic collisions
         rivalCaps.forEach(rc => {
           rc.x += rc.vx; rc.y += rc.vy;
-          rc.vx *= 0.91; rc.vy *= 0.91;
+          rc.vx *= terrainFric(); rc.vy *= terrainFric();
           if (rc.x < 54 || rc.x > canvas.width - 54) rc.vx *= -0.8;
           if (rc.y < 126 || rc.y > canvas.height - 24) rc.vy *= -0.8;
 
@@ -2189,7 +2557,7 @@
           playTone(380, 0.07);
         }
         if (fsBall.y < 138 || fsBall.y > 416) {
-          fsBall.vy *= -1;
+          fsBall.vy *= -terrainRest();
           spawnParticles(fsBall.x, fsBall.y, '#FFE066', 8);
           playTone(380, 0.07);
         }
@@ -2363,6 +2731,95 @@
 
         const stoopAlt = Math.max(0, 384 - stoopBall.y);
         drawSpaldeen(stoopBall.x, stoopBall.y, stoopBall.r, stoopAlt * 0.25, '#FF5E7E');
+      }
+
+      // =====================================================================
+      // RENDER MODE 4: MARBLES (RING TAW)
+      // =====================================================================
+      if (currentMode === 'marbles') {
+        drawVintageStreetBackdrop(false);
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(MARBLE_RING.cx, MARBLE_RING.cy, MARBLE_RING.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 248, 225, 0.14)';
+        ctx.fill();
+        ctx.setLineDash([10, 6]);
+        ctx.strokeStyle = 'rgba(255, 248, 225, 0.95)';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+
+        ctx.strokeStyle = '#FFF8E1';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(250, MARBLE_SHOOTER.y + 14);
+        ctx.lineTo(470, MARBLE_SHOOTER.y + 14);
+        ctx.stroke();
+
+        if (marbleDrag.active) {
+          const pvx = Math.max(-16, Math.min(16, (marbleDrag.sx - marbleDrag.cx) * 0.13));
+          const pvy = Math.max(-16, Math.min(16, (marbleDrag.sy - marbleDrag.cy) * 0.13));
+          ctx.save();
+          ctx.setLineDash([6, 6]);
+          ctx.strokeStyle = '#FFE066';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(MARBLE_SHOOTER.x, MARBLE_SHOOTER.y);
+          ctx.lineTo(MARBLE_SHOOTER.x + pvx * 6, MARBLE_SHOOTER.y + pvy * 6);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        stepMarbles();
+        marbleTargets.forEach(m => { if (!m.out) drawMarble(m.x, m.y, m.r, m.hue); });
+        drawMarble(marbleTaw.x, marbleTaw.y, marbleTaw.r, '#FFFDF8');
+      }
+
+      // =====================================================================
+      // RENDER MODE 5: JACKS (ONESIES)
+      // =====================================================================
+      if (currentMode === 'jacks') {
+        drawVintageStreetBackdrop(false);
+        ctx.beginPath();
+        ctx.arc(JACK_HAND.x, JACK_HAND.y, 22, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(255, 248, 225, 0.7)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        jacksList.forEach(k => drawJackStar(k.x, k.y, k.picked));
+        stepJacks();
+
+        if (jacksBall.active) {
+          trailPoints.push({x: jacksBall.x, y: jacksBall.y - jacksBall.z * 0.5, life: 12});
+        } else {
+          ctx.save();
+          ctx.setLineDash([5, 6]);
+          ctx.strokeStyle = 'rgba(255, 230, 140, 0.9)';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(JACK_HAND.x, JACK_HAND.y);
+          ctx.lineTo(jacksAim.x, jacksAim.y);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.beginPath();
+          ctx.arc(jacksAim.x, jacksAim.y, 12, 0, Math.PI * 2);
+          ctx.strokeStyle = '#E04724';
+          ctx.lineWidth = 2.5;
+          ctx.stroke();
+          ctx.restore();
+        }
+        trailPoints.forEach(tp => {
+          tp.life--;
+          ctx.beginPath();
+          ctx.arc(tp.x, tp.y, 4, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 224, 102, ${tp.life / 14})`;
+          ctx.fill();
+        });
+        trailPoints = trailPoints.filter(tp => tp.life > 0);
+        drawSpaldeen(jacksBall.x, jacksBall.y - jacksBall.z * 0.5, jacksBall.r, jacksBall.z * 0.5, '#FF5E7E');
       }
 
       // Update & draw burst particles across all 3 games
