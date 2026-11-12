@@ -1622,6 +1622,10 @@
         foul: ['Foul! Your taw left the ring, and the whole block saw it.'],
         out: ['Out of shots! Rack up, the crowd wants a rematch!']
       },
+      skully: {
+        tutorial: ['New to Skully? Drag to flick. Pick Precision for a short, careful shot, or Power for the big one.', 'Hard to aim? Turn on Direction lock and every flick snaps to a clean 15 degrees.'],
+        flick: ['Slide! That one has the whole block watching.', 'Clean flick, straight down the chalk!', 'That is a Skully shot, neighbor!']
+      },
       jacks: {
         pick: ['Jack picked up! Clean as a whistle!', 'Got one! Keep that bounce going!'],
         drop: ['Dropped it! Two more chances before the toss is over.'],
@@ -1964,6 +1968,7 @@
     // Player control: power setting and direction snap (reviewer complaint: 'hard to control the disc').
     const SKULLY_POWER = {precision: 0.085, normal: 0.135, power: 0.19};
     let skullyControl = {power: 'normal', snap: false};
+    let skullyTutorialDone = false;
     function setSkullyPower(p) { if (SKULLY_POWER[p]) { skullyControl.power = p; } updateSkullyControls(); }
     function toggleSkullySnap() { skullyControl.snap = !skullyControl.snap; updateSkullyControls(); }
     function updateSkullyControls() {
@@ -2437,6 +2442,8 @@
         skullyCap.vx = Math.max(-17, Math.min(17, dx * pw));
         skullyCap.vy = Math.max(-17, Math.min(17, dy * pw));
         playTone(490, 0.1, 'triangle');
+        if (!skullyTutorialDone) { skullyTutorialDone = true; announce('skully', 'tutorial'); }
+        else { announce('skully', 'flick'); }
       }
     });
 
