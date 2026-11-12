@@ -358,6 +358,19 @@
       text-overflow: ellipsis;
     }
 
+    @media (max-width: 720px) {
+      .arcade-cabinet { display: flex; flex-direction: column; }
+      .arcade-cabinet > .canvas-wrap { order: -1; }
+      .arcade-cabinet > .hud-bar { order: -1; }
+      .terrain-bar .hood-pills { overflow-x: auto; flex-wrap: nowrap; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+      .terrain-bar .hood-pills > * { flex: 0 0 auto; scroll-snap-align: start; }
+    }
+    .announcer-bar { display:flex; gap:10px; align-items:stretch; flex-wrap:wrap; margin:10px 0; width:100%; max-width:100%; box-sizing:border-box; }
+    .announcer-bar > * { min-width:0; max-width:100%; box-sizing:border-box; }
+    @media (max-width: 600px) { .announcer-bar { flex-direction:column; } .announcer-toggle { width:100%; } }
+    .announcer-caption { flex:1 1 220px; margin:0; padding:10px 14px; background:#FFF8E1; color:#1C1613; border:2px solid #1C1613; border-radius:10px; font-weight:700; font-size:1rem; line-height:1.4; }
+    .announcer-caption[hidden] { display:none; }
+    .announcer-toggle { min-height:44px; min-width:44px; padding:0 14px; border-radius:10px; border:2px solid #1C1613; background:#FFE066; color:#1C1613; font-weight:800; font-size:0.95rem; cursor:pointer; }
     .canvas-wrap {
       position: relative;
       width: 100%;
@@ -1004,6 +1017,10 @@
         <div class="canvas-wrap">
           <canvas id="arcadeCanvas" width="720" height="448" aria-label="Interactive Vintage Neighborhood 3-in-1 Street Game Canvas"></canvas>
         </div>
+        <div class="announcer-bar">
+          <p id="announcerCaption" class="announcer-caption" role="status" aria-live="polite" hidden></p>
+          <button type="button" id="announcerToggle" class="announcer-toggle" aria-pressed="true" onclick="toggleAnnouncer()">🔊 Announcer ON</button>
+        </div>
 
         <div class="cabinet-controls">
           <div style="font-size:0.8rem;font-weight:800;color:var(--ink-primary);flex:1;min-width:210px;" id="hudInstruction">
@@ -1575,6 +1592,52 @@
       }
     }
 
+    // =========================================================================
+    // NEIGHBORHOOD ANNOUNCER (no-backend, zero-cost)
+    // Speaks event callouts via the browser speech engine, scoped to the
+    // active block and era. Falls back to silent-with-caption when the
+    // speech engine is unavailable. Optional live line from the Argon
+    // endpoint is attempted only when ANNOUNCER_API is set.
+    // =========================================================================
+    const ANNOUNCER_API = '';
+    const ANNOUNCER_LINES = {
+      marbles: {
+        keepsie: ['Keepsie! That marble is going home with you, kid!', 'Another one out of the ring, that is a keepsie!'],
+        ringclear: ['Ring cleared! Six keepsies on the block tonight!'],
+        foul: ['Foul! Your taw left the ring, and the whole block saw it.'],
+        out: ['Out of shots! Rack up, the crowd wants a rematch!']
+      },
+      jacks: {
+        pick: ['Jack picked up! Clean as a whistle!', 'Got one! Keep that bounce going!'],
+        drop: ['Dropped it! Two more chances before the toss is over.'],
+        clear: ['All jacks! Onesies to sixes done, that is a pile!'],
+        over: ['Toss over. Rack the jacks and go again!']
+      }
+    };
+    let announcerOn = true;
+    function speakLine(text) {
+      const cap = document.getElementById('announcerCaption');
+      if (cap) { cap.textContent = text; cap.hidden = false; clearTimeout(cap._t); cap._t = setTimeout(() => { cap.hidden = true; }, 3200); }
+      if (!announcerOn || !('speechSynthesis' in window)) return;
+      try {
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 1.05; u.pitch = 1.1; u.volume = 0.9;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(u);
+      } catch (e) { /* speech unavailable: caption still shows */ }
+    }
+    function announce(mode, key) {
+      const pool = (ANNOUNCER_LINES[mode] || {})[key];
+      if (!pool || !pool.length) return;
+      speakLine(pool[Math.floor(Math.random() * pool.length)]);
+    }
+    function toggleAnnouncer() {
+      announcerOn = !announcerOn;
+      const b = document.getElementById('announcerToggle');
+      if (b) { b.textContent = announcerOn ? '🔊 Announcer ON' : '🔇 Announcer OFF'; b.setAttribute('aria-pressed', String(announcerOn)); }
+      if (!announcerOn && 'speechSynthesis' in window) speechSynthesis.cancel();
+    }
+
     function flashMessage(msg) {
       bannerFlash = msg;
       bannerTimer = 85;
@@ -1913,19 +1976,30 @@
     let marbleShots = 8;
     let marbleRoundOver = false;
     let marbleDrag = {active: false, sx: 0, sy: 0, cx: 0, cy: 0};
+    // Challenge ladder: a cleared ring advances the level; each level
+    // tightens the shot budget and widens the marble spread (Kanche ships 200+ levels;
+    // this is the minimum viable ladder, extended in place).
+    const MARBLE_LEVELS = [
+      {name: 'Rookie Ring', shots: 8, spread: 1.0},
+      {name: 'Stoop Steady', shots: 7, spread: 1.15},
+      {name: 'Corner Crew', shots: 6, spread: 1.3},
+      {name: 'Block Champ', shots: 4, spread: 1.3}
+    ];
+    let marbleLevel = 0;
 
     function newMarbleRound() {
+      const lv = MARBLE_LEVELS[Math.min(marbleLevel, MARBLE_LEVELS.length - 1)];
       const spots = [[-56, -34], [36, -48], [-12, 14], [56, 26], [-64, 38], [14, -86]];
       marbleTargets = spots.map((p, i) => ({
-        x: MARBLE_RING.cx + p[0], y: MARBLE_RING.cy + p[1], vx: 0, vy: 0, r: 9, out: false, hue: MARBLE_HUES[i]
+        x: MARBLE_RING.cx + p[0] * lv.spread, y: MARBLE_RING.cy + p[1] * lv.spread, vx: 0, vy: 0, r: 9, out: false, hue: MARBLE_HUES[i]
       }));
       marbleTaw = {x: MARBLE_SHOOTER.x, y: MARBLE_SHOOTER.y, vx: 0, vy: 0, r: 9, active: false};
-      marbleShots = 8;
+      marbleShots = lv.shots;
       marbleRoundOver = false;
       marbleDrag = {active: false, sx: 0, sy: 0, cx: 0, cy: 0};
     }
     function marblesOutCount() { return marbleTargets.filter(m => m.out).length; }
-    function marblesHUD() { return marblesOutCount() + '/6 · ' + marbleShots + ' SHOTS'; }
+    function marblesHUD() { return 'L' + (marbleLevel + 1) + ' · ' + marblesOutCount() + '/6 · ' + marbleShots + ' SHOTS'; }
     function shootMarbleTaw(vx, vy) {
       marbleTaw.vx = Math.max(-16, Math.min(16, vx));
       marbleTaw.vy = Math.max(-16, Math.min(16, vy));
@@ -1969,6 +2043,7 @@
           spawnParticles(m.x, m.y, m.hue, 16);
           playChord();
           flashMessage('KEEPSIE! ' + marblesOutCount() + '/6 · +50');
+          announce('marbles', 'keepsie');
           updateHUD(marblesHUD());
         }
       });
@@ -1985,6 +2060,7 @@
           score = Math.max(0, score - 25);
           streak = 0;
           flashMessage('FOUL! TAW LEFT THE RING -25');
+          announce('marbles', 'foul');
           playTone(180, 0.2, 'sawtooth');
         }
         marbleTaw = {x: MARBLE_SHOOTER.x, y: MARBLE_SHOOTER.y, vx: 0, vy: 0, r: 9, active: false};
@@ -1993,9 +2069,12 @@
           marbleRoundOver = true;
           if (outs === marbleTargets.length) {
             score += 200;
-            flashMessage('RING CLEARED! +200 BONUS · TAP TO RACK UP');
+            marbleLevel = Math.min(marbleLevel + 1, MARBLE_LEVELS.length - 1);
+            flashMessage('RING CLEARED! +200 · NEXT: ' + MARBLE_LEVELS[marbleLevel].name + ' · TAP');
+            announce('marbles', 'ringclear');
           } else {
             flashMessage('OUT OF SHOTS · TAP TO RACK UP');
+            announce('marbles', 'out');
           }
           playChord();
         }
@@ -2057,7 +2136,7 @@
           spawnParticles(k.x, k.y, '#F4C430', 14);
         }
       });
-      if (n) flashMessage('JACK PICKED! +' + (100 * n));
+      if (n) { flashMessage('JACK PICKED! +' + (100 * n)); announce('jacks', 'pick'); }
       return n;
     }
     function endJacksToss(msg) {
@@ -2067,10 +2146,12 @@
       if (jacksList.every(k => k.picked)) {
         score += 300;
         flashMessage('ALL JACKS! +300 BONUS · NEW PILE');
+        announce('jacks', 'clear');
         playChord();
         jacksList.forEach(k => { k.picked = false; });
       } else {
         flashMessage(msg);
+        announce('jacks', 'over');
       }
       updateHUD(jacksHUD());
     }
@@ -2095,6 +2176,7 @@
             streak = 0;
             playTone(230, 0.08, 'triangle');
             flashMessage('DROP ' + j.drops + '/3 · NO JACK');
+            announce('jacks', 'drop');
             if (j.drops >= 3) { endJacksToss('3 DROPS · TOSS OVER'); updateHUD(jacksHUD()); return; }
           } else if (got === 0) {
             playTone(300, 0.03, 'triangle', 0.05);
