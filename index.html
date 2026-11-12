@@ -12,7 +12,7 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=JetBrains+Mono:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=JetBrains+Mono:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-paper: #FAF6F0;
@@ -27,7 +27,6 @@
       --accent-gold: #D49A1A;
       --accent-gold-bg: #FDF4DC;
       --border-warm: #DFD5C5;
-      --shadow-editorial: 0 12px 32px rgba(26, 23, 21, 0.08);
       --radius-lg: 18px;
       --radius-md: 12px;
     }
@@ -36,7 +35,7 @@
       background: var(--bg-paper);
       color: var(--ink-primary);
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.55;
+      line-height: 1.5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -48,14 +47,14 @@
     .top-banner {
       background: var(--accent-teal);
       color: #FAF6F0;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      padding: 8px 16px;
+      padding: 7px 14px;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
     .top-banner span.pill {
@@ -63,7 +62,7 @@
       color: #1A1715;
       padding: 2px 10px;
       border-radius: 99px;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 800;
       text-transform: uppercase;
     }
@@ -76,27 +75,27 @@
       background: rgba(250, 246, 240, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 2px solid var(--border-warm);
-      padding: 10px 20px;
+      padding: 8px 18px;
     }
     .header-inner {
-      max-width: 1320px;
+      max-width: 1340px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
     }
     .brand-lockup {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-height: 44px;
     }
     .brand-badge {
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: var(--accent-spaldeen);
+      background: linear-gradient(135deg, #E85D35, #B53B19);
       color: #FAF6F0;
       border: 2px solid var(--ink-primary);
       display: flex;
@@ -111,14 +110,14 @@
     .brand-title {
       font-family: 'Fraunces', serif;
       font-weight: 900;
-      font-size: 1.25rem;
-      line-height: 1.1;
+      font-size: 1.22rem;
+      line-height: 1.08;
       color: var(--ink-primary);
     }
     .brand-sub {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--ink-muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent-spaldeen);
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
@@ -127,7 +126,6 @@
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
-      padding: 2px 0;
     }
     .nav-btn {
       display: inline-flex;
@@ -138,7 +136,7 @@
       min-width: 44px;
       padding: 0 12px;
       border-radius: 10px;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--ink-primary);
       background: var(--bg-sand);
@@ -157,24 +155,20 @@
       border: 2px solid var(--ink-primary);
       box-shadow: 2px 2px 0 var(--ink-primary);
     }
-    .nav-btn.cta-primary:hover {
-      background: var(--accent-spaldeen-dark);
-    }
 
     /* Main Container */
     .container {
-      max-width: 1320px;
+      max-width: 1340px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 16px 20px;
     }
 
     /* Above-the-Fold Hero + Interactive Arcade Cabinet Grid */
     .hero-arcade-grid {
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 24px;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 22px;
       align-items: start;
-      margin-top: 6px;
     }
     @media (max-width: 980px) {
       .hero-arcade-grid {
@@ -198,7 +192,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 6px;
-      padding: 10px;
+      padding: 8px 10px;
       background: var(--bg-sand);
       border-bottom: 2px solid var(--ink-primary);
     }
@@ -207,7 +201,7 @@
       align-items: center;
       justify-content: center;
       min-width: 0;
-      gap: 6px;
+      gap: 5px;
       min-height: 44px;
       padding: 0 8px;
       border-radius: 10px;
@@ -229,6 +223,9 @@
         padding: 0 2px;
         gap: 2px;
       }
+      .container {
+        padding: 10px 12px;
+      }
     }
     .mode-tab.active {
       background: var(--accent-spaldeen);
@@ -236,65 +233,84 @@
       border-color: var(--ink-primary);
       box-shadow: 2px 2px 0 var(--ink-primary);
     }
+
+    /* Compact 4-Tile Telemetry HUD Strip */
     .hud-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      padding: 8px 12px;
       background: #FDFBF7;
       border-bottom: 1.5px solid var(--border-warm);
+    }
+    @media (max-width: 600px) {
+      .hud-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
     .hud-stat {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
+      justify-content: space-between;
+      gap: 4px;
+      font-size: 0.76rem;
       font-weight: 700;
       color: var(--ink-secondary);
+      background: var(--bg-sand);
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border-warm);
     }
     .hud-stat strong {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem;
+      font-size: 0.82rem;
       color: var(--ink-primary);
       background: var(--accent-gold-bg);
-      padding: 2px 8px;
-      border-radius: 6px;
+      padding: 1px 6px;
+      border-radius: 5px;
       border: 1px solid var(--accent-gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+
     .canvas-wrap {
       position: relative;
       width: 100%;
-      background: #E9E2D4;
+      background: #CFC5B4;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 8px;
     }
     canvas#arcadeCanvas {
       width: 100%;
-      max-width: 680px;
-      height: 420px;
+      max-width: 720px;
+      height: 440px;
       border-radius: 12px;
-      border: 2px solid var(--ink-primary);
-      background: #DCD3C2;
+      border: 2.5px solid var(--ink-primary);
+      background: #C4B9A5;
       touch-action: none;
-      cursor: crosshair;
+      cursor: grab;
       display: block;
+      box-shadow: inset 0 0 24px rgba(26, 23, 21, 0.18);
+    }
+    canvas#arcadeCanvas:active {
+      cursor: grabbing;
     }
     @media (max-width: 600px) {
       canvas#arcadeCanvas {
-        height: 350px;
+        height: 360px;
       }
     }
+
     .cabinet-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 10px;
-      padding: 12px 16px;
+      gap: 8px;
+      padding: 10px 14px;
       background: var(--bg-sand);
       border-top: 2px solid var(--ink-primary);
     }
@@ -304,10 +320,10 @@
       justify-content: center;
       min-height: 44px;
       min-width: 44px;
-      padding: 0 16px;
+      padding: 0 14px;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       background: var(--bg-card);
       color: var(--ink-primary);
       border: 2px solid var(--ink-primary);
@@ -315,19 +331,19 @@
       cursor: pointer;
     }
     .ctrl-btn.action {
-      background: var(--accent-teal);
+      background: var(--accent-spaldeen);
       color: #FFFFFF;
     }
-    .ctrl-btn:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 var(--ink-primary);
+    .ctrl-btn.secondary-action {
+      background: var(--accent-teal);
+      color: #FFFFFF;
     }
 
     /* Right Hero Copy & Quick Monetization Stack */
     .hero-editorial {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
     .eyebrow-badge {
       display: inline-flex;
@@ -337,32 +353,33 @@
       background: var(--accent-gold-bg);
       color: var(--ink-primary);
       border: 1.5px solid var(--accent-gold);
-      padding: 6px 12px;
+      padding: 5px 12px;
       border-radius: 99px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .hero-editorial h1 {
-      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
-      line-height: 1.1;
+      font-size: clamp(1.75rem, 2.8vw, 2.45rem);
+      line-height: 1.08;
       color: var(--ink-primary);
     }
     .hero-editorial p.lead {
-      font-size: 1rem;
+      font-size: 0.96rem;
       color: var(--ink-secondary);
       font-weight: 500;
     }
     .cap-customizer {
       background: var(--bg-card);
-      border: 2px solid var(--border-warm);
+      border: 2px solid var(--ink-primary);
       border-radius: var(--radius-md);
-      padding: 14px 16px;
+      padding: 12px 14px;
+      box-shadow: 3px 3px 0 var(--ink-primary);
     }
     .cap-customizer h3 {
-      font-size: 0.95rem;
-      margin-bottom: 10px;
+      font-size: 0.92rem;
+      margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -375,11 +392,11 @@
     .skin-chip {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       min-height: 44px;
-      padding: 0 14px;
+      padding: 0 12px;
       border-radius: 10px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
       background: var(--bg-sand);
       color: var(--ink-primary);
@@ -403,28 +420,21 @@
       background: #FFF9EC;
       border: 2px solid var(--ink-primary);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: 14px;
       box-shadow: 4px 4px 0 var(--ink-primary);
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
-    .quick-pass-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
     }
     .btn-stripe {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 46px;
-      padding: 10px 18px;
+      padding: 10px 16px;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       background: var(--accent-spaldeen);
       color: #FFFFFF;
       border: 2px solid var(--ink-primary);
@@ -443,22 +453,22 @@
 
     /* Section Headers */
     section.block-section {
-      margin-top: 48px;
-      padding-top: 32px;
+      margin-top: 44px;
+      padding-top: 28px;
       border-top: 2px solid var(--border-warm);
     }
     .section-head {
       max-width: 780px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
     .section-head h2 {
-      font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+      font-size: clamp(1.5rem, 2.4vw, 2.1rem);
       margin-top: 6px;
       margin-bottom: 8px;
     }
     .section-head p {
       color: var(--ink-secondary);
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
     /* 3 Street Games Breakdown Grid */
@@ -474,21 +484,30 @@
     }
     .game-card {
       background: var(--bg-card);
-      border: 2px solid var(--ink-primary);
+      border: 2.5px solid var(--ink-primary);
       border-radius: var(--radius-md);
-      padding: 20px;
-      box-shadow: 4px 4px 0 var(--ink-primary);
+      padding: 18px;
+      box-shadow: 5px 5px 0 var(--ink-primary);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 14px;
     }
+    .game-art-banner {
+      width: 100%;
+      height: 132px;
+      border-radius: 10px;
+      border: 2px solid var(--ink-primary);
+      overflow: hidden;
+      background: #E2D9C8;
+      margin-bottom: 10px;
+    }
     .game-rank {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      font-weight: 700;
-      background: var(--bg-sand);
+      font-size: 0.74rem;
+      font-weight: 800;
+      background: var(--accent-gold-bg);
       border: 1.5px solid var(--ink-primary);
       padding: 3px 8px;
       border-radius: 6px;
@@ -499,16 +518,17 @@
       margin-bottom: 6px;
     }
     .game-card p {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--ink-secondary);
     }
     .game-meta {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--accent-teal);
       background: #EBF4F6;
       padding: 8px 10px;
       border-radius: 8px;
+      border: 1px solid #B8D8E0;
     }
 
     /* Monetization & Live Checkout Cards */
@@ -554,14 +574,14 @@
     }
     .price-figure {
       font-family: 'Fraunces', serif;
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       font-weight: 900;
       color: var(--ink-primary);
       line-height: 1;
     }
     .price-figure span {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--ink-muted);
     }
@@ -570,7 +590,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--ink-secondary);
     }
     .feature-list li::before {
@@ -623,14 +643,14 @@
       padding: 14px;
     }
     .kpi-box .lbl {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--ink-muted);
     }
     .kpi-box .val {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: var(--ink-primary);
       margin-top: 4px;
@@ -658,7 +678,7 @@
       justify-content: space-between;
       padding: 10px 12px;
       border-bottom: 1px solid var(--border-warm);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
     .board-row:last-child { border-bottom: none; }
     .form-input {
@@ -674,15 +694,15 @@
     }
 
     footer.site-footer {
-      margin-top: 56px;
+      margin-top: 52px;
       background: var(--bg-sand);
       border-top: 2px solid var(--ink-primary);
-      padding: 32px 20px;
-      font-size: 0.88rem;
+      padding: 28px 20px;
+      font-size: 0.86rem;
       color: var(--ink-secondary);
     }
     .footer-inner {
-      max-width: 1320px;
+      max-width: 1340px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -729,61 +749,59 @@
         </div>
 
         <div class="hud-bar">
-          <div class="hud-stat">Mode: <strong id="hudModeName">Skully (1–13 Chalk Course)</strong></div>
-          <div class="hud-stat">Target: <strong id="hudTarget">Box #1</strong></div>
-          <div class="hud-stat">Score: <strong id="hudScore">0</strong></div>
-          <div class="hud-stat">Streak: <strong id="hudStreak">0🔥</strong></div>
+          <div class="hud-stat"><span>Mode</span> <strong id="hudModeName">1. Skully 1–13</strong></div>
+          <div class="hud-stat"><span>Goal</span> <strong id="hudTarget">Box #1</strong></div>
+          <div class="hud-stat"><span>Score</span> <strong id="hudScore">0</strong></div>
+          <div class="hud-stat"><span>Streak</span> <strong id="hudStreak">0🔥</strong></div>
         </div>
 
         <div class="canvas-wrap">
-          <canvas id="arcadeCanvas" width="680" height="420" aria-label="Interactive 3-in-1 Street Game Physics Canvas"></canvas>
+          <canvas id="arcadeCanvas" width="720" height="440" aria-label="Interactive 3-in-1 Street Game Physics Canvas"></canvas>
         </div>
 
         <div class="cabinet-controls">
-          <div style="font-size:0.84rem;font-weight:700;color:var(--ink-secondary);" id="hudInstruction">
-            👉 Drag back from your gold bottlecap & release to flick into Target Box #1!
+          <div style="font-size:0.8rem;font-weight:700;color:var(--ink-secondary);flex:1;min-width:210px;" id="hudInstruction">
+            👉 Drag back from your gold bottlecap to aim trajectory & release to flick!
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button type="button" class="ctrl-btn action" id="btnQuickAction" onclick="triggerQuickShot()">⚡ Auto-Aim / Action</button>
-            <button type="button" class="ctrl-btn" onclick="resetCurrentGame()">↺ Reset Court</button>
-            <button type="button" class="ctrl-btn" id="btnAudioToggle" onclick="toggleSound()">🔊 Sound: ON</button>
+            <button type="button" class="ctrl-btn action" id="btnQuickAction" onclick="triggerQuickShot()">⚡ Precision Shot</button>
+            <button type="button" class="ctrl-btn" onclick="resetCurrentGame()">↺ Reset</button>
+            <button type="button" class="ctrl-btn" id="btnAudioToggle" onclick="toggleSound()">🔊 SFX: ON</button>
           </div>
         </div>
       </div>
 
       <div class="hero-editorial">
         <span class="eyebrow-badge">3-in-1 Street Game Physics Bundle • 60fps Web & Mobile PWA</span>
-        <h1>Flick Melted-Wax Bottlecaps, Hold the King Square & Launch Pink Spaldeens 3 Sewers Deep.</h1>
+        <h1>Flick Melted-Wax Bottlecaps, Rule the King Square & Launch Pink Spaldeens 3 Sewers Deep.</h1>
         <p class="lead">
-          The <strong>3-in-1 Asphalt Legends Arcade</strong> combines the 3 highest-earning street skill games in history — <strong>Skully</strong>, <strong>Four Square</strong>, and <strong>Stoop Ball</strong> — in one instant-play 60fps physics cabinet with zero app-store install friction.
+          <strong>Asphalt Legends</strong> brings the 3 greatest neighborhood block classics — <strong>Skully</strong>, <strong>Four Square</strong>, and <strong>Stoop Ball</strong> — into a tactile 60fps physics cabinet with aiming arcs, crimped bottlecaps, 3D brownstone stoops, and instant Stripe unlocks.
         </p>
 
         <div class="cap-customizer">
           <h3>
-            <span>🎨 Live Physics Cap & Ball Locker</span>
-            <span class="mono" style="font-size:0.78rem;color:var(--accent-spaldeen);">ACTIVE EQUIP</span>
+            <span>🎨 Live Physics Cap & Spaldeen Locker</span>
+            <span class="mono" style="font-size:0.74rem;color:var(--accent-spaldeen);">EQUIPPED IN GAME</span>
           </h3>
           <div class="skin-row">
             <button type="button" class="skin-chip selected" onclick="selectSkin('gold', '#F4C430', '#D94E28', this)">
-              <span class="swatch-dot" style="background:#F4C430;"></span> Classic Melted-Wax Cap
+              <span class="swatch-dot" style="background:#F4C430;"></span> Melted-Wax Gold Cap
             </button>
             <button type="button" class="skin-chip" onclick="selectSkin('spaldeen', '#FF5E7E', '#9E1B3B', this)">
               <span class="swatch-dot" style="background:#FF5E7E;"></span> Pink Hi-Bounce Spaldeen
             </button>
             <button type="button" class="skin-chip" onclick="selectSkin('savannah', '#1B9AAA', '#0F4C5C', this)">
-              <span class="swatch-dot" style="background:#1B9AAA;"></span> Savannah Heights Lion Crest
+              <span class="swatch-dot" style="background:#1B9AAA;"></span> Savannah Lion Crest
             </button>
           </div>
         </div>
 
         <div class="quick-pass-card">
-          <div class="quick-pass-row">
-            <div>
-              <div style="font-weight:800;font-size:1rem;">🏆 Ranked 3-in-1 Tournament & Founders Locker</div>
-              <div style="font-size:0.84rem;color:var(--ink-secondary);">Protect your Four Square King win streak, unlock weighted wax Skully caps & enter Stoop Ball 3-Sewer Derbies.</div>
-            </div>
+          <div>
+            <div style="font-weight:800;font-size:0.98rem;">🏆 Ranked 3-in-1 Tournament & Founders Locker</div>
+            <div style="font-size:0.82rem;color:var(--ink-secondary);margin-top:2px;">Defend your Four Square King crown, unlock weighted wax Skully caps & enter Stoop Ball 3-Sewer Derbies.</div>
           </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <a class="btn-stripe" href="https://buy.stripe.com/dRm5kwchtcL91L6c0N08g1u" target="_blank" rel="noopener">
               ⚡ Tournament & Streak Shield — $1.99
             </a>
@@ -800,43 +818,83 @@
       <div class="section-head">
         <span class="eyebrow-badge">3-in-1 Physics Arcade Architecture</span>
         <h2>One Unified Physics Engine. Three Iconic Street Classics.</h2>
-        <p>Skip saturated $100M stadium games and high-injury pile-ons. These 3 micro-skill classics share a single 2D rigid-body bounce & flick engine, hooking players in 10 seconds and monetizing via cosmetics, streak shields, and derby passes.</p>
+        <p>Built on the proven Miniclip <em>8 Ball Pool</em> & <em>Carrom Pool</em> micro-skill loop: tactile drag-and-release physics, 45-second competitive rounds, and cosmetic cap/ball lockers.</p>
       </div>
 
       <div class="games-grid">
         <article class="game-card">
           <div>
+            <div class="game-art-banner">
+              <svg viewBox="0 0 360 132" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="360" height="132" fill="#C9BFA9"/>
+                <line x1="20" y1="15" x2="340" y2="117" stroke="#FAF6F0" stroke-width="2.5" stroke-dasharray="6,4"/>
+                <line x1="340" y1="15" x2="20" y2="117" stroke="#FAF6F0" stroke-width="2.5" stroke-dasharray="6,4"/>
+                <rect x="148" y="34" width="64" height="64" fill="#D94E28" fill-opacity="0.22" stroke="#FAF6F0" stroke-width="3"/>
+                <text x="180" y="72" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="18" fill="#1A1715">💀13</text>
+                <circle cx="82" cy="88" r="22" fill="#D94E28" stroke="#1A1715" stroke-width="3"/>
+                <circle cx="82" cy="88" r="15" fill="#F4C430" stroke="#1A1715" stroke-width="2"/>
+                <text x="82" y="93" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="12" fill="#1A1715">13</text>
+                <path d="M 106 78 Q 132 65 152 62" stroke="#D94E28" stroke-width="3" fill="none" stroke-dasharray="4,4"/>
+              </svg>
+            </div>
             <span class="game-rank">GAME #1 • TURN-BASED FLICK PHYSICS</span>
             <h3>Skully / Skelly ("Bottlecap Golf")</h3>
-            <p>Players weight metal soda caps with melted candle wax and flick them sequentially through chalk boxes 1–13 around a center skull, knocking rivals out of bounds.</p>
+            <p>Drag back to aim with trajectory preview dots, flicking melted-wax soda bottlecaps sequentially through chalk boxes 1–13 while caroming rivals into the skull trap.</p>
           </div>
           <div>
             <div class="game-meta">💰 Proven 1v1 turn-based flick loop (Miniclip's $1B+ 8 Ball Pool & Carrom Pool model).</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('skully')">Play 1. Skully Now ↑</button>
+            <button type="button" class="ctrl-btn action" style="width:100%;margin-top:10px;" onclick="switchMode('skully'); window.scrollTo({top:0,behavior:'smooth'});">Play 1. Skully Now ↑</button>
           </div>
         </article>
 
         <article class="game-card">
           <div>
-            <span class="game-rank">GAME #2 • 45-SECOND KING ELIMINATION</span>
+            <div class="game-art-banner">
+              <svg viewBox="0 0 360 132" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="360" height="132" fill="#B8C4BB"/>
+                <rect x="24" y="14" width="152" height="48" fill="#0F4C5C" fill-opacity="0.18" stroke="#FAF6F0" stroke-width="2.5"/>
+                <rect x="184" y="14" width="152" height="48" fill="#D49A1A" fill-opacity="0.32" stroke="#FAF6F0" stroke-width="2.5"/>
+                <rect x="24" y="68" width="152" height="48" fill="#D94E28" fill-opacity="0.25" stroke="#FAF6F0" stroke-width="2.5"/>
+                <rect x="184" y="68" width="152" height="48" fill="#0F4C5C" fill-opacity="0.18" stroke="#FAF6F0" stroke-width="2.5"/>
+                <text x="100" y="43" text-anchor="middle" font-family="Fraunces" font-weight="900" font-size="14" fill="#1A1715">ACE</text>
+                <text x="260" y="43" text-anchor="middle" font-family="Fraunces" font-weight="900" font-size="14" fill="#1A1715">👑 KING</text>
+                <text x="100" y="97" text-anchor="middle" font-family="Fraunces" font-weight="900" font-size="14" fill="#1A1715">YOU (CHALLENGER)</text>
+                <text x="260" y="97" text-anchor="middle" font-family="Fraunces" font-weight="900" font-size="14" fill="#1A1715">QUEEN</text>
+                <circle cx="176" cy="64" r="14" fill="#FF5E7E" stroke="#1A1715" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <span class="game-rank">GAME #2 • LIVE 4-PLAYER RALLY & KING THRONE</span>
             <h3>Four Square ("Ace-King-Queen")</h3>
-            <p>Four asphalt quadrants (Ace, King, Queen, Jack). Slice low corner bounces to eliminate the King and hold the throne against challengers.</p>
+            <p>Steer your player paddle inside the bottom-left quadrant or tap as the high-bounce pink Spaldeen lands in your square to slice cross-court winners and dethrone the King.</p>
           </div>
           <div>
             <div class="game-meta">💰 Monetizes via $1.99 "Hold the Crown" Streak Shields & custom court chalk decals.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('foursquare')">Play 2. Four Square ↑</button>
+            <button type="button" class="ctrl-btn action" style="width:100%;margin-top:10px;" onclick="switchMode('foursquare'); window.scrollTo({top:0,behavior:'smooth'});">Play 2. Four Square ↑</button>
           </div>
         </article>
 
         <article class="game-card">
           <div>
+            <div class="game-art-banner">
+              <svg viewBox="0 0 360 132" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="360" height="132" fill="#D5DFEB"/>
+                <rect y="94" width="360" height="38" fill="#B5AB99"/>
+                <polygon points="0,30 48,30 48,94 0,94" fill="#A6442C" stroke="#1A1715" stroke-width="2"/>
+                <polygon points="48,52 84,52 84,94 48,94" fill="#B8533A" stroke="#1A1715" stroke-width="2"/>
+                <polygon points="84,74 118,74 118,94 84,94" fill="#C9654A" stroke="#1A1715" stroke-width="2"/>
+                <path d="M 84 52 Q 190 8 310 98" stroke="#D94E28" stroke-width="3" fill="none" stroke-dasharray="5,4"/>
+                <ellipse cx="310" cy="108" rx="34" ry="10" fill="#4A433B" stroke="#1A1715" stroke-width="2"/>
+                <text x="305" y="86" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="11" fill="#D94E28">3 SEWERS HR!</text>
+                <circle cx="175" cy="36" r="11" fill="#FF5E7E" stroke="#1A1715" stroke-width="2"/>
+              </svg>
+            </div>
             <span class="game-rank">GAME #3 • BROWNSTONE RICOCHET DERBY</span>
             <h3>Stoop Ball ("3-Sewers Home Run Derby")</h3>
-            <p>Whip a pink Spaldeen against concrete brownstone steps at the exact 45° edge to launch line drives and 3-sewer home runs down the block.</p>
+            <p>Time the oscillating power & angle gauge to whip a pink Spaldeen off the 45° brownstone step corner, launching towering 3-sewer home runs past parked neighborhood cruisers.</p>
           </div>
           <div>
             <div class="game-meta">💰 Paper Toss meets Home Run Derby — monetizes on ball elasticity & neighborhood stoops.</div>
-            <button type="button" class="ctrl-btn" style="width:100%;margin-top:10px;" onclick="switchMode('stoopball')">Play 3. Stoop Ball ↑</button>
+            <button type="button" class="ctrl-btn action" style="width:100%;margin-top:10px;" onclick="switchMode('stoopball'); window.scrollTo({top:0,behavior:'smooth'});">Play 3. Stoop Ball ↑</button>
           </div>
         </article>
       </div>
@@ -1025,7 +1083,9 @@
   </footer>
 
   <script>
-    // WebAudio Synthesizer (Zero external MP3 dependency)
+    // =========================================================================
+    // PROCEDURAL WEBAUDIO SOUND ENGINE (Wax Clack, Rubber Bounce, Crowd Cheer)
+    // =========================================================================
     let soundEnabled = true;
     let audioCtx = null;
     function playTone(freq, dur, type='triangle', gainVal=0.12) {
@@ -1044,12 +1104,19 @@
         osc.stop(audioCtx.currentTime + dur);
       } catch (e) {}
     }
+    function playChord() {
+      playTone(523.25, 0.18, 'sine', 0.1);
+      setTimeout(() => playTone(659.25, 0.18, 'sine', 0.1), 50);
+      setTimeout(() => playTone(783.99, 0.24, 'triangle', 0.12), 100);
+    }
     function toggleSound() {
       soundEnabled = !soundEnabled;
-      document.getElementById('btnAudioToggle').textContent = soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF';
+      document.getElementById('btnAudioToggle').textContent = soundEnabled ? '🔊 SFX: ON' : '🔇 SFX: OFF';
     }
 
-    // Core 3-in-1 Arcade State
+    // =========================================================================
+    // CORE 60FPS PHYSICS ENGINE, PARTICLES, TRAILS & CAMERA SHAKE
+    // =========================================================================
     const canvas = document.getElementById('arcadeCanvas');
     const ctx = canvas.getContext('2d');
     let currentMode = 'skully';
@@ -1059,14 +1126,40 @@
     let skinStroke = '#D94E28';
     let bannerFlash = '';
     let bannerTimer = 0;
+    let shakeFrames = 0;
+    let particles = [];
+    let trailPoints = [];
+
+    // Pre-generate realistic asphalt grain speckles so the court looks tactile
+    const asphaltGrain = Array.from({length: 220}, (_, i) => ({
+      x: (i * 97) % 720,
+      y: (i * 53) % 440,
+      r: (i % 3 === 0) ? 1.8 : 1.1,
+      light: i % 2 === 0
+    }));
+
+    function spawnParticles(x, y, color, count=18) {
+      for (let i = 0; i < count; i++) {
+        const ang = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+        const spd = 1.8 + Math.random() * 4.5;
+        particles.push({
+          x, y,
+          vx: Math.cos(ang) * spd,
+          vy: Math.sin(ang) * spd,
+          r: 2.5 + Math.random() * 3,
+          color,
+          life: 28 + Math.floor(Math.random() * 14)
+        });
+      }
+    }
 
     function flashMessage(msg) {
       bannerFlash = msg;
-      bannerTimer = 75;
+      bannerTimer = 80;
     }
 
     function updateHUD(targetText) {
-      document.getElementById('hudScore').textContent = score;
+      document.getElementById('hudScore').textContent = score.toLocaleString();
       document.getElementById('hudStreak').textContent = streak + '🔥';
       if (targetText) document.getElementById('hudTarget').textContent = targetText;
     }
@@ -1076,55 +1169,147 @@
       skinStroke = stroke;
       document.querySelectorAll('.skin-chip').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
-      playTone(580, 0.12, 'sine');
+      playChord();
+      spawnParticles(canvas.width / 2, canvas.height / 2, fill, 22);
     }
 
-    // ==========================================
-    // MODE 1: SKULLY (1-13 CHALK BOTTLECAP GOLF)
-    // ==========================================
+    // Helper: Draw realistic crimped metal bottlecap with melted candle wax center
+    function drawBottlecap(x, y, r, waxColor, rimColor, labelText) {
+      ctx.save();
+      ctx.translate(x, y);
+      // Drop shadow
+      ctx.beginPath();
+      ctx.arc(3, 4, r + 1, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(26, 23, 21, 0.34)';
+      ctx.fill();
+
+      // 14-ridge crimped metal crown skirt
+      const teeth = 14;
+      ctx.beginPath();
+      for (let i = 0; i < teeth * 2; i++) {
+        const rad = (i % 2 === 0) ? r + 2.5 : r - 1.2;
+        const a = (i * Math.PI) / teeth;
+        const px = Math.cos(a) * rad;
+        const py = Math.sin(a) * rad;
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fillStyle = rimColor;
+      ctx.fill();
+      ctx.lineWidth = 1.8;
+      ctx.strokeStyle = '#1A1715';
+      ctx.stroke();
+
+      // Inner melted wax pool
+      ctx.beginPath();
+      ctx.arc(0, 0, r - 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = waxColor;
+      ctx.fill();
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = '#1A1715';
+      ctx.stroke();
+
+      // Gloss highlight on wax
+      ctx.beginPath();
+      ctx.arc(-r * 0.28, -r * 0.28, r * 0.26, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.fill();
+
+      // Stamped number
+      ctx.fillStyle = '#1A1715';
+      ctx.font = '800 11px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(labelText, 0, 1);
+      ctx.restore();
+    }
+
+    // Helper: Draw 3D shaded high-bounce Pink Spaldeen rubber ball with ground shadow
+    function drawSpaldeen(x, y, r, altitude=0, baseColor='#FF5E7E') {
+      ctx.save();
+      // Ground shadow scales with altitude
+      const shadowScale = Math.max(0.45, 1 - altitude / 260);
+      ctx.beginPath();
+      ctx.ellipse(x + 4, y + altitude + 6, r * shadowScale, r * 0.45 * shadowScale, 0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(26, 23, 21, 0.28)';
+      ctx.fill();
+
+      // Ball sphere with radial specular highlight
+      const grad = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.12, x, y, r);
+      grad.addColorStop(0, '#FFD1DC');
+      grad.addColorStop(0.35, baseColor);
+      grad.addColorStop(1, '#9E1B3B');
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#1A1715';
+      ctx.stroke();
+
+      // Authentic Spaldeen seam curve
+      ctx.beginPath();
+      ctx.arc(x, y, r * 0.68, -0.7, 1.8);
+      ctx.strokeStyle = 'rgba(250, 246, 240, 0.55)';
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // =========================================================================
+    // MODE 1: SKULLY (1-13 NYC CHALK BOARD BOTTLECAP GOLF)
+    // =========================================================================
     const skullyBoxes = [
-      {num:1, x:68, y:56}, {num:2, x:340, y:56}, {num:3, x:612, y:56},
-      {num:4, x:612, y:210}, {num:5, x:612, y:364}, {num:6, x:340, y:364},
-      {num:7, x:68, y:364}, {num:8, x:68, y:210},
-      {num:9, x:185, y:125}, {num:10, x:495, y:125},
-      {num:11, x:495, y:295}, {num:12, x:185, y:295},
-      {num:13, x:340, y:210}
+      {num:1, x:68, y:56}, {num:2, x:360, y:52}, {num:3, x:652, y:56},
+      {num:4, x:652, y:220}, {num:5, x:652, y:384}, {num:6, x:360, y:388},
+      {num:7, x:68, y:384}, {num:8, x:68, y:220},
+      {num:9, x:195, y:128}, {num:10, x:525, y:128},
+      {num:11, x:525, y:312}, {num:12, x:195, y:312},
+      {num:13, x:360, y:220}
     ];
-    let skullyCap = {x: 340, y: 395, vx: 0, vy: 0, r: 16, target: 1};
+    let skullyCap = {x: 360, y: 412, vx: 0, vy: 0, r: 17, target: 1};
     let rivalCaps = [
-      {x: 255, y: 180, vx: 0, vy: 0, r: 15, color: '#2B59C3'},
-      {x: 425, y: 245, vx: 0, vy: 0, r: 15, color: '#2E8B57'}
+      {x: 265, y: 185, vx: 0, vy: 0, r: 16, wax: '#4EA8DE', rim: '#1D3557', label: 'R1'},
+      {x: 455, y: 255, vx: 0, vy: 0, r: 16, wax: '#52B788', rim: '#1B4332', label: 'R2'}
     ];
     let dragState = {active: false, sx: 0, sy: 0, cx: 0, cy: 0};
 
-    // ==========================================
-    // MODE 2: FOUR SQUARE (ACE-KING-QUEEN-JACK)
-    // ==========================================
-    let fsBall = {x: 340, y: 210, vx: 3.5, vy: 2.8, r: 13};
-    let fsRanks = ['JACK (You)', 'QUEEN (Rival)', 'ACE (Rival)', 'KING (Crown)'];
+    // =========================================================================
+    // MODE 2: FOUR SQUARE (ACE-KING-QUEEN-JACK ACTIVE 4-PLAYER RALLY)
+    // =========================================================================
+    let fsBall = {x: 360, y: 220, vx: -3.4, vy: 2.9, r: 14, bounceTick: 0};
+    let fsRanks = ['JACK #4', 'QUEEN #3', 'ACE #2', '👑 KING #1'];
     let fsPlayerRankIdx = 0;
+    let fsPlayerPad = {x: 205, y: 330};
+    let fsRallyCount = 0;
 
-    // ==========================================
-    // MODE 3: STOOP BALL (3-SEWERS DERBY)
-    // ==========================================
-    let stoopBall = {x: 190, y: 310, vx: 0, vy: 0, r: 12, inFlight: false};
+    // =========================================================================
+    // MODE 3: STOOP BALL (BROOKLYN BROWNSTONE 3-SEWERS DERBY)
+    // =========================================================================
+    let stoopBall = {x: 215, y: 335, vx: 0, vy: 0, r: 13, inFlight: false, hitStep: false};
+    let stoopMeter = 0;
+    let stoopMeterDir = 1;
 
     function resetCurrentGame() {
+      trailPoints = [];
+      particles = [];
       if (currentMode === 'skully') {
-        skullyCap = {x: 340, y: 395, vx: 0, vy: 0, r: 16, target: 1};
+        skullyCap = {x: 360, y: 412, vx: 0, vy: 0, r: 17, target: 1};
         rivalCaps = [
-          {x: 255, y: 180, vx: 0, vy: 0, r: 15, color: '#2B59C3'},
-          {x: 425, y: 245, vx: 0, vy: 0, r: 15, color: '#2E8B57'}
+          {x: 265, y: 185, vx: 0, vy: 0, r: 16, wax: '#4EA8DE', rim: '#1D3557', label: 'R1'},
+          {x: 455, y: 255, vx: 0, vy: 0, r: 16, wax: '#52B788', rim: '#1B4332', label: 'R2'}
         ];
         updateHUD('Box #1');
       } else if (currentMode === 'foursquare') {
-        fsBall = {x: 340, y: 210, vx: 3.6, vy: 2.7, r: 13};
-        updateHUD('Climb to KING');
+        fsBall = {x: 360, y: 140, vx: -3.2, vy: 3.1, r: 14, bounceTick: 0};
+        fsRallyCount = 0;
+        updateHUD(fsRanks[fsPlayerRankIdx]);
       } else if (currentMode === 'stoopball') {
-        stoopBall = {x: 190, y: 310, vx: 0, vy: 0, r: 12, inFlight: false};
-        updateHUD('Hit Corner Edge');
+        stoopBall = {x: 215, y: 335, vx: 0, vy: 0, r: 13, inFlight: false, hitStep: false};
+        updateHUD('3-Sewer HR');
       }
-      flashMessage('COURT RESET — GO!');
+      flashMessage('CHALK FRESH — PLAY BALL!');
     }
 
     function switchMode(mode) {
@@ -1135,25 +1320,25 @@
       });
       const meta = {
         skully: {
-          name: 'Skully (1–13 Chalk Course)',
+          name: '1. Skully 1–13',
           target: 'Box #' + skullyCap.target,
-          inst: '👉 Drag back from your bottlecap (or click any target box) to flick through Boxes 1–13!'
+          inst: '👉 Drag back anywhere on the court to aim the trajectory dots & release to flick into Target Box #' + skullyCap.target + '!'
         },
         foursquare: {
-          name: 'Four Square (Ace-King-Queen)',
-          target: 'Hold KING Square',
-          inst: '👉 Click/Tap inside your bottom-left quadrant when the pink Spaldeen enters to slice it back!'
+          name: '2. Four Square',
+          target: fsRanks[fsPlayerRankIdx],
+          inst: '👉 Move cursor/finger in your bottom-left square & click/tap as the Spaldeen enters to slice a corner winner!'
         },
         stoopball: {
-          name: 'Stoop Ball (3-Sewers Derby)',
-          target: '3-Sewer Home Run',
-          inst: '👉 Click/Tap the brownstone step edge to whip the Spaldeen for a 3-Sewer Home Run!'
+          name: '3. Stoop Ball',
+          target: '3-Sewer HR',
+          inst: '👉 Click/Tap when the Power Arc hits the Gold 45° Sweet Spot to whip the Spaldeen 3 Sewers deep!'
         }
       }[mode];
       document.getElementById('hudModeName').textContent = meta.name;
       document.getElementById('hudInstruction').textContent = meta.inst;
       resetCurrentGame();
-      playTone(440, 0.1, 'sine');
+      playTone(460, 0.1, 'sine');
     }
 
     function triggerQuickShot() {
@@ -1161,25 +1346,33 @@
         const tgt = skullyBoxes.find(b => b.num === skullyCap.target) || skullyBoxes[0];
         const dx = tgt.x - skullyCap.x;
         const dy = tgt.y - skullyCap.y;
-        skullyCap.vx = dx * 0.082;
-        skullyCap.vy = dy * 0.082;
-        playTone(520, 0.12, 'triangle');
+        skullyCap.vx = dx * 0.085;
+        skullyCap.vy = dy * 0.085;
+        playTone(540, 0.12, 'triangle');
       } else if (currentMode === 'foursquare') {
-        fsBall.vx = (Math.random() > 0.5 ? 1 : -1) * (4.2 + Math.random()*2);
-        fsBall.vy = -4.5;
-        score += 120;
+        // Slice ball aggressively toward King square (top-right)
+        fsBall.vx = 5.4 + Math.random() * 1.5;
+        fsBall.vy = -5.2 - Math.random() * 1.2;
+        fsRallyCount += 1;
+        score += 140;
         streak += 1;
         fsPlayerRankIdx = Math.min(3, fsPlayerRankIdx + 1);
-        flashMessage('KING SLICE! +120 PTS');
-        playTone(660, 0.14, 'sine');
-        updateHUD(fsPlayerRankIdx === 3 ? '👑 KING OF COURT' : 'Rank Up!');
+        spawnParticles(fsBall.x, fsBall.y, '#FF5E7E', 20);
+        shakeFrames = 6;
+        flashMessage('KING CORNER SLICE! +140 PTS');
+        playChord();
+        updateHUD(fsRanks[fsPlayerRankIdx]);
       } else if (currentMode === 'stoopball') {
-        stoopBall.x = 190;
-        stoopBall.y = 310;
-        stoopBall.vx = -9.5;
-        stoopBall.vy = -4.2;
+        stoopBall.x = 220;
+        stoopBall.y = 330;
+        // Power scales with live meter sweet spot
+        const sweetBonus = 1 - Math.abs(stoopMeter - 0.78);
+        stoopBall.vx = -10.8;
+        stoopBall.vy = -4.6 - sweetBonus * 1.4;
         stoopBall.inFlight = true;
-        playTone(390, 0.1, 'sawtooth');
+        stoopBall.hitStep = false;
+        trailPoints = [];
+        playTone(410, 0.1, 'sawtooth');
       }
     }
 
@@ -1196,22 +1389,23 @@
     canvas.addEventListener('pointerdown', e => {
       const pos = getCanvasPos(e);
       if (currentMode === 'skully') {
-        dragState = {active: true, sx: skullyCap.x, sy: skullyCap.y, cx: pos.x, cy: pos.y};
+        dragState = {active: true, sx: pos.x, sy: pos.y, cx: pos.x, cy: pos.y};
       } else if (currentMode === 'foursquare') {
+        fsPlayerPad.x = Math.max(95, Math.min(330, pos.x));
+        fsPlayerPad.y = Math.max(245, Math.min(395, pos.y));
         triggerQuickShot();
       } else if (currentMode === 'stoopball') {
-        stoopBall.x = 190;
-        stoopBall.y = 310;
-        stoopBall.vx = -9.2;
-        stoopBall.vy = (pos.y - 310) * 0.07 - 2.5;
-        stoopBall.inFlight = true;
-        playTone(400, 0.1, 'triangle');
+        triggerQuickShot();
       }
     });
 
     canvas.addEventListener('pointermove', e => {
-      if (!dragState.active) return;
       const pos = getCanvasPos(e);
+      if (currentMode === 'foursquare') {
+        fsPlayerPad.x = Math.max(95, Math.min(330, pos.x));
+        fsPlayerPad.y = Math.max(245, Math.min(395, pos.y));
+      }
+      if (!dragState.active) return;
       dragState.cx = pos.x;
       dragState.cy = pos.y;
     });
@@ -1220,217 +1414,493 @@
       if (!dragState.active) return;
       dragState.active = false;
       if (currentMode === 'skully') {
-        let dx = skullyCap.x - dragState.cx;
-        let dy = skullyCap.y - dragState.cy;
-        if (Math.hypot(dx, dy) < 18) {
-          dx = (dragState.cx - skullyCap.x) * 0.7;
-          dy = (dragState.cy - skullyCap.y) * 0.7;
+        let dx = dragState.sx - dragState.cx;
+        let dy = dragState.sy - dragState.cy;
+        // If user tapped a target box directly instead of dragging, flick toward that box
+        if (Math.hypot(dx, dy) < 14) {
+          dx = (dragState.cx - skullyCap.x) * 0.68;
+          dy = (dragState.cy - skullyCap.y) * 0.68;
         }
-        skullyCap.vx = Math.max(-16, Math.min(16, dx * 0.13));
-        skullyCap.vy = Math.max(-16, Math.min(16, dy * 0.13));
-        playTone(480, 0.1, 'triangle');
+        skullyCap.vx = Math.max(-17, Math.min(17, dx * 0.135));
+        skullyCap.vy = Math.max(-17, Math.min(17, dy * 0.135));
+        playTone(490, 0.1, 'triangle');
       }
     });
 
-    function renderLoop() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#DED5C4';
+    function drawAsphaltSurface() {
+      const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      grad.addColorStop(0, '#CABFA9');
+      grad.addColorStop(1, '#B8AD96');
+      ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+      asphaltGrain.forEach(g => {
+        ctx.fillStyle = g.light ? 'rgba(255,255,255,0.22)' : 'rgba(26,23,21,0.14)';
+        ctx.fillRect(g.x, g.y, g.r, g.r);
+      });
+    }
+
+    function renderLoop() {
+      ctx.save();
+      if (shakeFrames > 0) {
+        shakeFrames--;
+        ctx.translate((Math.random() - 0.5) * 6, (Math.random() - 0.5) * 6);
+      }
+
+      drawAsphaltSurface();
+
+      // =====================================================================
+      // RENDER MODE 1: SKULLY (1-13 NYC CHALK COURT + BOTTLECAP PHYSICS)
+      // =====================================================================
       if (currentMode === 'skully') {
-        ctx.strokeStyle = '#FAF6F0';
-        ctx.lineWidth = 3;
-        ctx.strokeRect(24, 20, canvas.width - 48, canvas.height - 40);
+        // Outer chalk boundary & diagonal skull struts
+        ctx.strokeStyle = 'rgba(250, 246, 240, 0.92)';
+        ctx.lineWidth = 3.5;
+        ctx.strokeRect(28, 20, canvas.width - 56, canvas.height - 40);
         ctx.beginPath();
-        ctx.moveTo(24, 20); ctx.lineTo(canvas.width - 24, canvas.height - 20);
-        ctx.moveTo(canvas.width - 24, 20); ctx.lineTo(24, canvas.height - 20);
+        ctx.moveTo(28, 20); ctx.lineTo(canvas.width - 28, canvas.height - 20);
+        ctx.moveTo(canvas.width - 28, 20); ctx.lineTo(28, canvas.height - 20);
         ctx.stroke();
 
+        // Inner diamond chalk lines connecting 9-10-11-12
+        ctx.save();
+        ctx.setLineDash([7, 5]);
+        ctx.strokeStyle = 'rgba(250, 246, 240, 0.7)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(195, 128, 330, 184);
+        ctx.restore();
+
+        // Draw boxes 1 to 13
         skullyBoxes.forEach(b => {
           const isTarget = b.num === skullyCap.target;
-          ctx.fillStyle = isTarget ? 'rgba(217, 78, 40, 0.22)' : 'rgba(250, 246, 240, 0.55)';
+          const isSkull = b.num === 13;
+          ctx.fillStyle = isTarget
+            ? 'rgba(217, 78, 40, 0.30)'
+            : (isSkull ? 'rgba(26, 23, 21, 0.22)' : 'rgba(250, 246, 240, 0.65)');
           ctx.strokeStyle = isTarget ? '#D94E28' : '#1A1715';
-          ctx.lineWidth = isTarget ? 3 : 2;
-          ctx.fillRect(b.x - 24, b.y - 24, 48, 48);
-          ctx.strokeRect(b.x - 24, b.y - 24, 48, 48);
+          ctx.lineWidth = isTarget ? 3.5 : 2;
+          ctx.fillRect(b.x - 25, b.y - 25, 50, 50);
+          ctx.strokeRect(b.x - 25, b.y - 25, 50, 50);
 
-          ctx.fillStyle = isTarget ? '#D94E28' : '#1A1715';
-          ctx.font = 'bold 16px "JetBrains Mono", monospace';
+          if (isTarget) {
+            // Pulsing target beacon ring
+            const pulse = 29 + Math.sin(Date.now() * 0.008) * 4;
+            ctx.strokeStyle = '#D94E28';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(b.x - pulse, b.y - pulse, pulse * 2, pulse * 2);
+          }
+
+          ctx.fillStyle = isTarget ? '#B53B19' : '#1A1715';
+          ctx.font = '800 15px "JetBrains Mono", monospace';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
-          ctx.fillText(b.num === 13 ? '💀13' : String(b.num), b.x, b.y);
+          ctx.fillText(isSkull ? '💀13' : String(b.num), b.x, b.y);
         });
 
+        // Physics update for player cap
+        if (Math.hypot(skullyCap.vx, skullyCap.vy) > 0.6) {
+          trailPoints.push({x: skullyCap.x, y: skullyCap.y, life: 14});
+        }
         skullyCap.x += skullyCap.vx;
         skullyCap.y += skullyCap.vy;
-        skullyCap.vx *= 0.92;
-        skullyCap.vy *= 0.92;
-        if (skullyCap.x < 40 || skullyCap.x > canvas.width - 40) skullyCap.vx *= -0.8;
-        if (skullyCap.y < 36 || skullyCap.y > canvas.height - 36) skullyCap.vy *= -0.8;
+        skullyCap.vx *= 0.925;
+        skullyCap.vy *= 0.925;
+        if (skullyCap.x < 46 || skullyCap.x > canvas.width - 46) {
+          skullyCap.vx *= -0.82;
+          playTone(310, 0.06, 'triangle');
+        }
+        if (skullyCap.y < 38 || skullyCap.y > canvas.height - 38) {
+          skullyCap.vy *= -0.82;
+          playTone(310, 0.06, 'triangle');
+        }
 
+        // Draw chalk skid trail
+        trailPoints.forEach(tp => {
+          tp.life--;
+          ctx.beginPath();
+          ctx.arc(tp.x, tp.y, 4, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(250, 246, 240, ${tp.life / 20})`;
+          ctx.fill();
+        });
+        trailPoints = trailPoints.filter(tp => tp.life > 0);
+
+        // Rival caps elastic collisions
         rivalCaps.forEach(rc => {
           rc.x += rc.vx; rc.y += rc.vy;
-          rc.vx *= 0.9; rc.vy *= 0.9;
+          rc.vx *= 0.91; rc.vy *= 0.91;
+          if (rc.x < 46 || rc.x > canvas.width - 46) rc.vx *= -0.8;
+          if (rc.y < 38 || rc.y > canvas.height - 38) rc.vy *= -0.8;
+
           const dist = Math.hypot(skullyCap.x - rc.x, skullyCap.y - rc.y);
           if (dist < skullyCap.r + rc.r && Math.hypot(skullyCap.vx, skullyCap.vy) > 0.4) {
             const nx = (rc.x - skullyCap.x) / (dist || 1);
             const ny = (rc.y - skullyCap.y) / (dist || 1);
-            rc.vx = nx * 7;
-            rc.vy = ny * 7;
-            skullyCap.vx *= -0.4;
-            skullyCap.vy *= -0.4;
-            score += 75;
-            flashMessage('RIVAL CAP KNOCKED! +75 PTS');
-            playTone(320, 0.15, 'square');
+            rc.vx = nx * 8.5;
+            rc.vy = ny * 8.5;
+            skullyCap.vx *= -0.45;
+            skullyCap.vy *= -0.45;
+            score += 95;
+            shakeFrames = 5;
+            spawnParticles(rc.x, rc.y, '#F4C430', 18);
+            flashMessage('WAX CAP CAROM! +95 PTS');
+            playTone(340, 0.14, 'square');
             updateHUD();
           }
-          ctx.beginPath();
-          ctx.arc(rc.x, rc.y, rc.r, 0, Math.PI * 2);
-          ctx.fillStyle = rc.color;
-          ctx.fill();
-          ctx.lineWidth = 3;
-          ctx.strokeStyle = '#FAF6F0';
-          ctx.stroke();
+          drawBottlecap(rc.x, rc.y, rc.r, rc.wax, rc.rim, rc.label);
         });
 
+        // Target Box check
         const tgt = skullyBoxes.find(b => b.num === skullyCap.target);
-        if (tgt && Math.hypot(skullyCap.x - tgt.x, skullyCap.y - tgt.y) < 30 && Math.hypot(skullyCap.vx, skullyCap.vy) < 1.8) {
-          score += 200;
+        if (tgt && Math.hypot(skullyCap.x - tgt.x, skullyCap.y - tgt.y) < 32 && Math.hypot(skullyCap.vx, skullyCap.vy) < 2.1) {
+          score += 250;
           streak += 1;
-          playTone(680, 0.18, 'sine');
-          flashMessage('BOX #' + skullyCap.target + ' CLEARED! +200 PTS');
+          spawnParticles(tgt.x, tgt.y, '#D94E28', 26);
+          shakeFrames = 6;
+          playChord();
+          flashMessage('BOX #' + skullyCap.target + ' LOCKED IN! +250 PTS');
           skullyCap.target = skullyCap.target >= 13 ? 1 : skullyCap.target + 1;
           updateHUD('Box #' + skullyCap.target);
         }
 
+        // Trajectory Aiming Arc Dots when dragging
         if (dragState.active) {
-          ctx.beginPath();
-          ctx.moveTo(skullyCap.x, skullyCap.y);
-          ctx.lineTo(dragState.cx, dragState.cy);
-          ctx.strokeStyle = '#D94E28';
-          ctx.lineWidth = 3;
-          ctx.setLineDash([6, 4]);
-          ctx.stroke();
-          ctx.setLineDash([]);
+          const dx = dragState.sx - dragState.cx;
+          const dy = dragState.sy - dragState.cy;
+          const pvx = Math.max(-17, Math.min(17, dx * 0.135));
+          const pvy = Math.max(-17, Math.min(17, dy * 0.135));
+          let tx = skullyCap.x;
+          let ty = skullyCap.y;
+          let tvx = pvx;
+          let tvy = pvy;
+          for (let step = 1; step <= 12; step++) {
+            tx += tvx * 2.2;
+            ty += tvy * 2.2;
+            tvx *= 0.86;
+            tvy *= 0.86;
+            ctx.beginPath();
+            ctx.arc(tx, ty, Math.max(2.5, 6.5 - step * 0.35), 0, Math.PI * 2);
+            ctx.fillStyle = step < 6 ? '#D94E28' : '#F4C430';
+            ctx.fill();
+            ctx.strokeStyle = '#1A1715';
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
         }
 
-        ctx.beginPath();
-        ctx.arc(skullyCap.x, skullyCap.y, skullyCap.r, 0, Math.PI * 2);
-        ctx.fillStyle = skinFill;
-        ctx.fill();
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = skinStroke;
-        ctx.stroke();
-        ctx.fillStyle = '#1A1715';
-        ctx.font = 'bold 11px "JetBrains Mono", monospace';
-        ctx.fillText('13', skullyCap.x, skullyCap.y);
+        drawBottlecap(skullyCap.x, skullyCap.y, skullyCap.r, skinFill, skinStroke, '13');
 
+      // =====================================================================
+      // RENDER MODE 2: FOUR SQUARE (4-QUADRANT COURT + PADDLES + SPALDEEN)
+      // =====================================================================
       } else if (currentMode === 'foursquare') {
         const midX = canvas.width / 2;
         const midY = canvas.height / 2;
+
+        // Colored quadrant tints
+        ctx.fillStyle = 'rgba(15, 76, 92, 0.16)';
+        ctx.fillRect(64, 28, midX - 64, midY - 28); // Ace
+        ctx.fillStyle = 'rgba(212, 154, 26, 0.24)';
+        ctx.fillRect(midX, 28, midX - 64, midY - 28); // King
+        ctx.fillStyle = 'rgba(217, 78, 40, 0.22)';
+        ctx.fillRect(64, midY, midX - 64, midY - 28); // You
+        ctx.fillStyle = 'rgba(15, 76, 92, 0.12)';
+        ctx.fillRect(midX, midY, midX - 64, midY - 28); // Queen
+
+        // Crisp double chalk court lines
         ctx.strokeStyle = '#FAF6F0';
-        ctx.lineWidth = 4;
-        ctx.strokeRect(60, 30, canvas.width - 120, canvas.height - 60);
+        ctx.lineWidth = 4.5;
+        ctx.strokeRect(64, 28, canvas.width - 128, canvas.height - 56);
         ctx.beginPath();
-        ctx.moveTo(midX, 30); ctx.lineTo(midX, canvas.height - 30);
-        ctx.moveTo(60, midY); ctx.lineTo(canvas.width - 60, midY);
+        ctx.moveTo(midX, 28); ctx.lineTo(midX, canvas.height - 28);
+        ctx.moveTo(64, midY); ctx.lineTo(canvas.width - 64, midY);
+        ctx.stroke();
+
+        // Center Serve Diamond
+        ctx.beginPath();
+        ctx.moveTo(midX, midY - 28);
+        ctx.lineTo(midX + 28, midY);
+        ctx.lineTo(midX, midY + 28);
+        ctx.lineTo(midX - 28, midY);
+        ctx.closePath();
+        ctx.fillStyle = '#FAF6F0';
+        ctx.fill();
+        ctx.strokeStyle = '#1A1715';
+        ctx.lineWidth = 2;
         ctx.stroke();
 
         const quads = [
-          {label: 'ACE SQUARE', x: 200, y: 115},
-          {label: 'KING CROWN 👑', x: 480, y: 115},
-          {label: 'YOU (' + fsRanks[fsPlayerRankIdx] + ')', x: 200, y: 310},
-          {label: 'QUEEN SQUARE', x: 480, y: 310}
+          {label: 'ACE #2 (RIVAL)', x: 210, y: 60},
+          {label: '👑 KING THRONE #1', x: 510, y: 60},
+          {label: 'YOU • ' + fsRanks[fsPlayerRankIdx], x: 210, y: 392},
+          {label: 'QUEEN #3 (RIVAL)', x: 510, y: 392}
         ];
-        ctx.font = 'bold 16px "Fraunces", serif';
+        ctx.font = '800 14px "Fraunces", serif';
         ctx.fillStyle = '#1A1715';
         ctx.textAlign = 'center';
         quads.forEach(q => ctx.fillText(q.label, q.x, q.y));
 
+        // Draw 3 Rival AI Paddles + Player Paddle
+        const aiPods = [
+          {x: 210 + Math.sin(Date.now()*0.004)*45, y: 125, col: '#0F4C5C', tag: 'ACE'},
+          {x: 510 + Math.cos(Date.now()*0.004)*45, y: 125, col: '#D49A1A', tag: 'KING'},
+          {x: 510 + Math.sin(Date.now()*0.005)*45, y: 320, col: '#2E8B57', tag: 'QN'}
+        ];
+        aiPods.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 18, 0, Math.PI * 2);
+          ctx.fillStyle = p.col;
+          ctx.fill();
+          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = '#FAF6F0';
+          ctx.stroke();
+          ctx.fillStyle = '#FAF6F0';
+          ctx.font = '800 10px "JetBrains Mono", monospace';
+          ctx.fillText(p.tag, p.x, p.y + 1);
+        });
+
+        // Player Paddle in bottom-left square
+        ctx.beginPath();
+        ctx.arc(fsPlayerPad.x, fsPlayerPad.y, 22, 0, Math.PI * 2);
+        ctx.fillStyle = '#D94E28';
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#1A1715';
+        ctx.stroke();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 10px "JetBrains Mono", monospace';
+        ctx.fillText('YOU', fsPlayerPad.x, fsPlayerPad.y + 1);
+
+        // Update Spaldeen ball
         fsBall.x += fsBall.vx;
         fsBall.y += fsBall.vy;
-        if (fsBall.x < 75 || fsBall.x > canvas.width - 75) { fsBall.vx *= -1; playTone(360, 0.07); }
-        if (fsBall.y < 45 || fsBall.y > canvas.height - 45) { fsBall.vy *= -1; playTone(360, 0.07); }
+        fsBall.bounceTick += 0.14;
+        const alt = Math.abs(Math.sin(fsBall.bounceTick)) * 22;
 
-        ctx.beginPath();
-        ctx.arc(fsBall.x, fsBall.y, fsBall.r, 0, Math.PI * 2);
-        ctx.fillStyle = '#FF5E7E';
-        ctx.fill();
+        if (fsBall.x < 82 || fsBall.x > canvas.width - 82) {
+          fsBall.vx *= -1;
+          spawnParticles(fsBall.x, fsBall.y, '#FAF6F0', 8);
+          playTone(380, 0.07);
+        }
+        if (fsBall.y < 46 || fsBall.y > canvas.height - 46) {
+          fsBall.vy *= -1;
+          spawnParticles(fsBall.x, fsBall.y, '#FAF6F0', 8);
+          playTone(380, 0.07);
+        }
+
+        // Auto-deflect if ball hits player paddle
+        if (Math.hypot(fsBall.x - fsPlayerPad.x, fsBall.y - fsPlayerPad.y) < 34 && fsBall.vy > 0) {
+          fsBall.vy = -Math.abs(fsBall.vy) * 1.05;
+          fsBall.vx += (fsBall.x - fsPlayerPad.x) * 0.12;
+          score += 85;
+          streak += 1;
+          spawnParticles(fsBall.x, fsBall.y, '#F4C430', 14);
+          flashMessage('CLEAN RETURN! +85 PTS');
+          playTone(620, 0.1, 'sine');
+          updateHUD(fsRanks[fsPlayerRankIdx]);
+        }
+
+        drawSpaldeen(fsBall.x, fsBall.y, fsBall.r, alt, skinFill === '#FF5E7E' ? '#FF5E7E' : '#FF477E');
+
+      // =====================================================================
+      // RENDER MODE 3: STOOP BALL (BROOKLYN BROWNSTONE 3-SEWERS DERBY)
+      // =====================================================================
+      } else if (currentMode === 'stoopball') {
+        // Warm sunlit afternoon Brooklyn sky + street horizon
+        const sky = ctx.createLinearGradient(0, 0, 0, 250);
+        sky.addColorStop(0, '#D4E4F7');
+        sky.addColorStop(1, '#F5E6CC');
+        ctx.fillStyle = sky;
+        ctx.fillRect(0, 0, canvas.width, 250);
+
+        // Background Brooklyn rowhouse silhouettes
+        ctx.fillStyle = '#D9CBB5';
+        ctx.fillRect(220, 70, 140, 180);
+        ctx.fillRect(380, 90, 150, 160);
+        ctx.fillRect(545, 60, 150, 190);
+        ctx.strokeStyle = '#1A1715';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(220, 70, 140, 180);
+        ctx.strokeRect(380, 90, 150, 160);
+        ctx.strokeRect(545, 60, 150, 190);
+
+        // Sidewalk curb & asphalt roadbed
+        ctx.fillStyle = '#DED4C3';
+        ctx.fillRect(0, 250, canvas.width, 36);
+        ctx.fillStyle = '#9E9587';
+        ctx.fillRect(0, 286, canvas.width, 154);
         ctx.strokeStyle = '#1A1715';
         ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(0, 286); ctx.lineTo(canvas.width, 286);
         ctx.stroke();
 
-      } else if (currentMode === 'stoopball') {
-        ctx.fillStyle = '#B55338';
-        ctx.fillRect(30, 140, 45, 240);
-        ctx.fillRect(75, 200, 40, 180);
-        ctx.fillRect(115, 260, 40, 120);
-        ctx.strokeStyle = '#1A1715';
-        ctx.lineWidth = 3;
-        ctx.strokeRect(30, 140, 45, 240);
-        ctx.strokeRect(75, 200, 40, 180);
-        ctx.strokeRect(115, 260, 40, 120);
+        // Detailed 3D Brownstone Façade & 4-Tier Concrete Stoop Steps + Iron Railing
+        ctx.fillStyle = '#9E3E26';
+        ctx.fillRect(0, 35, 64, 345);
+        ctx.strokeRect(0, 35, 64, 345);
 
+        const steps = [
+          {x: 64, y: 155, w: 38, h: 225},
+          {x: 102, y: 205, w: 38, h: 175},
+          {x: 140, y: 255, w: 38, h: 125},
+          {x: 178, y: 305, w: 38, h: 75}
+        ];
+        steps.forEach((st, idx) => {
+          ctx.fillStyle = idx % 2 === 0 ? '#B8533A' : '#C9654A';
+          ctx.fillRect(st.x, st.y, st.w, st.h);
+          ctx.strokeStyle = '#1A1715';
+          ctx.lineWidth = 2.5;
+          ctx.strokeRect(st.x, st.y, st.w, st.h);
+          // Highlight the 45-degree corner sweet spots
+          ctx.beginPath();
+          ctx.arc(st.x + st.w, st.y, 6, 0, Math.PI * 2);
+          ctx.fillStyle = '#F4C430';
+          ctx.fill();
+          ctx.stroke();
+        });
+
+        // Iron Stoop Handrail
+        ctx.strokeStyle = '#1A1715';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(64, 115);
+        ctx.lineTo(212, 265);
+        ctx.lineTo(212, 305);
+        ctx.stroke();
+
+        // 3 Cast-Iron Street Sewer Manhole Targets
         const sewers = [
-          {x: 310, label: '1 SEWER (SINGLE)', pts: 100},
-          {x: 460, label: '2 SEWERS (DOUBLE)', pts: 200},
-          {x: 600, label: '3 SEWERS (HOMER!)', pts: 500}
+          {x: 345, label: '1 SEWER (SINGLE)', pts: '100 PTS', col: '#5C5349'},
+          {x: 495, label: '2 SEWERS (DOUBLE)', pts: '250 PTS', col: '#0F4C5C'},
+          {x: 642, label: '3 SEWERS (HOME RUN!)', pts: '500 PTS', col: '#D94E28'}
         ];
         sewers.forEach(s => {
           ctx.beginPath();
-          ctx.ellipse(s.x, 365, 44, 16, 0, 0, Math.PI * 2);
-          ctx.fillStyle = '#5C5349';
+          ctx.ellipse(s.x, 382, 48, 17, 0, 0, Math.PI * 2);
+          ctx.fillStyle = s.col;
           ctx.fill();
+          ctx.lineWidth = 2.5;
           ctx.strokeStyle = '#1A1715';
           ctx.stroke();
-          ctx.fillStyle = '#1A1715';
-          ctx.font = 'bold 11px "JetBrains Mono", monospace';
+
+          // Crosshatch sewer grate lines
+          ctx.beginPath();
+          ctx.ellipse(s.x, 382, 36, 11, 0, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(250,246,240,0.45)';
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+
+          ctx.fillStyle = '#FAF6F0';
+          ctx.font = '800 10px "JetBrains Mono", monospace';
           ctx.textAlign = 'center';
-          ctx.fillText(s.label, s.x, 335);
+          ctx.fillText(s.pts, s.x, 383);
+
+          ctx.fillStyle = '#1A1715';
+          ctx.font = '800 11px "JetBrains Mono", monospace';
+          ctx.fillText(s.label, s.x, 352);
         });
 
+        // Live Oscillating Launch Angle & Power Gauge (top-left of sky)
+        stoopMeter += 0.022 * stoopMeterDir;
+        if (stoopMeter >= 1) { stoopMeter = 1; stoopMeterDir = -1; }
+        if (stoopMeter <= 0) { stoopMeter = 0; stoopMeterDir = 1; }
+
+        ctx.fillStyle = 'rgba(250, 246, 240, 0.92)';
+        ctx.strokeStyle = '#1A1715';
+        ctx.lineWidth = 2;
+        ctx.fillRect(82, 22, 230, 44);
+        ctx.strokeRect(82, 22, 230, 44);
+        ctx.fillStyle = '#1A1715';
+        ctx.font = '800 11px "JetBrains Mono", monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText('45° STOOP CORNER POWER METER', 94, 38);
+
+        // Meter bar + gold sweet spot
+        ctx.fillStyle = '#DFD5C5';
+        ctx.fillRect(94, 46, 206, 12);
+        ctx.fillStyle = '#F4C430';
+        ctx.fillRect(94 + 206 * 0.68, 46, 206 * 0.20, 12);
+        ctx.fillStyle = '#D94E28';
+        ctx.fillRect(94, 46, 206 * stoopMeter, 12);
+        ctx.strokeRect(94, 46, 206, 12);
+
         if (stoopBall.inFlight) {
+          trailPoints.push({x: stoopBall.x, y: stoopBall.y, life: 18});
           stoopBall.x += stoopBall.vx;
           stoopBall.y += stoopBall.vy;
-          stoopBall.vy += 0.26;
-          if (stoopBall.x <= 155 && stoopBall.vx < 0) {
-            stoopBall.vx = 10.5;
-            stoopBall.vy = -7.8;
-            playTone(540, 0.12, 'triangle');
+          stoopBall.vy += 0.25;
+
+          // Ricochet off brownstone step edge
+          if (stoopBall.x <= 178 && stoopBall.vx < 0 && !stoopBall.hitStep) {
+            stoopBall.hitStep = true;
+            stoopBall.vx = 10.8 + stoopMeter * 2.2;
+            stoopBall.vy = -8.4 - stoopMeter * 1.6;
+            shakeFrames = 7;
+            spawnParticles(stoopBall.x, stoopBall.y, '#F4C430', 22);
+            playTone(560, 0.12, 'triangle');
           }
-          if (stoopBall.y >= 360 && stoopBall.vx > 0) {
+
+          if (stoopBall.y >= 376 && stoopBall.vx > 0) {
             stoopBall.inFlight = false;
             let earned = 100;
-            if (stoopBall.x > 540) earned = 500;
-            else if (stoopBall.x > 400) earned = 250;
+            if (stoopBall.x > 575) earned = 500;
+            else if (stoopBall.x > 425) earned = 250;
             score += earned;
             streak += 1;
-            flashMessage(earned === 500 ? '3-SEWER HOME RUN! +500 PTS' : 'LINE DRIVE! +' + earned + ' PTS');
-            playTone(740, 0.18, 'sine');
-            updateHUD(earned + ' PTS');
+            spawnParticles(stoopBall.x, 376, earned === 500 ? '#D94E28' : '#F4C430', 28);
+            shakeFrames = earned === 500 ? 9 : 5;
+            flashMessage(earned === 500 ? '🔥 3-SEWER HOME RUN! +500 PTS' : 'STOOP LINE DRIVE! +' + earned + ' PTS');
+            playChord();
+            updateHUD(earned + ' PTS!');
           }
         }
 
+        // Draw parabolic flight trail
+        trailPoints.forEach(tp => {
+          tp.life--;
+          ctx.beginPath();
+          ctx.arc(tp.x, tp.y, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 94, 126, ${tp.life / 22})`;
+          ctx.fill();
+        });
+        trailPoints = trailPoints.filter(tp => tp.life > 0);
+
+        const stoopAlt = Math.max(0, 376 - stoopBall.y);
+        drawSpaldeen(stoopBall.x, stoopBall.y, stoopBall.r, stoopAlt * 0.25, '#FF5E7E');
+      }
+
+      // Update & draw burst particles across all 3 games
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.12;
+        p.life--;
         ctx.beginPath();
-        ctx.arc(stoopBall.x, stoopBall.y, stoopBall.r, 0, Math.PI * 2);
-        ctx.fillStyle = '#FF5E7E';
+        ctx.arc(p.x, p.y, p.r * (p.life / 35), 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
         ctx.fill();
         ctx.strokeStyle = '#1A1715';
+        ctx.lineWidth = 1;
         ctx.stroke();
-      }
+      });
+      particles = particles.filter(p => p.life > 0);
 
+      // High-contrast editorial callout pill at top of canvas
       if (bannerTimer > 0) {
         bannerTimer--;
-        ctx.fillStyle = 'rgba(26, 23, 21, 0.88)';
-        ctx.fillRect(150, 16, 380, 36);
+        ctx.fillStyle = '#1A1715';
+        ctx.fillRect(170, 14, 380, 34);
+        ctx.strokeStyle = '#F4C430';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(170, 14, 380, 34);
         ctx.fillStyle = '#F4C430';
-        ctx.font = 'bold 14px "JetBrains Mono", monospace';
+        ctx.font = '800 13px "JetBrains Mono", monospace';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(bannerFlash, 340, 34);
+        ctx.fillText(bannerFlash, 360, 31);
       }
 
+      ctx.restore();
       requestAnimationFrame(renderLoop);
     }
     requestAnimationFrame(renderLoop);
@@ -1467,7 +1937,7 @@
                       '<span class="mono" style="font-weight:800;color:var(--accent-spaldeen);">' + postScore.toLocaleString() + ' pts • ' + Math.max(1, streak) + '🔥</span>';
       list.prepend(row);
       document.getElementById('scoreStatusMsg').textContent = '✓ Verified score (' + postScore + ' pts) posted to the Block Board!';
-      playTone(780, 0.18, 'sine');
+      playChord();
       fetch('/api/leaderboard', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
