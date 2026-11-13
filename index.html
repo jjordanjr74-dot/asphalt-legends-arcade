@@ -1119,6 +1119,100 @@
       }
     }
 
+  
+    /* === GOLDEN-HOUR BLOCK PARTY 3D ARCADE STAGE OVERHAUL === */
+    body {
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 184, 77, 0.42) 0%, rgba(255, 184, 77, 0) 44%),
+        radial-gradient(circle at 84% 14%, rgba(224, 71, 36, 0.28) 0%, rgba(224, 71, 36, 0) 42%),
+        radial-gradient(circle at 50% 52%, rgba(27, 154, 170, 0.16) 0%, rgba(27, 154, 170, 0) 55%),
+        linear-gradient(180deg, #FCE7BF 0%, #F7DBA8 48%, #F3E2C3 100%) !important;
+      background-attachment: fixed !important;
+    }
+    .site-header {
+      background: linear-gradient(90deg, #FFF7E2 0%, #FDE7B6 50%, #FFF7E2 100%) !important;
+      border-bottom: 3.5px solid #1C1613 !important;
+      box-shadow: 0 6px 20px rgba(28, 22, 19, 0.14) !important;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, #FF5A33 0%, #C82808 100%) !important;
+      color: #FFFDF8 !important;
+      box-shadow: 3px 3px 0 #1C1613, 0 0 14px rgba(224, 71, 36, 0.45) !important;
+    }
+    .arcade-cabinet {
+      background: linear-gradient(165deg, #2D1E18 0%, #1C1310 55%, #2A1B15 100%) !important;
+      border: 4px solid #F4C430 !important;
+      outline: 3px solid #1C1613 !important;
+      border-radius: 24px !important;
+      padding: 16px !important;
+      box-shadow:
+        0 24px 54px rgba(28, 16, 10, 0.36),
+        0 8px 0 #1C1613,
+        inset 0 2px 0 rgba(255, 232, 163, 0.35) !important;
+      color: #FFF8E7 !important;
+    }
+    .studio-top-deck {
+      border-bottom: 1.5px dashed rgba(244, 196, 48, 0.32) !important;
+    }
+    .turf-Summary-pill {
+      background: linear-gradient(180deg, #FFF9E6 0%, #F5E1B5 100%) !important;
+      color: #1C1613 !important;
+      border: 2px solid #F4C430 !important;
+      box-shadow: 0 3px 0 #0F0A08 !important;
+    }
+    .mode-tab {
+      background: linear-gradient(180deg, #FFFDF7 0%, #F2E2BE 100%) !important;
+      color: #1C1613 !important;
+      border: 2px solid #1C1613 !important;
+      box-shadow: 0 4px 0 #0F0A08 !important;
+    }
+    .mode-tab.active {
+      background: linear-gradient(135deg, #FF5722 0%, #D93814 55%, #F4C430 100%) !important;
+      color: #FFFDF8 !important;
+      border-color: #FFF8E1 !important;
+      box-shadow: 0 5px 0 #0F0A08, 0 0 18px rgba(255, 110, 48, 0.55) !important;
+    }
+    .hud-bar {
+      background: linear-gradient(90deg, #FFF7E0 0%, #FDE8B8 50%, #FFF7E0 100%) !important;
+      border: 2.5px solid #F4C430 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+      color: #1C1613 !important;
+    }
+    .canvas-wrap {
+      background: radial-gradient(circle at center, #F4C430 0%, #C86D28 100%) !important;
+      padding: 6px !important;
+      border: 3px solid #FFF8E1 !important;
+      border-radius: 18px !important;
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(244, 196, 48, 0.28) !important;
+    }
+    canvas#arcadeCanvas {
+      border: 2.5px solid #1C1613 !important;
+      box-shadow: none !important;
+    }
+    .skully-controls-label {
+      color: #FFE066 !important;
+    }
+    .cabinet-controls {
+      background: linear-gradient(180deg, #3A2720 0%, #241814 100%) !important;
+      border-top: 2px solid rgba(244, 196, 48, 0.4) !important;
+      border-radius: 14px !important;
+      margin-top: 8px !important;
+    }
+    .hero-editorial {
+      background: linear-gradient(165deg, rgba(255, 252, 242, 0.96) 0%, rgba(252, 236, 198, 0.96) 100%) !important;
+      border: 3px solid #1C1613 !important;
+      border-radius: 22px !important;
+      padding: 18px !important;
+      box-shadow: 8px 8px 0 #1C1613, 0 16px 36px rgba(28, 22, 19, 0.14) !important;
+    }
+    .game-card, .tier-card, .econ-card {
+      background: linear-gradient(180deg, #FFFDF8 0%, #FBF0D9 100%) !important;
+      border: 3px solid #1C1613 !important;
+      box-shadow: 6px 6px 0 #1C1613 !important;
+    }
+
   </style>
 </head>
 <body>
@@ -1983,119 +2077,202 @@
       spawnParticles(canvas.width / 2, canvas.height / 2, fill, 22);
     }
 
-    // Draw Vintage 1970s/80s Classic Car with Chrome Bumpers & Whitewall Tires
+    // Draw Sculpted 1970s/80s Classic Brougham Cruiser with Metallic Sheen, Headlight Beams & Whitewalls
     function drawVintageCruiser(x, y, bodyCol, roofCol, labelText) {
       ctx.save();
       ctx.translate(x, y);
-      // Lower body box (classic long hood & trunk)
-      ctx.fillStyle = bodyCol;
+      // Ground shadow under chassis
+      ctx.beginPath();
+      ctx.ellipse(60, 35, 62, 5, 0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(15, 12, 10, 0.45)';
+      ctx.fill();
+
+      // Sculpted lower body with long Monte Carlo hood & kicked-up rear fender
+      const bodyGrad = ctx.createLinearGradient(0, 10, 0, 32);
+      bodyGrad.addColorStop(0, '#FFFDF8');
+      bodyGrad.addColorStop(0.18, bodyCol);
+      bodyGrad.addColorStop(0.85, bodyCol);
+      bodyGrad.addColorStop(1, '#1C1613');
+      ctx.fillStyle = bodyGrad;
       ctx.strokeStyle = '#1C1613';
       ctx.lineWidth = 2;
-      ctx.fillRect(0, 12, 118, 20);
-      ctx.strokeRect(0, 12, 118, 20);
-
-      // Cabin roof + chrome pillars
-      ctx.fillStyle = roofCol;
       ctx.beginPath();
-      ctx.moveTo(24, 12);
-      ctx.lineTo(36, 0);
-      ctx.lineTo(84, 0);
-      ctx.lineTo(96, 12);
+      ctx.moveTo(0, 18);
+      ctx.lineTo(14, 12);
+      ctx.lineTo(106, 12);
+      ctx.lineTo(120, 16);
+      ctx.lineTo(120, 30);
+      ctx.lineTo(0, 30);
       ctx.closePath();
       ctx.fill();
       ctx.stroke();
 
-      // Side windows
-      ctx.fillStyle = '#FFE4A0';
-      ctx.fillRect(38, 3, 20, 8);
-      ctx.fillRect(62, 3, 20, 8);
+      // Landau vinyl cabin roof + chrome B-pillar
+      ctx.fillStyle = roofCol;
+      ctx.beginPath();
+      ctx.moveTo(26, 12);
+      ctx.lineTo(38, 0);
+      ctx.lineTo(86, 0);
+      ctx.lineTo(98, 12);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
 
-      // Chrome bumpers front & back + side chrome trim line
+      // Tinted sunset reflection windows
+      const winGrad = ctx.createLinearGradient(0, 2, 0, 11);
+      winGrad.addColorStop(0, '#FFF6D6');
+      winGrad.addColorStop(1, '#D89614');
+      ctx.fillStyle = winGrad;
+      ctx.fillRect(39, 3, 21, 8);
+      ctx.fillRect(64, 3, 20, 8);
+
+      // Chrome trim spear & heavy chrome bumpers
       ctx.fillStyle = '#FAF3E3';
-      ctx.fillRect(-4, 22, 7, 8);
-      ctx.strokeRect(-4, 22, 7, 8);
-      ctx.fillRect(115, 22, 7, 8);
-      ctx.strokeRect(115, 22, 7, 8);
-      ctx.fillRect(6, 21, 106, 2.5);
+      ctx.fillRect(-4, 21, 7, 8);
+      ctx.strokeRect(-4, 21, 7, 8);
+      ctx.fillRect(117, 21, 7, 8);
+      ctx.strokeRect(117, 21, 7, 8);
+      ctx.fillRect(6, 20, 108, 2.2);
 
-      // Whitewall tires + chrome hubcaps
-      [24, 92].forEach(wx => {
+      // Warm halogen headlight glow
+      ctx.fillStyle = 'rgba(255, 240, 160, 0.35)';
+      ctx.beginPath();
+      ctx.moveTo(122, 22);
+      ctx.lineTo(148, 16);
+      ctx.lineTo(148, 30);
+      ctx.closePath();
+      ctx.fill();
+
+      // Whitewall tires + wire spoke chrome hubcaps
+      [25, 94].forEach(wx => {
         ctx.beginPath();
-        ctx.arc(wx, 32, 10, 0, Math.PI * 2);
+        ctx.arc(wx, 31, 10, 0, Math.PI * 2);
         ctx.fillStyle = '#1C1613';
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(wx, 32, 7, 0, Math.PI * 2);
-        ctx.fillStyle = '#FAF3E3'; // Whitewall ring
+        ctx.arc(wx, 31, 7.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#FAF3E3';
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(wx, 32, 4, 0, Math.PI * 2);
-        ctx.fillStyle = '#D89614'; // Chrome dish hubcap
+        ctx.arc(wx, 31, 4.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#D89614';
         ctx.fill();
       });
 
       if (labelText) {
         ctx.fillStyle = '#FFFDF8';
-        ctx.font = '800 8px "JetBrains Mono", monospace';
+        ctx.font = '800 7.5px "JetBrains Mono", monospace';
         ctx.textAlign = 'center';
-        ctx.fillText(labelText, 59, 20);
+        ctx.fillText(labelText, 61, 28);
       }
       ctx.restore();
     }
 
     // Draw Vintage Neighborhood Street Backdrop (Brownstones, Fire Escapes, Bodega, Hydrant, Boombox, Classic Cars)
+    // Pre-computed procedural 3D asphalt stone-aggregate & tar-seam texture
+    let _asphaltNoisePattern = null;
+    function getAsphaltGrainPattern() {
+      if (_asphaltNoisePattern) return _asphaltNoisePattern;
+      const off = document.createElement('canvas');
+      off.width = 96;
+      off.height = 96;
+      const octx = off.getContext('2d');
+      let seed = 1984;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      for (let i = 0; i < 420; i++) {
+        const x = rnd() * 96, y = rnd() * 96, r = 0.6 + rnd() * 1.3;
+        octx.fillStyle = rnd() > 0.45 ? 'rgba(255, 238, 195, 0.14)' : 'rgba(10, 7, 5, 0.24)';
+        octx.beginPath();
+        octx.arc(x, y, r, 0, Math.PI * 2);
+        octx.fill();
+      }
+      octx.strokeStyle = 'rgba(12, 9, 7, 0.26)';
+      octx.lineWidth = 1.1;
+      octx.beginPath();
+      octx.moveTo(8, 14); octx.lineTo(34, 28); octx.lineTo(58, 22); octx.lineTo(84, 41);
+      octx.moveTo(18, 74); octx.lineTo(49, 66); octx.lineTo(77, 83);
+      octx.stroke();
+      _asphaltNoisePattern = ctx.createPattern(off, 'repeat');
+      return _asphaltNoisePattern;
+    }
+
     function drawVintageStreetBackdrop(fullHorizon=false) {
-      const h = HOODS[currentHood];
+      const h = HOODS[currentHood] || HOODS.brooklyn;
       const horizonY = fullHorizon ? 248 : 104;
 
-      // Golden-hour sunset sky gradient
+      // 1. Rich Golden-Hour Sunset Sky Gradient
       const sky = ctx.createLinearGradient(0, 0, 0, horizonY);
       sky.addColorStop(0, h.skyTop);
       sky.addColorStop(1, h.skyBot);
       ctx.fillStyle = sky;
       ctx.fillRect(0, 0, canvas.width, horizonY);
 
-      // Setting Golden Sun Orb
+      // 2. Volumetric Glowing Sun Halo + Sunset Rays
+      const sunHalo = ctx.createRadialGradient(620, 36, 4, 620, 36, 76);
+      sunHalo.addColorStop(0, 'rgba(255, 252, 210, 0.96)');
+      sunHalo.addColorStop(0.38, 'rgba(255, 200, 82, 0.48)');
+      sunHalo.addColorStop(1, 'rgba(255, 120, 40, 0)');
+      ctx.fillStyle = sunHalo;
       ctx.beginPath();
-      ctx.arc(620, 38, 28, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 240, 170, 0.72)';
+      ctx.arc(620, 36, 76, 0, Math.PI * 2);
       ctx.fill();
 
-      // Vintage Brownstone & Rowhouse Skyline across the block
+      // 3. 3D Extruded Vintage Brownstone & Rowhouse Skyline across the block
       const buildings = [
-        {x: 0, w: 125, top: 14, col: h.rowColor1, stoop: true},
-        {x: 125, w: 135, top: 22, col: h.rowColor2, bodega: true},
-        {x: 260, w: 118, top: 10, col: h.rowColor3, escape: true},
-        {x: 378, w: 128, top: 20, col: h.rowColor1, escape: true},
-        {x: 506, w: 112, top: 15, col: h.rowColor2, stoop: true},
-        {x: 618, w: 102, top: 24, col: h.rowColor3, escape: true}
+        {x: 0, w: 122, top: 14, col: h.rowColor1, stoop: true},
+        {x: 125, w: 132, top: 20, col: h.rowColor2, bodega: true},
+        {x: 260, w: 115, top: 10, col: h.rowColor3, escape: true},
+        {x: 378, w: 125, top: 18, col: h.rowColor1, escape: true},
+        {x: 506, w: 109, top: 14, col: h.rowColor2, stoop: true},
+        {x: 618, w: 102, top: 22, col: h.rowColor3, escape: true}
       ];
-      buildings.forEach(b => {
-        ctx.fillStyle = b.col;
+      buildings.forEach((b, bi) => {
+        // 3D Right-Side Depth Wall
+        ctx.fillStyle = '#18100D';
+        ctx.beginPath();
+        ctx.moveTo(b.x + b.w, b.top);
+        ctx.lineTo(b.x + b.w + 6, b.top - 4);
+        ctx.lineTo(b.x + b.w + 6, horizonY);
+        ctx.lineTo(b.x + b.w, horizonY);
+        ctx.closePath();
+        ctx.fill();
+
+        // Shaded Brick Facade
+        const bGrad = ctx.createLinearGradient(b.x, b.top, b.x, horizonY);
+        bGrad.addColorStop(0, b.col);
+        bGrad.addColorStop(1, '#2E1A14');
+        ctx.fillStyle = bGrad;
         ctx.fillRect(b.x, b.top, b.w, horizonY - b.top);
         ctx.strokeStyle = '#1C1613';
         ctx.lineWidth = 2;
         ctx.strokeRect(b.x, b.top, b.w, horizonY - b.top);
 
-        // Cornice roof molding
+        // 3D Carved Cornice Roof Molding + Gold Dentils
         ctx.fillStyle = '#1C1613';
-        ctx.fillRect(b.x - 2, b.top - 4, b.w + 4, 5);
+        ctx.fillRect(b.x - 2, b.top - 5, b.w + 6, 6);
+        ctx.fillStyle = '#F4C430';
+        for (let dx = b.x + 5; dx < b.x + b.w - 5; dx += 12) {
+          ctx.fillRect(dx, b.top - 3, 4, 2);
+        }
 
-        // Warm lit apartment windows
+        // Warm Lit Apartment Windows with Sandstone Sills
         for (let wy = b.top + 10; wy < horizonY - 26; wy += 20) {
           for (let wx = b.x + 14; wx < b.x + b.w - 18; wx += 26) {
-            ctx.fillStyle = ((wx + wy) % 3 === 0) ? '#FFE28A' : '#3B2820';
+            const lit = ((wx + wy + bi) % 3 !== 1);
+            ctx.fillStyle = lit ? '#FFE27A' : '#3B2820';
             ctx.fillRect(wx, wy, 13, 13);
             ctx.strokeStyle = '#1C1613';
             ctx.lineWidth = 1.2;
             ctx.strokeRect(wx, wy, 13, 13);
+            ctx.fillStyle = '#D8C7A8';
+            ctx.fillRect(wx - 1.5, wy + 13, 16, 2.5);
           }
         }
 
         // Iron fire escape zig-zag
         if (b.escape) {
           ctx.strokeStyle = '#1C1613';
-          ctx.lineWidth = 1.6;
+          ctx.lineWidth = 1.8;
           ctx.beginPath();
           ctx.moveTo(b.x + 18, b.top + 18);
           ctx.lineTo(b.x + b.w - 18, b.top + 42);
@@ -2103,26 +2280,39 @@
           ctx.stroke();
         }
 
-        // Corner Bodega Awning
+        // Striped 3D Corner Bodega Awning
         if (b.bodega) {
           ctx.fillStyle = '#E04724';
-          ctx.fillRect(b.x + 6, horizonY - 28, b.w - 12, 16);
-          ctx.strokeRect(b.x + 6, horizonY - 28, b.w - 12, 16);
+          ctx.fillRect(b.x + 6, horizonY - 29, b.w - 12, 17);
+          ctx.fillStyle = 'rgba(255, 253, 248, 0.25)';
+          for (let sx = b.x + 10; sx < b.x + b.w - 14; sx += 14) {
+            ctx.fillRect(sx, horizonY - 29, 6, 17);
+          }
+          ctx.strokeStyle = '#1C1613';
+          ctx.strokeRect(b.x + 6, horizonY - 29, b.w - 12, 17);
           ctx.fillStyle = '#FFFDF8';
           ctx.font = '800 8px "JetBrains Mono", monospace';
           ctx.textAlign = 'center';
-          ctx.fillText(h.storeLabel, b.x + b.w / 2, horizonY - 17);
+          ctx.fillText(h.storeLabel, b.x + b.w / 2, horizonY - 18);
         }
       });
 
-      // Sidewalk & Curbstone Strip
-      ctx.fillStyle = '#D8C7A8';
+      // 4. 3D Chiseled Granite Curb & Sidewalk Strip with Cast Drop Shadow
+      const swGrad = ctx.createLinearGradient(0, horizonY - 12, 0, horizonY + 4);
+      swGrad.addColorStop(0, '#EFE2C8');
+      swGrad.addColorStop(0.7, '#D4C0A1');
+      swGrad.addColorStop(1, '#8A7860');
+      ctx.fillStyle = swGrad;
       ctx.fillRect(0, horizonY - 12, canvas.width, 16);
       ctx.strokeStyle = '#1C1613';
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(0, horizonY + 4);
       ctx.lineTo(canvas.width, horizonY + 4);
+      for (let jx = 50; jx < canvas.width; jx += 75) {
+        ctx.moveTo(jx, horizonY - 12);
+        ctx.lineTo(jx - 8, horizonY + 4);
+      }
       ctx.stroke();
 
       // Open Brass Fire Hydrant Spraying Rainbow Mist on Left Curb
@@ -2130,8 +2320,8 @@
       ctx.fillRect(22, horizonY - 18, 12, 18);
       ctx.strokeRect(22, horizonY - 18, 12, 18);
       const sprayPulse = Math.sin(Date.now() * 0.01) * 4;
-      ctx.strokeStyle = 'rgba(175, 235, 255, 0.78)';
-      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = 'rgba(175, 235, 255, 0.85)';
+      ctx.lineWidth = 2.6;
       ctx.beginPath();
       ctx.moveTo(34, horizonY - 10);
       ctx.quadraticCurveTo(62, horizonY - 26 + sprayPulse, 88, horizonY + 2);
@@ -2147,47 +2337,61 @@
       ctx.fillStyle = '#F4C430';
       ctx.fill();
 
-      // Classic 1970s/80s Cruisers Parked Along the Curb
+      // Classic 3D Sculpted 1970s/80s Cruisers Parked Along the Curb
       drawVintageCruiser(96, horizonY - 28, h.car1Col, '#FAF3E3', "MONTE CARLO '79");
       drawVintageCruiser(562, horizonY - 28, h.car2Col, '#1C1613', h.car2Label);
 
       if (!fullHorizon) {
-        // Warm Golden-Hour Street Asphalt Playfield (y = 106 to 448)
+        // Warm Golden-Hour 3D Street Asphalt Playfield (y = 106 to 448)
         const road = ctx.createLinearGradient(0, horizonY + 4, 0, canvas.height);
         road.addColorStop(0, h.asphaltTop);
         road.addColorStop(1, h.asphaltBot);
         ctx.fillStyle = road;
         ctx.fillRect(0, horizonY + 4, canvas.width, canvas.height - horizonY - 4);
 
-        // Warm golden sunset reflection sheen across the asphalt
-        const sheen = ctx.createRadialGradient(360, horizonY + 40, 10, 360, 260, 320);
-        sheen.addColorStop(0, 'rgba(247, 201, 120, 0.22)');
-        sheen.addColorStop(1, 'rgba(247, 201, 120, 0)');
+        // Curb cast shadow onto street
+        ctx.fillStyle = 'rgba(12, 9, 7, 0.38)';
+        ctx.fillRect(0, horizonY + 4, canvas.width, 7);
+
+        // Rich procedural stone-aggregate & tar-crack texture
+        const pat = getAsphaltGrainPattern();
+        if (pat) {
+          ctx.save();
+          ctx.fillStyle = pat;
+          ctx.fillRect(0, horizonY + 4, canvas.width, canvas.height - horizonY - 4);
+          ctx.restore();
+        }
+
+        // Warm golden sunset reflection sheen + 3D stadium spotlight across the asphalt
+        const sheen = ctx.createRadialGradient(360, horizonY + 150, 20, 360, 270, 410);
+        sheen.addColorStop(0, 'rgba(255, 215, 125, 0.24)');
+        sheen.addColorStop(0.68, 'rgba(247, 201, 120, 0.04)');
+        sheen.addColorStop(1, 'rgba(10, 6, 4, 0.34)');
         ctx.fillStyle = sheen;
         ctx.fillRect(0, horizonY + 4, canvas.width, canvas.height - horizonY - 4);
 
         asphaltGrain.forEach(g => {
-          ctx.fillStyle = g.light ? 'rgba(255,245,220,0.16)' : 'rgba(15,12,10,0.22)';
+          ctx.fillStyle = g.light ? 'rgba(255,245,220,0.18)' : 'rgba(15,12,10,0.24)';
           ctx.fillRect(g.x, g.y, g.r, g.r);
         });
       }
     }
 
-    // Helper: Draw realistic crimped metal bottlecap with melted candle wax & copper penny center
+    // Helper: Draw 3D crimped soda crown bottlecap with melted candle wax & embedded copper penny
     function drawBottlecap(x, y, r, waxColor, rimColor, labelText) {
       ctx.save();
       ctx.translate(x, y);
-      // Drop shadow on asphalt
+      // Soft ambient occlusion shadow on hot asphalt
       ctx.beginPath();
-      ctx.arc(3, 4, r + 1, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(15, 12, 10, 0.45)';
+      ctx.ellipse(3.5, 5, r + 2.5, (r + 1.5) * 0.88, 0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(15, 12, 10, 0.52)';
       ctx.fill();
 
-      // 14-ridge crimped metal soda crown skirt
-      const teeth = 14;
+      // 18-flute crimped tinplate crown skirt with metallic bevel
+      const teeth = 18;
       ctx.beginPath();
       for (let i = 0; i < teeth * 2; i++) {
-        const rad = (i % 2 === 0) ? r + 2.5 : r - 1.2;
+        const rad = (i % 2 === 0) ? r + 2.8 : r - 1.0;
         const a = (i * Math.PI) / teeth;
         const px = Math.cos(a) * rad;
         const py = Math.sin(a) * rad;
@@ -2195,33 +2399,54 @@
         else ctx.lineTo(px, py);
       }
       ctx.closePath();
-      ctx.fillStyle = rimColor;
+      const rimGrad = ctx.createLinearGradient(-r, -r, r, r);
+      rimGrad.addColorStop(0, '#FFFDF8');
+      rimGrad.addColorStop(0.4, rimColor);
+      rimGrad.addColorStop(1, '#1C1613');
+      ctx.fillStyle = rimGrad;
       ctx.fill();
       ctx.lineWidth = 1.8;
       ctx.strokeStyle = '#1C1613';
       ctx.stroke();
 
-      // Inner melted candle wax pool
+      // Recessed melted crayon/candle wax pool with radial depth
+      const waxGrad = ctx.createRadialGradient(-r * 0.25, -r * 0.25, r * 0.1, 0, 0, r - 2.5);
+      waxGrad.addColorStop(0, '#FFFDF8');
+      waxGrad.addColorStop(0.28, waxColor);
+      waxGrad.addColorStop(1, '#1C1613');
       ctx.beginPath();
-      ctx.arc(0, 0, r - 3.2, 0, Math.PI * 2);
-      ctx.fillStyle = waxColor;
+      ctx.arc(0, 0, r - 2.8, 0, Math.PI * 2);
+      ctx.fillStyle = waxGrad;
       ctx.fill();
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 1.4;
       ctx.strokeStyle = '#1C1613';
       ctx.stroke();
 
-      // Gloss highlight on wax
+      // Embedded copper penny weight ring in the center of the wax
       ctx.beginPath();
-      ctx.arc(-r * 0.28, -r * 0.28, r * 0.26, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.48)';
+      ctx.arc(0, 0, r * 0.54, 0, Math.PI * 2);
+      const pennyGrad = ctx.createLinearGradient(-6, -6, 6, 6);
+      pennyGrad.addColorStop(0, '#F7B27B');
+      pennyGrad.addColorStop(0.5, '#B85D2B');
+      pennyGrad.addColorStop(1, '#5E2A10');
+      ctx.fillStyle = pennyGrad;
+      ctx.fill();
+      ctx.lineWidth = 1.1;
+      ctx.strokeStyle = 'rgba(28, 22, 19, 0.75)';
+      ctx.stroke();
+
+      // Specular wax meniscus highlight arc
+      ctx.beginPath();
+      ctx.arc(-r * 0.24, -r * 0.24, r * 0.22, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.58)';
       ctx.fill();
 
-      // Stamped number
-      ctx.fillStyle = '#1C1613';
-      ctx.font = '800 11px "JetBrains Mono", monospace';
+      // High-contrast stamped player emblem
+      ctx.fillStyle = '#FFFDF8';
+      ctx.font = '800 10px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(labelText, 0, 1);
+      ctx.fillText(labelText, 0, 0.5);
       ctx.restore();
     }
 
@@ -2418,22 +2643,49 @@
       }
     }
     function drawMarble(x, y, r, col) {
+      const mr = r * 1.25; // Larger tactile glass sphere
       ctx.save();
+      // Ground shadow + caustic tint
       ctx.beginPath();
-      ctx.ellipse(x + 3, y + 4, r, r * 0.5, 0, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(15, 12, 10, 0.32)';
+      ctx.ellipse(x + 3.5, y + 4.5, mr, mr * 0.52, 0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(15, 12, 10, 0.42)';
       ctx.fill();
-      const g = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r);
-      g.addColorStop(0, '#FFFDF8');
-      g.addColorStop(0.35, col);
-      g.addColorStop(1, '#1C1613');
+
+      // Translucent glass sphere body
+      const g = ctx.createRadialGradient(x - mr * 0.35, y - mr * 0.35, mr * 0.08, x, y, mr);
+      g.addColorStop(0, '#FFFFFF');
+      g.addColorStop(0.28, col);
+      g.addColorStop(0.78, col);
+      g.addColorStop(1, '#120E0C');
       ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.arc(x, y, mr, 0, Math.PI * 2);
       ctx.fillStyle = g;
       ctx.fill();
-      ctx.strokeStyle = '#1C1613';
-      ctx.lineWidth = 1.5;
+
+      // Inner cat's-eye twisted glass ribbon swirl
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, mr - 1.5, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.strokeStyle = 'rgba(255, 253, 245, 0.72)';
+      ctx.lineWidth = 2.6;
+      ctx.beginPath();
+      ctx.moveTo(x - mr * 0.65, y + mr * 0.45);
+      ctx.bezierCurveTo(x - mr * 0.2, y - mr * 0.5, x + mr * 0.2, y + mr * 0.5, x + mr * 0.65, y - mr * 0.45);
       ctx.stroke();
+      ctx.restore();
+
+      // Crisp glass rim & top specular glint
+      ctx.beginPath();
+      ctx.arc(x, y, mr, 0, Math.PI * 2);
+      ctx.strokeStyle = '#1C1613';
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(x - mr * 0.36, y - mr * 0.36, mr * 0.24, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.82)';
+      ctx.fill();
       ctx.restore();
     }
 
@@ -2542,20 +2794,53 @@
     }
     function drawJackStar(x, y, picked) {
       ctx.save();
-      ctx.strokeStyle = picked ? 'rgba(28, 22, 19, 0.25)' : '#E04724';
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      for (let i = 0; i < 3; i++) {
-        const a = i * Math.PI / 3;
+      if (!picked) {
+        // Cast shadow on brownstone slab
         ctx.beginPath();
-        ctx.moveTo(x + Math.cos(a) * 16, y + Math.sin(a) * 16);
-        ctx.lineTo(x - Math.cos(a) * 16, y - Math.sin(a) * 16);
+        ctx.ellipse(x + 3, y + 5, 16, 8, 0, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(15, 12, 10, 0.34)';
+        ctx.fill();
+      }
+      const armCol = picked ? 'rgba(28, 22, 19, 0.18)' : '#D89614';
+      const tipCol = picked ? 'rgba(28, 22, 19, 0.18)' : '#E04724';
+      for (let i = 0; i < 3; i++) {
+        const a = i * Math.PI / 3 + 0.22;
+        const x1 = x + Math.cos(a) * 17, y1 = y + Math.sin(a) * 17;
+        const x2 = x - Math.cos(a) * 17, y2 = y - Math.sin(a) * 17;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = '#1C1613';
+        ctx.lineWidth = picked ? 2.5 : 5.2;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        ctx.strokeStyle = armCol;
+        ctx.lineWidth = picked ? 1.5 : 3.2;
+        ctx.stroke();
+
+        // Rounded ball tips on 4 of the 6 prongs (authentic metal jack geometry)
+        if (i < 2 && !picked) {
+          [[x1, y1], [x2, y2]].forEach(([bx, by]) => {
+            ctx.beginPath();
+            ctx.arc(bx, by, 3.6, 0, Math.PI * 2);
+            ctx.fillStyle = tipCol;
+            ctx.fill();
+            ctx.lineWidth = 1.2;
+            ctx.strokeStyle = '#1C1613';
+            ctx.stroke();
+          });
+        }
+      }
+      // Central metallic hub
+      ctx.beginPath();
+      ctx.arc(x, y, picked ? 4 : 5.8, 0, Math.PI * 2);
+      ctx.fillStyle = picked ? 'rgba(28, 22, 19, 0.18)' : '#FFFDF8';
+      ctx.fill();
+      if (!picked) {
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = '#1C1613';
         ctx.stroke();
       }
-      ctx.fillStyle = picked ? 'rgba(28, 22, 19, 0.2)' : '#F4C430';
-      ctx.beginPath();
-      ctx.arc(x, y, 5, 0, Math.PI * 2);
-      ctx.fill();
       ctx.restore();
     }
 
@@ -2769,10 +3054,19 @@
       if (currentMode === 'skully') {
         drawVintageStreetBackdrop(false);
 
-        // Hand-drawn colorful sidewalk chalk boundary & diagonal skull struts
-        ctx.strokeStyle = 'rgba(255, 248, 225, 0.92)';
-        ctx.lineWidth = 3.5;
+        // 3D Recessed Street Court Apron + Glowing Sidewalk Chalk Boundary
+        ctx.fillStyle = 'rgba(18, 12, 9, 0.28)';
+        ctx.fillRect(38, 114, canvas.width - 76, canvas.height - 126);
+        ctx.save();
+        ctx.shadowColor = 'rgba(255, 214, 92, 0.45)';
+        ctx.shadowBlur = 10;
+        ctx.strokeStyle = 'rgba(255, 248, 225, 0.96)';
+        ctx.lineWidth = 4;
         ctx.strokeRect(42, 118, canvas.width - 84, canvas.height - 134);
+        ctx.restore();
+        ctx.strokeStyle = 'rgba(244, 196, 48, 0.48)';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(47, 123, canvas.width - 94, canvas.height - 144);
         ctx.beginPath();
         ctx.moveTo(42, 118); ctx.lineTo(canvas.width - 42, canvas.height - 16);
         ctx.moveTo(canvas.width - 42, 118); ctx.lineTo(42, canvas.height - 16);
@@ -2956,35 +3250,73 @@
         ctx.textAlign = 'center';
         quads.forEach(q => ctx.fillText(q.label, q.x, q.y));
 
+        // Dynamic AI Crew Players tracking the ball inside their quadrants with 3D sneaker-badge pucks
+        const tNow = Date.now() * 0.004;
         const aiPods = [
-          {x: 214 + Math.sin(Date.now()*0.004)*45, y: 195, col: '#1B9AAA', tag: 'ACE'},
-          {x: 506 + Math.cos(Date.now()*0.004)*45, y: 195, col: '#D89614', tag: 'KING'},
-          {x: 506 + Math.sin(Date.now()*0.005)*45, y: 348, col: '#52B788', tag: 'QN'}
+          {x: 214 + Math.sin(tNow) * 52 + (fsBall.x - 360) * 0.12, y: 192 + Math.cos(tNow * 1.3) * 18, col: '#1B9AAA', rim: '#FFFDF8', tag: 'ACE', crown: false},
+          {x: 506 + Math.cos(tNow) * 52 + (fsBall.x - 360) * 0.14, y: 192 + Math.sin(tNow * 1.1) * 18, col: '#D89614', rim: '#FFE066', tag: '👑KING', crown: true},
+          {x: 506 + Math.sin(tNow * 1.2) * 52 + (fsBall.x - 360) * 0.12, y: 348 + Math.cos(tNow) * 18, col: '#2D6A4F', rim: '#95D5B2', tag: 'QUEEN', crown: false}
         ];
         aiPods.forEach(p => {
+          // Ground shadow
           ctx.beginPath();
-          ctx.arc(p.x, p.y, 17, 0, Math.PI * 2);
-          ctx.fillStyle = p.col;
+          ctx.ellipse(p.x + 3, p.y + 6, 20, 10, 0, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(15, 12, 10, 0.42)';
           ctx.fill();
-          ctx.lineWidth = 2.5;
-          ctx.strokeStyle = '#FFFDF8';
+          // Outer sneaker-sole rubber bumper ring
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 19, 0, Math.PI * 2);
+          ctx.fillStyle = '#FAF3E3';
+          ctx.fill();
+          ctx.lineWidth = 2.2;
+          ctx.strokeStyle = '#1C1613';
           ctx.stroke();
+          // Inner beveled varsity badge
+          const pg = ctx.createRadialGradient(p.x - 5, p.y - 5, 2, p.x, p.y, 15);
+          pg.addColorStop(0, p.rim);
+          pg.addColorStop(0.35, p.col);
+          pg.addColorStop(1, '#1C1613');
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 15, 0, Math.PI * 2);
+          ctx.fillStyle = pg;
+          ctx.fill();
           ctx.fillStyle = '#FFFDF8';
-          ctx.font = '800 10px "JetBrains Mono", monospace';
+          ctx.font = '800 8.5px "JetBrains Mono", monospace';
           ctx.fillText(p.tag, p.x, p.y + 1);
         });
 
-        // Player Sneaker/Hands Paddle in bottom-left square
+        // Player High-Top Sneaker / Street Striker Paddle in bottom-left square
+        const pulseR = 23 + Math.sin(Date.now() * 0.01) * 2.5;
         ctx.beginPath();
-        ctx.arc(fsPlayerPad.x, fsPlayerPad.y, 21, 0, Math.PI * 2);
-        ctx.fillStyle = '#E04724';
-        ctx.fill();
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = '#F4C430';
+        ctx.arc(fsPlayerPad.x, fsPlayerPad.y, pulseR + 4, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(244, 196, 48, 0.55)';
+        ctx.lineWidth = 2;
         ctx.stroke();
+
+        ctx.beginPath();
+        ctx.ellipse(fsPlayerPad.x + 3, fsPlayerPad.y + 7, 23, 11, 0, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(15, 12, 10, 0.48)';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(fsPlayerPad.x, fsPlayerPad.y, 22, 0, Math.PI * 2);
+        ctx.fillStyle = '#FAF3E3';
+        ctx.fill();
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = '#1C1613';
+        ctx.stroke();
+
+        const youGrad = ctx.createRadialGradient(fsPlayerPad.x - 6, fsPlayerPad.y - 6, 2, fsPlayerPad.x, fsPlayerPad.y, 18);
+        youGrad.addColorStop(0, '#FFE066');
+        youGrad.addColorStop(0.35, '#E04724');
+        youGrad.addColorStop(1, '#7A1C0A');
+        ctx.beginPath();
+        ctx.arc(fsPlayerPad.x, fsPlayerPad.y, 18, 0, Math.PI * 2);
+        ctx.fillStyle = youGrad;
+        ctx.fill();
         ctx.fillStyle = '#FFFFFF';
         ctx.font = '800 10px "JetBrains Mono", monospace';
-        ctx.fillText('YOU', fsPlayerPad.x, fsPlayerPad.y + 1);
+        ctx.fillText('★YOU', fsPlayerPad.x, fsPlayerPad.y + 1);
 
         // Update Pink Spaldeen ball
         fsBall.x += fsBall.vx;
@@ -3055,14 +3387,25 @@
           {x: 182, y: 308, w: 38, h: 75}
         ];
         steps.forEach((st, idx) => {
-          ctx.fillStyle = idx % 2 === 0 ? '#B8533A' : '#C9654A';
+          // Chiseled brownstone riser gradient
+          const sg = ctx.createLinearGradient(st.x, st.y, st.x + st.w, st.y + st.h);
+          sg.addColorStop(0, idx % 2 === 0 ? '#D47256' : '#C45B40');
+          sg.addColorStop(1, '#6E2B1C');
+          ctx.fillStyle = sg;
           ctx.fillRect(st.x, st.y, st.w, st.h);
           ctx.strokeStyle = '#1C1613';
           ctx.lineWidth = 2.5;
           ctx.strokeRect(st.x, st.y, st.w, st.h);
-          // Gold 45-degree corner sweet spots
+
+          // Top sandstone bullnose tread cap
+          ctx.fillStyle = '#E8C5A5';
+          ctx.fillRect(st.x - 2, st.y - 5, st.w + 5, 7);
+          ctx.strokeRect(st.x - 2, st.y - 5, st.w + 5, 7);
+
+          // Pulsing Gold 45-degree corner point sweet spots
+          const spPulse = 6.5 + Math.sin(Date.now() * 0.012 + idx) * 1.8;
           ctx.beginPath();
-          ctx.arc(st.x + st.w, st.y, 6.5, 0, Math.PI * 2);
+          ctx.arc(st.x + st.w, st.y, spPulse, 0, Math.PI * 2);
           ctx.fillStyle = '#F4C430';
           ctx.fill();
           ctx.stroke();
@@ -3181,15 +3524,40 @@
       if (currentMode === 'marbles') {
         drawVintageStreetBackdrop(false);
         ctx.save();
+        // Recessed schoolyard dirt & chalk ring pit with radial depth
+        const ringGrad = ctx.createRadialGradient(MARBLE_RING.cx, MARBLE_RING.cy, 8, MARBLE_RING.cx, MARBLE_RING.cy, MARBLE_RING.r);
+        ringGrad.addColorStop(0, 'rgba(216, 176, 118, 0.34)');
+        ringGrad.addColorStop(0.75, 'rgba(65, 48, 34, 0.42)');
+        ringGrad.addColorStop(1, 'rgba(28, 22, 19, 0.62)');
         ctx.beginPath();
         ctx.arc(MARBLE_RING.cx, MARBLE_RING.cy, MARBLE_RING.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 248, 225, 0.14)';
+        ctx.fillStyle = ringGrad;
         ctx.fill();
-        ctx.setLineDash([10, 6]);
-        ctx.strokeStyle = 'rgba(255, 248, 225, 0.95)';
-        ctx.lineWidth = 4;
+
+        // Center chalk crosshairs inside the ring where mibs are racked
+        ctx.strokeStyle = 'rgba(255, 248, 225, 0.32)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(MARBLE_RING.cx - 48, MARBLE_RING.cy);
+        ctx.lineTo(MARBLE_RING.cx + 48, MARBLE_RING.cy);
+        ctx.moveTo(MARBLE_RING.cx, MARBLE_RING.cy - 48);
+        ctx.lineTo(MARBLE_RING.cx, MARBLE_RING.cy + 48);
+        ctx.stroke();
+
+        // Hand-drawn double chalk boundary circle
+        ctx.setLineDash([12, 5]);
+        ctx.strokeStyle = '#FFF8E1';
+        ctx.lineWidth = 4.2;
+        ctx.beginPath();
+        ctx.arc(MARBLE_RING.cx, MARBLE_RING.cy, MARBLE_RING.r, 0, Math.PI * 2);
         ctx.stroke();
         ctx.setLineDash([]);
+
+        // Knuckle-down lag line banner label
+        ctx.fillStyle = '#FFE066';
+        ctx.font = '800 10px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('KNUCKLE-DOWN SHOOTER LINE (DRAG BACK TO FIRE)', MARBLE_SHOOTER.x, MARBLE_SHOOTER.y + 32);
         ctx.restore();
 
         ctx.strokeStyle = '#FFF8E1';
@@ -3219,14 +3587,30 @@
       }
 
       // =====================================================================
-      // RENDER MODE 5: JACKS (ONESIES)
+      // RENDER MODE 5: JACKS (ONESIES TO FIVESIES STOOP SLAB)
       // =====================================================================
       if (currentMode === 'jacks') {
         drawVintageStreetBackdrop(false);
+        // Warm bluestone / brownstone stoop slab court inset on the sidewalk
+        ctx.save();
+        const slabGrad = ctx.createLinearGradient(110, 128, 610, 428);
+        slabGrad.addColorStop(0, 'rgba(218, 198, 168, 0.26)');
+        slabGrad.addColorStop(1, 'rgba(120, 98, 76, 0.34)');
+        ctx.fillStyle = slabGrad;
+        ctx.fillRect(110, 128, 500, 298);
+        ctx.strokeStyle = 'rgba(255, 248, 225, 0.85)';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(110, 128, 500, 298);
+        ctx.fillStyle = '#FFE066';
+        ctx.font = '800 10px "JetBrains Mono", monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText('BROWNSTONE STOOP SLAB • TAP A JACK TO TOSS & SWEEP', 598, 146);
+        ctx.restore();
+
         ctx.beginPath();
         ctx.arc(JACK_HAND.x, JACK_HAND.y, 22, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(255, 248, 225, 0.7)';
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(255, 248, 225, 0.85)';
+        ctx.lineWidth = 2.5;
         ctx.setLineDash([5, 5]);
         ctx.stroke();
         ctx.setLineDash([]);
