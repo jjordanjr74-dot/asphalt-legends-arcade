@@ -1104,6 +1104,21 @@
       }
     }
 
+
+    @media (max-width: 820px) {
+      canvas#arcadeCanvas {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 720 / 448 !important;
+        max-height: 340px !important;
+      }
+      .announcer-bar:has(.announcer-caption[hidden]) {
+        display: none !important;
+        margin: 0 !important;
+        min-height: 0 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1354,6 +1369,22 @@
           <div>
             <div class="game-meta">⭐ Gravity-arc timing with a stoop-round ladder.</div>
             <button type="button" class="ctrl-btn action" style="width:100%;margin-top:10px;" onclick="switchMode('jacks'); window.scrollTo({top:0,behavior:'smooth'});">Play 5. Bodega Jacks ↑</button>
+          </div>
+        </article>
+
+        <article class="game-card" style="background:linear-gradient(180deg,#FFFDF7 0%,#F9EBC7 100%);">
+          <div>
+            <div class="game-art-banner">
+              <img src="./assets/hero_block_summer.jpg" alt="Sunset neighborhood block tournament across all 5 classic street games" />
+              <span class="era-stamp">CHAMPIONSHIP GAUNTLET</span>
+            </div>
+            <span class="game-rank">ALL-AROUND CROWN • 5-GAME BLOCK PENTATHLON</span>
+            <h3>All-City Block Pentathlon ("Rule All 5")</h3>
+            <p>True neighborhood legends don't just master one slab. Chain your high scores across Skully, Four Square, Stoop Ball, Ringer Marbles, and Bodega Jacks to claim the #1 All-City Street Crown.</p>
+          </div>
+          <div>
+            <div class="game-meta">🏆 Cumulative 5-game block streak + instant Hall of Fame leaderboard check-in.</div>
+            <button type="button" class="ctrl-btn boombox" style="width:100%;margin-top:10px;" onclick="document.getElementById('leaderboard').scrollIntoView({behavior:'smooth'});">Claim Your All-City Block Rank ↓</button>
           </div>
         </article>
       </div>
