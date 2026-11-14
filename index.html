@@ -1195,14 +1195,14 @@
       color: #FFE066 !important;
     }
     .cabinet-controls {
-      background: linear-gradient(180deg, #3A2720 0%, #241814 100%) !important;
-      border-top: 2px solid rgba(244, 196, 48, 0.4) !important;
+      background: #FFF8E7 !important;
+      border: 2px solid #F4C430 !important;
       border-radius: 14px !important;
       margin-top: 8px !important;
-      color: #FFF8E7 !important;
+      color: #1C1613 !important;
     }
-    .cabinet-controls span, .cabinet-controls strong, #controlHint, #announcerCaption {
-      color: #FFF8E7 !important;
+    .cabinet-controls span, .cabinet-controls strong, #hudInstruction, #controlHint, #announcerCaption {
+      color: #1C1613 !important;
     }
     .power-btn {
       background: #FFF8E7 !important;
@@ -1232,6 +1232,286 @@
       background: linear-gradient(180deg, #FFFDF8 0%, #FBF0D9 100%) !important;
       border: 3px solid #1C1613 !important;
       box-shadow: 6px 6px 0 #1C1613 !important;
+    }
+
+
+    /* === TOP-25 GROSSING APP (MONOPOLY GO! / VIVID BLOCK-PARTY) THEME OVERRIDE — ZERO CREAM === */
+    :root {
+      --bg-sunlit: #FF6B00 !important;
+      --bg-elevated: #FF9E00 !important;
+      --bg-card: #FFAE00 !important;
+      --bg-glass: rgba(58, 12, 163, 0.92) !important;
+      --ink-primary: #140A24 !important;
+      --ink-secondary: #241142 !important;
+      --ink-muted: #3A1C66 !important;
+      --accent-terracotta: #FF0055 !important;
+      --accent-gold: #FFD166 !important;
+      --accent-teal: #00BBF9 !important;
+      --accent-forest: #00F5D4 !important;
+      --font-display: 'Bungee', 'Luckiest Guy', 'Fraunces', cursive, sans-serif !important;
+      --font-arcade: 'Luckiest Guy', 'Bungee', cursive !important;
+      --font-round: 'Fredoka', 'Plus Jakarta Sans', sans-serif !important;
+    }
+
+    @keyframes arcadeFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    @keyframes arcadePulseGlow {
+      0%, 100% { box-shadow: 0 5px 0 #140A24, 0 0 14px rgba(255, 209, 102, 0.65); }
+      50% { box-shadow: 0 5px 0 #140A24, 0 0 26px rgba(0, 245, 212, 0.95); }
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(255, 214, 10, 0.55) 0%, transparent 38%),
+        radial-gradient(circle at 86% 18%, rgba(247, 37, 133, 0.45) 0%, transparent 42%),
+        radial-gradient(circle at 50% 85%, rgba(67, 97, 238, 0.45) 0%, transparent 50%),
+        linear-gradient(145deg, #FF5400 0%, #FF8500 35%, #F72585 72%, #3A0CA3 100%) !important;
+      background-attachment: fixed !important;
+      color: #140A24 !important;
+      font-family: var(--font-round) !important;
+    }
+
+    .site-header, .topbar {
+      background: linear-gradient(90deg, #240046 0%, #5A189A 50%, #F72585 100%) !important;
+      border-bottom: 4px solid #FFD166 !important;
+      box-shadow: 0 8px 24px rgba(20, 10, 36, 0.45) !important;
+    }
+    .site-header *, .topbar * {
+      color: #FFFFFF !important;
+    }
+    .brand-badge, .brand-mark {
+      background: linear-gradient(135deg, #FFD166 0%, #FF0055 100%) !important;
+      color: #140A24 !important;
+      font-family: 'Bungee', cursive !important;
+      border: 3px solid #FFFFFF !important;
+    }
+    .nav-btn {
+      background: linear-gradient(180deg, #4361EE 0%, #3A0CA3 100%) !important;
+      border: 2.5px solid #FFD166 !important;
+      color: #FFFFFF !important;
+      font-family: 'Bungee', sans-serif !important;
+      font-size: 0.74rem !important;
+      box-shadow: 0 4px 0 #140A24 !important;
+    }
+    .nav-btn.cta-primary {
+      background: linear-gradient(180deg, #00F5D4 0%, #00BBF9 100%) !important;
+      color: #140A24 !important;
+      border-color: #FFFFFF !important;
+    }
+
+    /* Arcade Cabinet: Royal Electric Indigo & Magenta Neon Frame */
+    .arcade-cabinet {
+      background: linear-gradient(165deg, #240046 0%, #3C096C 48%, #7209B7 100%) !important;
+      border: 4px solid #FFD166 !important;
+      outline: 3.5px solid #140A24 !important;
+      border-radius: 26px !important;
+      padding: 16px !important;
+      box-shadow: 0 12px 0 #140A24, 0 28px 60px rgba(20, 10, 36, 0.55) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Right Hero Card & All Section Cards: Vivid Sunburst Gold-Orange & Electric Coral — ZERO CREAM! */
+    .hero-editorial {
+      background: linear-gradient(155deg, #FF9E00 0%, #FF6D00 52%, #FF2A54 100%) !important;
+      border: 4px solid #140A24 !important;
+      outline: 2.5px solid #FFD166 !important;
+      border-radius: 24px !important;
+      padding: 20px !important;
+      box-shadow: 0 10px 0 #140A24, 0 22px 48px rgba(20, 10, 36, 0.4) !important;
+      color: #FFFFFF !important;
+    }
+    .hero-editorial h1 {
+      font-family: 'Bungee', 'Luckiest Guy', cursive !important;
+      color: #FFFFFF !important;
+      text-shadow: 0 3px 0 #140A24, 0 5px 12px rgba(20, 10, 36, 0.55) !important;
+      letter-spacing: 0.01em !important;
+    }
+    .hero-editorial .lead {
+      color: #FFFDF7 !important;
+      font-family: 'Fredoka', 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 600 !important;
+      text-shadow: 0 1px 2px rgba(20, 10, 36, 0.55) !important;
+    }
+    .hero-editorial .lead strong {
+      color: #FFE66D !important;
+    }
+
+    .eyebrow-badge, .kicker, .badge, .era-stamp {
+      background: linear-gradient(135deg, #3A0CA3 0%, #F72585 100%) !important;
+      color: #FFE66D !important;
+      font-family: 'Bungee', sans-serif !important;
+      border: 2.5px solid #FFE66D !important;
+      box-shadow: 0 4px 0 #140A24 !important;
+      animation: arcadeFloat 3.2s ease-in-out infinite !important;
+    }
+
+    .cap-customizer, .quick-pass-card {
+      background: linear-gradient(135deg, #240046 0%, #3A0CA3 100%) !important;
+      border: 3px solid #FFD166 !important;
+      border-radius: 18px !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 6px 0 #140A24 !important;
+    }
+    .cap-customizer h3, .quick-pass-card div {
+      color: #FFFFFF !important;
+      font-family: 'Bungee', sans-serif !important;
+    }
+    .skin-chip {
+      background: linear-gradient(180deg, #4361EE 0%, #3A0CA3 100%) !important;
+      color: #FFFFFF !important;
+      border: 2.5px solid #FFD166 !important;
+      font-family: 'Fredoka', sans-serif !important;
+      font-weight: 700 !important;
+    }
+    .skin-chip.selected {
+      background: linear-gradient(180deg, #FFD166 0%, #FF9F1C 100%) !important;
+      color: #140A24 !important;
+      border-color: #FFFFFF !important;
+    }
+
+    .game-card, .tier-card, .econ-card, .bento-card, .faq-item, .rule-card {
+      background: linear-gradient(165deg, #240046 0%, #3C096C 60%, #5A189A 100%) !important;
+      border: 3.5px solid #FFD166 !important;
+      border-radius: 22px !important;
+      box-shadow: 0 8px 0 #140A24, 0 16px 32px rgba(20, 10, 36, 0.4) !important;
+      color: #FFFFFF !important;
+    }
+    .game-card h3, .tier-card h3, .econ-card h3, .section-head h2 {
+      font-family: 'Bungee', 'Luckiest Guy', cursive !important;
+      color: #FFD166 !important;
+      text-shadow: 0 2px 0 #140A24 !important;
+    }
+    .game-card p, .tier-card p, .econ-card p, .section-head p {
+      color: #FFFDF7 !important;
+      font-family: 'Fredoka', sans-serif !important;
+    }
+    .game-rank {
+      color: #00F5D4 !important;
+      font-family: 'Bungee', monospace !important;
+    }
+    .game-meta {
+      background: rgba(0, 245, 212, 0.16) !important;
+      border: 2px solid #00F5D4 !important;
+      color: #FFFDF7 !important;
+      border-radius: 12px !important;
+    }
+
+    .turf-Summary-pill {
+      background: linear-gradient(135deg, #FF9E00 0%, #FF0055 100%) !important;
+      color: #FFFFFF !important;
+      border: 2.5px solid #FFD166 !important;
+      font-family: 'Bungee', sans-serif !important;
+      font-size: 0.74rem !important;
+      box-shadow: 0 4px 0 #140A24 !important;
+    }
+    .turf-Summary-pill span, .turf-Summary-pill strong {
+      color: #FFFFFF !important;
+    }
+
+    .mode-tab {
+      background: linear-gradient(180deg, #00BBF9 0%, #4361EE 100%) !important;
+      color: #FFFFFF !important;
+      border: 3px solid #140A24 !important;
+      border-radius: 16px !important;
+      font-family: 'Bungee', sans-serif !important;
+      font-size: 0.78rem !important;
+      text-shadow: 0 2px 0 #140A24 !important;
+      box-shadow: 0 5px 0 #140A24 !important;
+    }
+    .mode-tab.active {
+      background: linear-gradient(180deg, #FFD166 0%, #FF5400 55%, #FF0055 100%) !important;
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
+      animation: arcadePulseGlow 2.2s infinite ease-in-out !important;
+    }
+
+    .hud-bar {
+      background: linear-gradient(90deg, #10002B 0%, #240046 50%, #3C096C 100%) !important;
+      border: 3px solid #00F5D4 !important;
+      border-radius: 16px !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 0 #140A24 !important;
+    }
+    .hud-stat {
+      background: linear-gradient(180deg, #3A0CA3 0%, #240046 100%) !important;
+      border: 2px solid #FFD166 !important;
+      color: #FFFFFF !important;
+    }
+    .hud-stat span {
+      color: #00F5D4 !important;
+      font-family: 'Bungee', sans-serif !important;
+    }
+    .hud-stat strong {
+      color: #FFD166 !important;
+      font-family: 'Bungee', 'JetBrains Mono', monospace !important;
+    }
+
+    .canvas-wrap {
+      background: linear-gradient(180deg, #FF5400 0%, #7209B7 100%) !important;
+      padding: 6px !important;
+      border: 3.5px solid #FFD166 !important;
+      border-radius: 18px !important;
+    }
+
+    .skully-controls {
+      background: rgba(16, 0, 43, 0.75) !important;
+      border: 2px solid #4361EE !important;
+      border-radius: 12px !important;
+      padding: 6px 10px !important;
+    }
+    .skully-pill {
+      background: linear-gradient(180deg, #4361EE 0%, #3A0CA3 100%) !important;
+      color: #FFFFFF !important;
+      border: 2px solid #FFD166 !important;
+      font-family: 'Fredoka', sans-serif !important;
+      font-weight: 700 !important;
+    }
+    .skully-pill[aria-pressed="true"] {
+      background: linear-gradient(180deg, #00F5D4 0%, #00BBF9 100%) !important;
+      color: #140A24 !important;
+      border-color: #FFFFFF !important;
+    }
+
+    .cabinet-controls {
+      background: linear-gradient(90deg, #10002B 0%, #240046 100%) !important;
+      border: 2.5px solid #FFD166 !important;
+      border-radius: 14px !important;
+      color: #FFFFFF !important;
+    }
+    .cabinet-controls span, .cabinet-controls strong, #hudInstruction, #controlHint, #announcerCaption {
+      color: #FFFDF7 !important;
+      font-family: 'Fredoka', sans-serif !important;
+    }
+
+    .ctrl-btn, .announcer-toggle, .hood-btn {
+      background: linear-gradient(180deg, #FFD166 0%, #FF9F1C 100%) !important;
+      color: #140A24 !important;
+      border: 2.5px solid #140A24 !important;
+      border-radius: 12px !important;
+      font-family: 'Bungee', sans-serif !important;
+      font-size: 0.74rem !important;
+      box-shadow: 0 4px 0 #140A24 !important;
+    }
+    .ctrl-btn.action {
+      background: linear-gradient(180deg, #00F5D4 0%, #00BBF9 100%) !important;
+      color: #140A24 !important;
+      font-family: 'Bungee', sans-serif !important;
+    }
+
+    .announcer-bar {
+      background: linear-gradient(90deg, #1E0B3B 0%, #3A0CA3 100%) !important;
+      border: 2px solid #00F5D4 !important;
+      border-radius: 12px !important;
+      padding: 6px 12px !important;
+    }
+    .announcer-caption {
+      background: transparent !important;
+      color: #FFD166 !important;
+      font-family: 'Fredoka', sans-serif !important;
+      font-weight: 700 !important;
+      text-shadow: 0 1px 2px #140A24 !important;
     }
 
   </style>
@@ -1336,8 +1616,8 @@
           <p id="announcerCaption" class="announcer-caption" role="status" aria-live="polite" hidden></p>
         </div>
 
-        <div class="cabinet-controls" style="margin-top:6px;">
-          <div style="font-size:0.82rem;font-weight:800;color:var(--ink-primary);flex:1;min-width:210px;" id="hudInstruction">
+        <div class="cabinet-controls" style="margin-top:6px;background:linear-gradient(90deg,#1E1035 0%,#2E1652 100%);border:2.5px solid #FFD166;border-radius:14px;">
+          <div style="font-size:0.85rem;font-weight:800;color:#FFFDF7;flex:1;min-width:210px;" id="hudInstruction">
             👉 Drag back from your melted-wax bottlecap on the sunset street to aim & flick!
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -2219,6 +2499,23 @@
 
     function drawVintageStreetBackdrop(fullHorizon=false) {
       const h = HOODS[currentHood] || HOODS.brooklyn;
+      if (window.__ASPHALT_3D_ACTIVE) {
+        // Clear 2D overlay completely so the 100% 3D Monopoly GO! diorama shines through!
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.fillStyle = 'rgba(22, 16, 38, 0.86)';
+        ctx.strokeStyle = '#FFD166';
+        ctx.lineWidth = 2.5;
+        ctx.fillRect(14, 10, 325, 26);
+        ctx.strokeRect(14, 10, 325, 26);
+        ctx.fillStyle = '#FFD166';
+        ctx.font = '800 10.5px "Bungee", "JetBrains Mono", sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('★ 3D BLOCK: ' + h.name, 24, 23);
+        ctx.restore();
+        return;
+      }
       const horizonY = fullHorizon ? 248 : 104;
 
       // 1. Rich Golden-Hour Sunset Sky Gradient
@@ -2400,6 +2697,19 @@
 
     // Helper: Draw 3D crimped soda crown bottlecap with melted candle wax & embedded copper penny
     function drawBottlecap(x, y, r, waxColor, rimColor, labelText) {
+      if (window.__ASPHALT_3D_ACTIVE) {
+        ctx.save();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.strokeStyle = '#161026';
+        ctx.lineWidth = 3;
+        ctx.font = '900 10px "Bungee", "JetBrains Mono", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.strokeText(labelText, x, y - 2);
+        ctx.fillText(labelText, x, y - 2);
+        ctx.restore();
+        return;
+      }
       ctx.save();
       ctx.translate(x, y);
       // Soft ambient occlusion shadow on hot asphalt
@@ -2473,6 +2783,7 @@
 
     // Helper: Draw 3D shaded Bodega Pink Spaldeen rubber ball with ground shadow
     function drawSpaldeen(x, y, r, altitude=0, baseColor='#FF5E7E') {
+      if (window.__ASPHALT_3D_ACTIVE) return;
       ctx.save();
       const shadowScale = Math.max(0.45, 1 - altitude / 260);
       ctx.beginPath();
@@ -2664,6 +2975,7 @@
       }
     }
     function drawMarble(x, y, r, col) {
+      if (window.__ASPHALT_3D_ACTIVE) return;
       const mr = r * 1.25; // Larger tactile glass sphere
       ctx.save();
       // Ground shadow + caustic tint
@@ -2814,6 +3126,7 @@
       }
     }
     function drawJackStar(x, y, picked) {
+      if (window.__ASPHALT_3D_ACTIVE && !picked) return;
       ctx.save();
       if (!picked) {
         // Cast shadow on brownstone slab
@@ -3075,6 +3388,7 @@
       if (currentMode === 'skully') {
         drawVintageStreetBackdrop(false);
 
+        if (!window.__ASPHALT_3D_ACTIVE) {
         // 3D Recessed Street Court Apron + Glowing Sidewalk Chalk Boundary
         ctx.fillStyle = 'rgba(18, 12, 9, 0.28)';
         ctx.fillRect(38, 114, canvas.width - 76, canvas.height - 126);
@@ -3126,6 +3440,7 @@
           ctx.textBaseline = 'middle';
           ctx.fillText(isSkull ? '💀13' : String(b.num), b.x, b.y);
         });
+        }
 
         // Physics update for player cap
         if (Math.hypot(skullyCap.vx, skullyCap.vy) > 0.6) {
@@ -3228,6 +3543,7 @@
         const midX = canvas.width / 2;
         const midY = 276;
 
+        if (!window.__ASPHALT_3D_ACTIVE) {
         // Warm sidewalk chalk quadrant tints
         ctx.fillStyle = 'rgba(27, 154, 170, 0.22)';
         ctx.fillRect(68, 122, midX - 68, midY - 122); // Ace
@@ -3338,6 +3654,7 @@
         ctx.fillStyle = '#FFFFFF';
         ctx.font = '800 10px "JetBrains Mono", monospace';
         ctx.fillText('★YOU', fsPlayerPad.x, fsPlayerPad.y + 1);
+        }
 
         // Update Pink Spaldeen ball
         fsBall.x += fsBall.vx;
@@ -3376,30 +3693,32 @@
         const h = HOODS[currentHood];
         drawVintageStreetBackdrop(true);
 
-        // Sidewalk curb & sunset asphalt roadbed
-        ctx.fillStyle = '#D8C7A8';
-        ctx.fillRect(0, 248, canvas.width, 36);
-        const road = ctx.createLinearGradient(0, 284, 0, canvas.height);
-        road.addColorStop(0, h.asphaltTop);
-        road.addColorStop(1, h.asphaltBot);
-        ctx.fillStyle = road;
-        ctx.fillRect(0, 284, canvas.width, 164);
+        if (!window.__ASPHALT_3D_ACTIVE) {
+          // Sidewalk curb & sunset asphalt roadbed
+          ctx.fillStyle = '#D8C7A8';
+          ctx.fillRect(0, 248, canvas.width, 36);
+          const road = ctx.createLinearGradient(0, 284, 0, canvas.height);
+          road.addColorStop(0, h.asphaltTop);
+          road.addColorStop(1, h.asphaltBot);
+          ctx.fillStyle = road;
+          ctx.fillRect(0, 284, canvas.width, 164);
 
-        // Classic cars parked along the curb behind the flight path
-        drawVintageCruiser(275, 250, h.car1Col, '#FAF3E3', "79 CRUISER");
-        drawVintageCruiser(525, 250, h.car2Col, '#1C1613', h.car2Label);
+          // Classic cars parked along the curb behind the flight path
+          drawVintageCruiser(275, 250, h.car1Col, '#FAF3E3', "79 CRUISER");
+          drawVintageCruiser(525, 250, h.car2Col, '#1C1613', h.car2Label);
 
-        // Detailed 3D Brownstone Façade (#243) & 4-Tier Stone Stoop Steps + Iron Railing
-        ctx.fillStyle = h.rowColor1;
-        ctx.fillRect(0, 28, 68, 355);
-        ctx.strokeStyle = '#1C1613';
-        ctx.lineWidth = 2.5;
-        ctx.strokeRect(0, 28, 68, 355);
+          // Detailed 3D Brownstone Façade (#243) & 4-Tier Stone Stoop Steps + Iron Railing
+          ctx.fillStyle = h.rowColor1;
+          ctx.fillRect(0, 28, 68, 355);
+          ctx.strokeStyle = '#1C1613';
+          ctx.lineWidth = 2.5;
+          ctx.strokeRect(0, 28, 68, 355);
 
-        ctx.fillStyle = '#F4C430';
-        ctx.font = '800 11px "JetBrains Mono", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText('#243', 34, 52);
+          ctx.fillStyle = '#F4C430';
+          ctx.font = '800 11px "JetBrains Mono", monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText('#243', 34, 52);
+        }
 
         const steps = [
           {x: 68, y: 158, w: 38, h: 225},
@@ -3408,30 +3727,31 @@
           {x: 182, y: 308, w: 38, h: 75}
         ];
         steps.forEach((st, idx) => {
-          // Chiseled brownstone riser gradient
-          const sg = ctx.createLinearGradient(st.x, st.y, st.x + st.w, st.y + st.h);
-          sg.addColorStop(0, idx % 2 === 0 ? '#D47256' : '#C45B40');
-          sg.addColorStop(1, '#6E2B1C');
-          ctx.fillStyle = sg;
-          ctx.fillRect(st.x, st.y, st.w, st.h);
-          ctx.strokeStyle = '#1C1613';
-          ctx.lineWidth = 2.5;
-          ctx.strokeRect(st.x, st.y, st.w, st.h);
-
-          // Top sandstone bullnose tread cap
-          ctx.fillStyle = '#E8C5A5';
-          ctx.fillRect(st.x - 2, st.y - 5, st.w + 5, 7);
-          ctx.strokeRect(st.x - 2, st.y - 5, st.w + 5, 7);
-
+          if (!window.__ASPHALT_3D_ACTIVE) {
+            const sg = ctx.createLinearGradient(st.x, st.y, st.x + st.w, st.y + st.h);
+            sg.addColorStop(0, idx % 2 === 0 ? '#D47256' : '#C45B40');
+            sg.addColorStop(1, '#6E2B1C');
+            ctx.fillStyle = sg;
+            ctx.fillRect(st.x, st.y, st.w, st.h);
+            ctx.strokeStyle = '#1C1613';
+            ctx.lineWidth = 2.5;
+            ctx.strokeRect(st.x, st.y, st.w, st.h);
+            ctx.fillStyle = '#E8C5A5';
+            ctx.fillRect(st.x - 2, st.y - 5, st.w + 5, 7);
+            ctx.strokeRect(st.x - 2, st.y - 5, st.w + 5, 7);
+          }
           // Pulsing Gold 45-degree corner point sweet spots
           const spPulse = 6.5 + Math.sin(Date.now() * 0.012 + idx) * 1.8;
           ctx.beginPath();
           ctx.arc(st.x + st.w, st.y, spPulse, 0, Math.PI * 2);
-          ctx.fillStyle = '#F4C430';
+          ctx.fillStyle = '#FFD166';
           ctx.fill();
+          ctx.strokeStyle = '#161026';
+          ctx.lineWidth = 2;
           ctx.stroke();
         });
 
+        if (!window.__ASPHALT_3D_ACTIVE) {
         // Iron Stoop Handrail
         ctx.strokeStyle = '#1C1613';
         ctx.lineWidth = 4.5;
@@ -3471,29 +3791,31 @@
           ctx.font = '800 11px "JetBrains Mono", monospace';
           ctx.fillText(s.label, s.x, 362);
         });
+        }
 
         // Live Oscillating Launch Angle & Power Gauge
         stoopMeter += 0.022 * stoopMeterDir;
         if (stoopMeter >= 1) { stoopMeter = 1; stoopMeterDir = -1; }
         if (stoopMeter <= 0) { stoopMeter = 0; stoopMeterDir = 1; }
 
-        ctx.fillStyle = 'rgba(255, 253, 248, 0.95)';
-        ctx.strokeStyle = '#1C1613';
+        ctx.fillStyle = 'rgba(20, 10, 36, 0.9)';
+        ctx.strokeStyle = '#FFD166';
         ctx.lineWidth = 2.5;
-        ctx.fillRect(14, 54, 242, 46);
-        ctx.strokeRect(14, 54, 242, 46);
-        ctx.fillStyle = '#1C1613';
-        ctx.font = '800 11px "JetBrains Mono", monospace';
+        ctx.fillRect(14, 388, 248, 48);
+        ctx.strokeRect(14, 388, 248, 48);
+        ctx.fillStyle = '#FFD166';
+        ctx.font = '800 10.5px "Bungee", "JetBrains Mono", sans-serif';
         ctx.textAlign = 'left';
-        ctx.fillText('45° STOOP POINT POWER METER', 26, 71);
+        ctx.fillText('⚡ 45° STOOP POWER METER', 26, 405);
 
-        ctx.fillStyle = '#D8C7A8';
-        ctx.fillRect(26, 79, 216, 12);
-        ctx.fillStyle = '#F4C430';
-        ctx.fillRect(26 + 216 * 0.68, 79, 216 * 0.20, 12);
-        ctx.fillStyle = '#E04724';
-        ctx.fillRect(26, 79, 216 * stoopMeter, 12);
-        ctx.strokeRect(26, 79, 216, 12);
+        ctx.fillStyle = '#240046';
+        ctx.fillRect(26, 414, 220, 12);
+        ctx.fillStyle = '#00F5D4';
+        ctx.fillRect(26 + 220 * 0.68, 414, 220 * 0.20, 12);
+        ctx.fillStyle = '#FF0055';
+        ctx.fillRect(26, 414, 220 * stoopMeter, 12);
+        ctx.strokeStyle = '#FFFDF7';
+        ctx.strokeRect(26, 414, 220, 12);
 
         if (stoopBall.inFlight) {
           trailPoints.push({x: stoopBall.x, y: stoopBall.y, life: 18});
@@ -3544,6 +3866,7 @@
       // =====================================================================
       if (currentMode === 'marbles') {
         drawVintageStreetBackdrop(false);
+        if (!window.__ASPHALT_3D_ACTIVE) {
         ctx.save();
         // Recessed schoolyard dirt & chalk ring pit with radial depth
         const ringGrad = ctx.createRadialGradient(MARBLE_RING.cx, MARBLE_RING.cy, 8, MARBLE_RING.cx, MARBLE_RING.cy, MARBLE_RING.r);
@@ -3587,6 +3910,7 @@
         ctx.moveTo(250, MARBLE_SHOOTER.y + 14);
         ctx.lineTo(470, MARBLE_SHOOTER.y + 14);
         ctx.stroke();
+        }
 
         if (marbleDrag.active) {
           const pvx = Math.max(-16, Math.min(16, (marbleDrag.sx - marbleDrag.cx) * 0.13));
@@ -3612,6 +3936,7 @@
       // =====================================================================
       if (currentMode === 'jacks') {
         drawVintageStreetBackdrop(false);
+        if (!window.__ASPHALT_3D_ACTIVE) {
         // Warm bluestone / brownstone stoop slab court inset on the sidewalk
         ctx.save();
         const slabGrad = ctx.createLinearGradient(110, 128, 610, 428);
@@ -3627,6 +3952,7 @@
         ctx.textAlign = 'right';
         ctx.fillText('BROWNSTONE STOOP SLAB • TAP A JACK TO TOSS & SWEEP', 598, 146);
         ctx.restore();
+        }
 
         ctx.beginPath();
         ctx.arc(JACK_HAND.x, JACK_HAND.y, 22, 0, Math.PI * 2);
@@ -3749,5 +4075,7 @@
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
   </script>
+  <script src="./assets/three.min.js"></script>
+  <script src="./assets/arcade_3d_engine.js"></script>
 </body>
 </html>
